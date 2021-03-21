@@ -83,3 +83,28 @@ void SqList::partition1()
 		swap(data[0], data[i]);
 	}
 }
+
+void SqList::partition2()
+{
+	int i;
+	int j;
+	int pivot = data[0];
+
+	i = 0;
+	j = length - 1;
+	while (i < j)
+	{
+		while (i < j && data[j] > pivot)
+		{
+			j--;
+		}
+		data[i] = data[j];
+		while (i < j && data[i] <= pivot)
+		{
+			i++;
+		}
+		data[j] = data[i];
+	}
+
+	data[i] = pivot;
+}
