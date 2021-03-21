@@ -5,11 +5,12 @@
 class LinkNode
 {
 private:
-	Node* head;
+	Node* p_first;
 	int length;
 
 public:
 	LinkNode();
 	void add_node_f(int node_data);
+	void display_list();
 };
 
