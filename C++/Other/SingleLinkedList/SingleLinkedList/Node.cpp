@@ -1,4 +1,5 @@
 #include "Node.h"
+#include <cstdio>
 
 Node::Node()
 {
