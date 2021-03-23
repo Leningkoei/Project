@@ -36,18 +36,55 @@ void LinkNode::display_list()
 Node* LinkNode::find_node(int x)
 {
 	Node* p = first_node_ip;
-	while (p != NULL)
+	while (p != NULL && p->data != x)
 	{
-		if (p->data == x)
-		{
-			break;
-		}
 		p = p->next_node_ip;
 	}
 	return p;
 }
 
+Node* LinkNode::find_node_kai_kou(int x)
+{
+	Node* p = first_node_ip;
+	while (p != NULL && p->data < x)
+	{
+		p = p->next_node_ip;
+	}
+	if (p == NULL || p->data > x)
+	{
+		return NULL;
+	}
+	else
+	{
+		return p;
+	}
+}
+
+Node* LinkNode::find_node_kai_otsu(int x)
+{
+	Node* p = first_node_ip;
+	while (p != NULL && p->data > x)
+	{
+		p = p->next_node_ip;
+	}
+	if (p == NULL || p->data < x)
+	{
+		return NULL;
+	}
+	else
+	{
+		return p;
+	}
+}
+
 void LinkNode::display_node(Node* p)
 {
-	cout << p->data << endl;
+	if (p != NULL)
+	{
+		cout << p->data << endl;
+	}
+	else
+	{
+		cout << "Ã»ÕÒµ½node_data == xµÄnode" << endl;
+	}
 }
