@@ -23,6 +23,9 @@ int main()
 
 	list0->delete_node_no(0);
 	list0->display_list();
+	cout << endl;
+	list0->delete_node_no(9);
+	list0->display_list();
 
 	list0->write_list();
 

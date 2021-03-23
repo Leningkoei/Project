@@ -1,18 +1,24 @@
 0:
-no: 2
-name: nmyysl
-depno: 3
-salary: 4
--------------
+no: 0
+name: name0
+depno: 4
+salary: 2
+------------
 1:
 no: 1
-name: nmysl
-depno: 2
+name: name1
+depno: 3
 salary: 3
--------------
+------------
 2:
-no: 0
-name: nmsl
+no: 2
+name: name2
+depno: 2
+salary: 4
+------------
+3:
+no: 3
+name: name3
 depno: 1
-salary: 2
--------------
+salary: 5
+------------

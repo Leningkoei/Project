@@ -112,15 +112,22 @@ void LinkNode::delete_node_no(int no_delete)
 {
 	Node* p;
 	Node* q;
-	p = head_node_ip->next_node_ip;
-	while (p->next_node_ip->data.no != no_delete)
+	p = head_node_ip;
+	while (p->next_node_ip != NULL && p->next_node_ip->data.no != no_delete)
 	{
 		p = p->next_node_ip;
 	}
 	q = p->next_node_ip;
-	p->next_node_ip = q->next_node_ip;
-	delete q;
-	length--;
+	if (p->next_node_ip != NULL)
+	{
+		p->next_node_ip = q->next_node_ip;
+		delete q;
+		length--;
+	}
+	else
+	{
+		cout << "想要删除的节点不存在哦" << endl;
+	}
 }
 
 void LinkNode::write_list()
