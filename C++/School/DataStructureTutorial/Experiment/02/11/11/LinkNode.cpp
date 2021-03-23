@@ -126,7 +126,7 @@ void LinkNode::delete_node_no(int no_delete)
 	}
 	else
 	{
-		cout << "想要删除的节点不存在哦" << endl;
+		cout << "想要删除的职工no: " << no_delete << "不存在哦" << endl;
 	}
 }
 
