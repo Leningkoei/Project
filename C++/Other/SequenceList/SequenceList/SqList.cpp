@@ -7,15 +7,11 @@ SqList::SqList()
 {
 	int i;
 
-	//将data初始化为全是0
-	i = 0;
-	while (i < 100)
+	//把data初始化为全为0
+	for (i = 0; i < 100; i++)
 	{
 		//把0复制给data第i项
 		data[i] = 0;
-
-		//i自增1
-		i++;
 	}
 	
 	//将length初始化为0
@@ -31,17 +27,12 @@ void SqList::creat_list(int a[], int n)
 {
 	//声明变量
 	int i;
-	int j;
 
 	//把a中的前n项复制给data
-	i = 0;
-	while (i < n)
+	for (i = 0; i < n; i++)
 	{
 		//把a的第i项复制给data的第i项
 		data[i] = a[i];
-
-		//i自增1
-		i++;
 	}
 
 	//data的长度 = i
@@ -71,12 +62,9 @@ void SqList::display_list()
 	int i;
 
 	cout << "data =";
-	i = 0;
-	while (i < length)
+	for (i = 0; i < length; i++)
 	{
 		cout << " " << data[i];
-
-		i++;
 	}
 	cout << endl;
 }
@@ -100,13 +88,12 @@ int SqList::locate_elem(int e)
 {
 	int i;
 
-	i = 0;
-	while (i < length && i != e)
+	for (i = 0; i < length && i != e; i++)
 	{
-		i++;
+		//
 	}
 
-	if (i = length)
+	if (i == length)
 	{
 		return 0;
 	}
