@@ -14,13 +14,12 @@ public:
 	LinkNode();
 	void add_node_last(char node_data);
 	void display_list();
-	void display_node_data(Node* p);
 	void display_node_no(int i);
 	void display_list_length();
 	bool empty();
 	Node* find_node(int no);
 	int find_node(char node_data);
-	bool add_node(Node* p, char node_data);
-	bool delete_node(Node* p);
+	bool add_node(int i, char node_data);
+	bool delete_node(int no);
 };
 

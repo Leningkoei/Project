@@ -41,18 +41,6 @@ void LinkNode::display_list()
 	cout << "------------" << endl;
 }
 
-void LinkNode::display_node_data(Node* p)
-{
-	if (p == NULL)
-	{
-		cout << "this node不存在啊" << endl;
-	}
-	else
-	{
-		cout << p->data << endl;
-	}
-}
-
 void LinkNode::display_node_no(int i)
 {
 	if (i == -1)
@@ -110,4 +98,42 @@ int LinkNode::find_node(char node_data)
 		p = p->next_node_ip;
 	}
 	return -1;
+}
+
+bool LinkNode::add_node(int no, char node_data)
+{
+	Node* p;
+	Node* node = new Node(node_data);
+	p = find_node(no - 1);
+
+	if (p == NULL)
+	{
+		cout << "this node不存在哦" << endl;
+
+		return false;
+	}
+	node->next_node_ip = p->next_node_ip;
+	p->next_node_ip = node;
+
+	return true;
+}
+
+bool LinkNode::delete_node(int no)
+{
+	Node* p;
+	Node* q;
+	
+	p = find_node(no - 1);
+	
+	if (p == NULL)
+	{
+		cout << "this node不存在哦" << endl;
+
+		return false;
+	}
+	q = p->next_node_ip;
+	p->next_node_ip = p->next_node_ip->next_node_ip;
+	delete q;
+
+	return true;
 }
