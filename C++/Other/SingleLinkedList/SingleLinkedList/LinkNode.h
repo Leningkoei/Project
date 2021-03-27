@@ -15,12 +15,14 @@ private:
 	int length;
 
 public:
+	//析构函数(删除整个列表)
+	~LinkNode();
 	//默认构造函数(初始化单链表(创建头节点head_node, 将head_node的地址赋予head_node_ip, 初始化其他变量)
 	LinkNode();
 	//将新节点插入为首节点
-	void first_add_node(int node_data);
+	void add_node_first(int node_data);
 	//将新节点插入为尾节点
-	void last_add_node(int node_data);
+	void add_node_last(int node_data);
 	//输出单链表
 	void display_list();
 };

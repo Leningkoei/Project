@@ -1,5 +1,12 @@
 #include "Node.h"
-#include <cstdio>
+#include <iostream>
+
+using namespace std;
+
+Node::~Node()
+{
+	cout << "删除this node了哦" << endl;
+}
 
 Node::Node()
 {
@@ -15,4 +22,9 @@ Node::Node(int node_data)
 	data = node_data;
 	//next_ip初始化为NULL, 将在LinkNode类中修改
 	next_node_ip = NULL;
+}
+
+int Node::node_data()
+{
+	return data;
 }
