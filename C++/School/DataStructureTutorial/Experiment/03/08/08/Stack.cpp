@@ -10,7 +10,7 @@ Stack::~Stack()
 
 	int i;
 
-	for (i = 0; i < 20; i++)
+	for (i = 0; i < 100; i++)
 	{
 		delete data[i];
 	}
@@ -23,7 +23,7 @@ Stack::Stack()
 {
 	int i;
 
-	for (i = 0; i < 20; i++)
+	for (i = 0; i < 100; i++)
 	{
 		Node* node = new Node();
 
@@ -90,14 +90,19 @@ void Stack::push(int x, int y)
 
 	top++;
 	data[top] = node;
+//	cout << "前进至";
+//	data[top]->display_node();
 }
 
 void Stack::pop()
 {
 	Node* node = new Node();
+
 	delete data[top];
 	data[top] = node;
 	top--;
+//	cout << "后退至";
+//	data[top]->display_node();
 }
 
 void Stack::display_stack()

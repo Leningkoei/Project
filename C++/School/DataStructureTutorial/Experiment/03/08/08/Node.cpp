@@ -10,7 +10,7 @@ Node::~Node()
 
 Node::Node()
 {
-	x = -1;
+	x = -999;
 	y = -1;
 }
 

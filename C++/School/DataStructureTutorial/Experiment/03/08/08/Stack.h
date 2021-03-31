@@ -4,8 +4,8 @@
 
 class Stack
 {
-private:
-	Node* data[20];
+public:
+	Node* data[100];
 	int top;
 
 public:

@@ -1,20 +1,41 @@
 #include "Stack.h"
+#include <iostream>
+
+using namespace std;
 
 int main()
 {
 	int i;
 	int j;
 	int k;
-	int result;
+	int p;
+//	int result;
 	Stack* stack0 = new Stack();
 
-	for (j = 0; j < 20; j++)
+	for (p = 0; p < 8; p++)
 	{
-		for (i = 0; i < 20; i++)
+		cout << "p = " << p << endl;
+		for (j = p; j < 8; j++)
 		{
-			if (stack0->traverse_stack_x(i) == true && stack0->traverse_stack_p(i, j) == true && stack0->traverse_stack_n(i, j) == true)
+			for (i = 0, k = 0; i < 8; i++)
 			{
-				stack0->push(i, j);
+				if (stack0->traverse_stack_x(i) == true && stack0->traverse_stack_p(i, j) == true && stack0->traverse_stack_n(i, j) == true)
+				{
+					stack0->push(i, j);
+					break;
+				}
+				else
+				{
+//					cout << "this node is:";
+//					stack0->data[i]->display_node();
+
+					k++;
+				}
+				if (k == 8)
+				{
+					stack0->pop();
+					j = stack0->data[stack0->top]->node_y() + 1;
+				}
 			}
 		}
 	}
