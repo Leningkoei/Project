@@ -5,7 +5,7 @@ using namespace std;
 
 Node::~Node()
 {
-	cout << "É¾³ýthis nodeÁËÅ¶" << endl;
+//	cout << "É¾³ýthis nodeÁËÅ¶" << endl;
 }
 
 Node::Node()
@@ -30,7 +30,22 @@ int Node::node_y()
 	return y;
 }
 
+int* Node::node_x_ip()
+{
+	return &x;
+}
+
+int* Node::node_y_ip()
+{
+	return &y;
+}
+
 void Node::display_node()
 {
 	cout << "x = " << x << ", " << "y = " << y << endl;
+}
+
+void Node::x_plus_plus()
+{
+	x++;
 }

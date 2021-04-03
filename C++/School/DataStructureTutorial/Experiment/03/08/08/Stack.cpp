@@ -94,15 +94,26 @@ void Stack::push(int x, int y)
 //	data[top]->display_node();
 }
 
-void Stack::pop()
+int Stack::pop()
 {
+	int x;
 	Node* node = new Node();
 
+	x = data[top]->node_x();
 	delete data[top];
 	data[top] = node;
 	top--;
 //	cout << "ºóÍËÖÁ";
 //	data[top]->display_node();
+
+	return x;
+}
+
+void Stack::pop(int* x, int* y)
+{
+	x = data[top]->node_x_ip();
+	y = data[top]->node_y_ip();
+	pop();
 }
 
 void Stack::display_stack()
