@@ -1,0 +1,9 @@
+a = '计信学院'
+a = a.encode('gbk')
+print('gbk = ', a)
+a = a.decode('gbk').encode('utf-8')
+print('utf-8 = ', a)
+a = a.decode('utf-8').encode('gb18030')
+print('gb18030 = ', a)
+a = a.decode('gb18030')
+print('str = ', a)
