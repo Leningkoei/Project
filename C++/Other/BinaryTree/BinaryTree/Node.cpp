@@ -5,7 +5,7 @@ using namespace std;
 
 Node::~Node()
 {
-	cout << "É¾³ýthis nodeÁËÅ¶" << endl;
+	cout << "É¾³ýthis node" << this->data << "ÁËÅ¶" << endl;
 }
 
 Node::Node()

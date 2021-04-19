@@ -5,7 +5,14 @@ using namespace std;
 
 BinaryTree::~BinaryTree()
 {
-	///	Todo;
+	cout << "ÕýÔÚÉ¾³ýthis bina tree" << endl;
+
+	Node* p;
+
+	p = this->root_ip;
+	distory_bina_tree(p);
+
+	cout << "É¾³ýthis bina treeÁËÅ¶" << endl;
 }
 
 BinaryTree::BinaryTree()
@@ -32,28 +39,81 @@ BinaryTree::BinaryTree(string one_string)
 		{
 			Node* left_node = new Node();
 			Node* right_node = new Node();
+
 			p->left_node_ip = left_node;
 			left_node->previous_node_ip = p;
 			p->right_node_ip = right_node;
 			right_node->previous_node_ip = p;
 			p = p->left_node_ip;
+			
+			break;
 		}
 		case ')':
 		{
 			p = p->previous_node_ip;
+			
+			break;
 		}
 		case ',':
 		{
 			p = p->previous_node_ip->right_node_ip;
+			
+			break;
 		}
 		case ' ':
 		{
 			///	Do nothing;
+			
+			break;
 		}
 		default:
 		{
 			p->data = one_string[i];
+			
+			break;
 		}
 		}
 	}
 }
+
+void BinaryTree::distory_bina_tree(Node* p)
+{
+	if (p != NULL)
+	{
+		distory_bina_tree(p->left_node_ip);
+		distory_bina_tree(p->right_node_ip);
+		delete p;
+	}
+}
+
+void BinaryTree::display_bina_tree()
+{
+	cout << "this bina tree:";
+
+	Node* p;
+
+	p = this->root_ip;
+	display_bina_tree(p);
+
+	cout << endl;
+}
+
+void BinaryTree::display_bina_tree(Node* p)
+{
+	if (p != NULL)
+	{
+		cout << p->data;
+		if (p->left_node_ip != NULL || p->right_node_ip != NULL)
+		{
+			cout << "(";
+			display_bina_tree(p->left_node_ip);
+			if (p->right_node_ip != NULL)
+			{
+				cout << ", ";
+			}
+			display_bina_tree(p->right_node_ip);
+			cout << ")";
+		}
+	}
+}
+
