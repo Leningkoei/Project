@@ -14,5 +14,6 @@ public:
 	~Node();
 	Node();
 	Node(char data);
+	void display_node();
 };
 
