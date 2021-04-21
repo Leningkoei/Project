@@ -120,52 +120,44 @@ void BinaryTree::display_bina_tree(Node* p)
 
 Node* BinaryTree::find_node_ip(char want_data)
 {
-	Node* p;
+	Node* want_node_ip;
 
-	p = this->root_ip;
-	p = this->find_node_ip(p, want_data);
+	want_node_ip = this->find_node_ip(this->root_ip, want_data);
 	
-	return p;
+	return want_node_ip;
 }
 
 Node* BinaryTree::find_node_ip(Node* p, char want_data)
 {
-	Node* q;
+	Node* result;
 
 	if (p == NULL)
 	{
-		return NULL;
+		result = NULL;
 	}
 	else if (p->data == want_data)
 	{
-		return p;
+		result = p;
 	}
 	else
 	{
-		q = this->find_node_ip(p->left_node_ip, want_data);
-		if (q != NULL)
+		result = this->find_node_ip(p->left_node_ip, want_data);
+		if (result == NULL)
 		{
-			return q;
-		}
-		else
-		{
-			q = find_node_ip(p->right_node_ip, want_data);
-			
-			return q;
+			result = find_node_ip(p->right_node_ip, want_data);
 		}
 	}
+
+	return result;
 }
 
 int BinaryTree::find_node_level(char want_data)
 {
-	int level;
-	Node* p;
+	int want_node_level;
 
-	level = 0;
-	p = this->root_ip;
-	level = this->find_node_level(p, want_data, level);
+	want_node_level = this->find_node_level(this->root_ip, want_data, 0);
 
-	return level;
+	return want_node_level;
 }
 
 int BinaryTree::find_node_level(Node* p, char want_data, int level)
