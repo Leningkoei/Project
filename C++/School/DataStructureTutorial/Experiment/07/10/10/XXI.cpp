@@ -4,18 +4,6 @@
 
 using namespace std;
 
-XXI::~XXI()
-{
-	///	Todo;
-}
-
-XXI::XXI()
-{
-	Node* root = new Node();
-
-	this->root_ip = root;
-}
-
 //	private:
 
 void XXI::CreatXXI(string* one_list, int one_list_length)
@@ -77,7 +65,7 @@ void XXI::CreatXXIKai(string* one_list, int one_list_length)
 	for (i = 0, p = root_ip; i < one_list_length; i++)
 	{
 		//	result = this->FindNodeIP(one_list[i]);
-		if (i % 2 != 0)
+		if (!(i % 2))
 		{
 			p = this->FindNodeIP(one_list[i]);
 		}
@@ -114,13 +102,14 @@ void XXI::CreatXXIKai(string* one_list, int one_list_length)
 	}
 }
 
-void XXI::DisplayXXI()
+void XXI::DeleteXXI(Node* p)
 {
-	cout << "this XXI: ";
-
-	this->DisplayXXI(this->root_ip);
-
-	cout << endl;
+	if (p != NULL)
+	{
+		this->DeleteXXI(p->left_node_ip);
+		this->DeleteXXI(p->right_node_ip);
+	}
+	delete p;
 }
 
 void XXI::DisplayXXI(Node* p)
@@ -140,15 +129,6 @@ void XXI::DisplayXXI(Node* p)
 			cout << ")";
 		}
 	}
-}
-
-Node* XXI::FindNodeIP(string want_data)
-{
-	Node* want_node_ip;
-
-	want_node_ip = this->FindNodeIP(this->root_ip, want_data);
-
-	return want_node_ip;
 }
 
 Node* XXI::FindNodeIP(Node* p, string want_data)
@@ -176,6 +156,23 @@ Node* XXI::FindNodeIP(Node* p, string want_data)
 }
 
 //	public:
+
+XXI::~XXI()
+{
+	cout << "ÕýÔÚÉ¾³ýthis XXI" << endl;
+
+	this->DeleteXXI(root_ip);
+
+	cout << "É¾³ýthis XXIÁËÅ¶" << endl;
+}
+
+XXI::XXI()
+{
+	Node* root = new Node();
+
+	this->root_ip = root;
+}
+
 bool XXI::CreatXXI(string txt_address)
 {
 	int i;
@@ -196,10 +193,24 @@ bool XXI::CreatXXI(string txt_address)
 	length = i;
 	infile.close();
 	this->CreatXXIKai(infor, length);
-	for (i = 0; i < length; i++)
-	{
-		cout << infor[i] << endl;
-	}
 	
 	return true;
+}
+
+void XXI::DisplayXXI()
+{
+	cout << "this XXI: ";
+
+	this->DisplayXXI(this->root_ip);
+
+	cout << endl;
+}
+
+Node* XXI::FindNodeIP(string want_data)
+{
+	Node* want_node_ip;
+
+	want_node_ip = this->FindNodeIP(this->root_ip, want_data);
+
+	return want_node_ip;
 }

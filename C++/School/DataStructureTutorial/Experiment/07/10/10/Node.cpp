@@ -3,6 +3,8 @@
 
 using namespace std;
 
+//	public:
+
 Node::~Node()
 {
 	cout << "É¾³ýthis nodeÁËÅ¶" << endl;
