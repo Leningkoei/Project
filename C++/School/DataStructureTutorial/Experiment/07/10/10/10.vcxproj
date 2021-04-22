@@ -148,6 +148,7 @@
     <ClCompile Include="XXI.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <Text Include="StudentNumber.txt" />
     <Text Include="UniversityStruct.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

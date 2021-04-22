@@ -37,5 +37,8 @@
     <Text Include="UniversityStruct.txt">
       <Filter>资源文件</Filter>
     </Text>
+    <Text Include="StudentNumber.txt">
+      <Filter>资源文件</Filter>
+    </Text>
   </ItemGroup>
 </Project>

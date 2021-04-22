@@ -6,6 +6,21 @@ using namespace std;
 
 //	private:
 
+void XXI::AddTXT(string* one_list, int one_list_length)
+{
+	int i;
+
+	if (root_ip->data == "#")
+	{
+		root_ip->data = one_list[0];
+	}
+
+	for (i = 0; i < one_list_length; i += 2)
+	{
+		this->AddNode(one_list[i], one_list[i + 1]);
+	}
+}
+
 void XXI::CreatXXI(string* one_list, int one_list_length)
 {
 	int i;
@@ -173,16 +188,44 @@ XXI::XXI()
 	this->root_ip = root;
 }
 
-bool XXI::CreatXXI(string txt_address)
+bool XXI::AddNode(string father_data, string want_data)
+{
+	Node* p;
+	Node* node = new Node();
+
+	node->data = want_data;
+	p = this->FindNodeIP(father_data);
+	if (p == NULL)
+	{
+		cout << "Error1!!! 该节点的father node没找到!!!" << endl;
+
+		return false;
+	}
+	if (p->left_node_ip == NULL)
+	{
+		p->left_node_ip = node;
+
+		return true;
+	}
+	p = p->left_node_ip;
+	while (p->right_node_ip != NULL)
+	{
+		p = p->right_node_ip;
+	}
+	p->right_node_ip = node;
+	return true;
+}
+
+bool XXI::AddTXT(string address)
 {
 	int i;
 	int length;
 	string infor[100];
 
-	ifstream infile(txt_address, ios::in);
+	ifstream infile(address, ios::in);
 	if (infile.fail())
 	{
-		cout << "Error!!!" << endl;
+		cout << "Error0!!! this file没找到!!!" << endl;
 
 		return false;
 	}
@@ -192,7 +235,7 @@ bool XXI::CreatXXI(string txt_address)
 	}
 	length = i;
 	infile.close();
-	this->CreatXXIKai(infor, length);
+	this->AddTXT(infor, length);
 	
 	return true;
 }
