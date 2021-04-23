@@ -18,9 +18,13 @@ private:
 	Node* FindNodeIP(string want_data);
 	//		this->FindNodeIP(string want_data)的递归调用型
 	Node* FindNodeIP(Node* p, string want_data);
+	//		this->GetNodeGrandsonNodeNum(string want_data)的递归调用型
+	//		废案了
 	int GetNodeGrandsonNodeNum(Node* p);
-	int GetNodeSonNodeNum(Node* p);
+	//		this->GetNodeSonNodeNum(string want_data, int depth)的递归调用型
 	int GetNodeSonNodeNum(Node* p, int depth);
+	//		求从p指向的结点开始的度数(包括p指向的结点在内的右侧所有结点)
+	int GetNodeStartDegree(Node* p);
 
 public:
 	~XXI();
@@ -30,8 +34,11 @@ public:
 	bool AddNode(string father_data, string want_data);
 	bool AddTXT(string txt_address);
 	void DisplayXXI();
-	int GetNodeSonNodeNum(string want_data);
+	//		废案了
 	int GetNodeGrandsonNodeNum(string want_data);
+	//		废案了(或者说是作为this->GetNodeSonNodeNum(string want_data, int depth)的重载, 默认的depth == 1)
+	int GetNodeSonNodeNum(string want_data);
+	//		能通过depth控制递归深度, 所以取代了this->GetNodeGrandsonNodeNum(string want_data)和GetNodeSonNodeNum(string want_data)
 	int GetNodeSonNodeNum(string want_data, int depth);
 };
 

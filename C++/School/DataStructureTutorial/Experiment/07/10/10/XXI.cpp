@@ -173,13 +173,13 @@ int XXI::GetNodeGrandsonNodeNum(Node* p)
 		return 0;
 	}
 	num = 0;
-	num = this->GetNodeSonNodeNum(p);
+	num = this->GetNodeStartDegree(p);
 	num = num + this->GetNodeGrandsonNodeNum(p->right_node_ip);
 
 	return num;
 }
 
-int XXI::GetNodeSonNodeNum(Node* p)
+int XXI::GetNodeSonNodeNum(Node* p, int depth)
 {
 	int num;
 
@@ -187,11 +187,33 @@ int XXI::GetNodeSonNodeNum(Node* p)
 	{
 		return 0;
 	}
-	num = 1;
-	num = num + this->GetNodeSonNodeNum(p->right_node_ip);
+	if (depth != 1)
+	{
+		num = 0;
+		num = num + this->GetNodeSonNodeNum(p->left_node_ip, depth - 1);
+		num = num + this->GetNodeSonNodeNum(p->right_node_ip, depth);
+
+		return num;
+
+	}
+	num = 0;
+	num = num + this->GetNodeStartDegree(p->left_node_ip);
+	num = num + this->GetNodeSonNodeNum(p->right_node_ip, depth);
 
 	return num;
-	
+}
+
+int XXI::GetNodeStartDegree(Node* p)
+{
+	int num;
+
+	if (p == NULL)
+	{
+		return 0;
+	}
+	num = this->GetNodeStartDegree(p->right_node_ip) + 1;
+
+	return num;
 }
 
 //		public:
@@ -226,7 +248,6 @@ void XXI::AddList(string* one_list, int one_list_length)
 		this->AddNode(one_list[i++], one_list[i]);
 	}
 }
-
 
 bool XXI::AddNode(string father_data, string want_data)
 {
@@ -327,9 +348,9 @@ int XXI::GetNodeSonNodeNum(string want_data)
 
 		return false;
 	}
-	num = 1;
+	num = 0;
 	p = p->left_node_ip;
-	num = num + GetNodeSonNodeNum(p->right_node_ip);
+	num = num + GetNodeStartDegree(p);
 
 	return num;
 }
@@ -352,30 +373,11 @@ int XXI::GetNodeSonNodeNum(string want_data, int depth)
 
 		return false;
 	}
-	num = this->GetNodeSonNodeNum(p, depth);
-
-	return num;
-}
-
-int XXI::GetNodeSonNodeNum(Node* p, int depth)
-{
-	int num;
-
-	if (p == NULL)
+	if (depth == 1)
 	{
-		return 0;
+		return this->GetNodeStartDegree(p->left_node_ip);
 	}
-	if (depth != 1)
-	{
-		num = 0;
-		num = num + this->GetNodeSonNodeNum(p->left_node_ip, depth - 1);
-		num = num + this->GetNodeSonNodeNum(p->right_node_ip, depth);
-		
-	}
-	num = 0;
-	cout << p->data << endl;
-	num = num + this->GetNodeSonNodeNum(p);
-	num = num + this->GetNodeSonNodeNum(p->right_node_ip);
+	num = this->GetNodeSonNodeNum(p->left_node_ip, depth - 1);
 
 	return num;
 }
