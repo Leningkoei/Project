@@ -4,22 +4,7 @@
 
 using namespace std;
 
-//	private:
-
-void XXI::AddTXT(string* one_list, int one_list_length)
-{
-	int i;
-
-	if (root_ip->data == "#")
-	{
-		root_ip->data = one_list[0];
-	}
-
-	for (i = 0; i < one_list_length; i += 2)
-	{
-		this->AddNode(one_list[i], one_list[i + 1]);
-	}
-}
+//		private:
 
 void XXI::CreatXXI(string* one_list, int one_list_length)
 {
@@ -146,6 +131,15 @@ void XXI::DisplayXXI(Node* p)
 	}
 }
 
+Node* XXI::FindNodeIP(string want_data)
+{
+	Node* want_node_ip;
+
+	want_node_ip = this->FindNodeIP(this->root_ip, want_data);
+
+	return want_node_ip;
+}
+
 Node* XXI::FindNodeIP(Node* p, string want_data)
 {
 	Node* result;
@@ -170,7 +164,37 @@ Node* XXI::FindNodeIP(Node* p, string want_data)
 	return result;
 }
 
-//	public:
+int XXI::GetNodeGrandsonNodeNum(Node* p)
+{
+	int num;
+
+	if (p == NULL)
+	{
+		return 0;
+	}
+	num = 0;
+	num = this->GetNodeSonNodeNum(p);
+	num = num + this->GetNodeGrandsonNodeNum(p->right_node_ip);
+
+	return num;
+}
+
+int XXI::GetNodeSonNodeNum(Node* p)
+{
+	int num;
+
+	if (p == NULL)
+	{
+		return 0;
+	}
+	num = 1;
+	num = num + this->GetNodeSonNodeNum(p->right_node_ip);
+
+	return num;
+	
+}
+
+//		public:
 
 XXI::~XXI()
 {
@@ -188,6 +212,22 @@ XXI::XXI()
 	this->root_ip = root;
 }
 
+void XXI::AddList(string* one_list, int one_list_length)
+{
+	int i;
+
+	if (root_ip->data == "#")
+	{
+		root_ip->data = one_list[0];
+	}
+
+	for (i = 0; i < one_list_length; i++)
+	{
+		this->AddNode(one_list[i++], one_list[i]);
+	}
+}
+
+
 bool XXI::AddNode(string father_data, string want_data)
 {
 	Node* p;
@@ -197,7 +237,7 @@ bool XXI::AddNode(string father_data, string want_data)
 	p = this->FindNodeIP(father_data);
 	if (p == NULL)
 	{
-		cout << "Error1!!! 该节点的father node没找到!!!" << endl;
+		cout << "Error!!! 该节点的father node没找到!!!" << endl;
 
 		return false;
 	}
@@ -225,7 +265,7 @@ bool XXI::AddTXT(string address)
 	ifstream infile(address, ios::in);
 	if (infile.fail())
 	{
-		cout << "Error0!!! this file没找到!!!" << endl;
+		cout << "Error!!! this file没找到!!!" << endl;
 
 		return false;
 	}
@@ -235,7 +275,7 @@ bool XXI::AddTXT(string address)
 	}
 	length = i;
 	infile.close();
-	this->AddTXT(infor, length);
+	this->AddList(infor, length);
 	
 	return true;
 }
@@ -249,11 +289,93 @@ void XXI::DisplayXXI()
 	cout << endl;
 }
 
-Node* XXI::FindNodeIP(string want_data)
+int XXI::GetNodeGrandsonNodeNum(string want_data)
 {
-	Node* want_node_ip;
+	int num;
+	Node* p;
 
-	want_node_ip = this->FindNodeIP(this->root_ip, want_data);
+	p = this->FindNodeIP(want_data);
+	if (p == NULL)
+	{
+		cout << "Error!!! this node没找到" << endl;
 
-	return want_node_ip;
+		return false;
+	}
+	/*
+	for (num = 0, p = p->left_node_ip; p != NULL; p = p->right_node_ip)
+	{
+		num = num + this->GetNodeSonNodeNum(p);
+	}
+	
+	return num;
+	*/
+	num = 0;
+	num = num + GetNodeGrandsonNodeNum(p->left_node_ip);
+
+	return num;
+}
+
+int XXI::GetNodeSonNodeNum(string want_data)
+{
+	int num;
+	Node* p;
+
+	p = this->FindNodeIP(want_data);
+	if (p == NULL)
+	{
+		cout << "Error!!! this node没找到" << endl;
+
+		return false;
+	}
+	num = 1;
+	p = p->left_node_ip;
+	num = num + GetNodeSonNodeNum(p->right_node_ip);
+
+	return num;
+}
+
+int XXI::GetNodeSonNodeNum(string want_data, int depth)
+{
+	int num;
+	Node* p;
+
+	p = this->FindNodeIP(want_data);
+	if (p == NULL)
+	{
+		cout << "Error! this node没找到" << endl;
+		
+		return false;
+	}
+	if (depth < 1)
+	{
+		cout << "Error! depth不合要求" << endl;
+
+		return false;
+	}
+	num = this->GetNodeSonNodeNum(p, depth);
+
+	return num;
+}
+
+int XXI::GetNodeSonNodeNum(Node* p, int depth)
+{
+	int num;
+
+	if (p == NULL)
+	{
+		return 0;
+	}
+	if (depth != 1)
+	{
+		num = 0;
+		num = num + this->GetNodeSonNodeNum(p->left_node_ip, depth - 1);
+		num = num + this->GetNodeSonNodeNum(p->right_node_ip, depth);
+		
+	}
+	num = 0;
+	cout << p->data << endl;
+	num = num + this->GetNodeSonNodeNum(p);
+	num = num + this->GetNodeSonNodeNum(p->right_node_ip);
+
+	return num;
 }
