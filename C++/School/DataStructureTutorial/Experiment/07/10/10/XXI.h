@@ -25,12 +25,13 @@ private:
 	int GetNodeSonNodeNum(Node* p, int depth);
 	//		求从p指向的结点开始的度数(包括p指向的结点在内的右侧所有结点)
 	int GetNodeStartDegree(Node* p);
+	int GetNodeStudentNum(Node* p);
 
 public:
 	~XXI();
 	XXI();
 	void AddList(string* one_list, int one_list_length);
-	//		基于this->CreatXXI(string* one_list, int one_list_length)的(存入节点)部分的方法, 仅作为公有方法
+	//		基于this->CreatXXI(string* one_list, int one_list_length)的(存入节点)部分的方法
 	bool AddNode(string father_data, string want_data);
 	bool AddTXT(string txt_address);
 	void DisplayXXI();
@@ -40,5 +41,6 @@ public:
 	int GetNodeSonNodeNum(string want_data);
 	//		能通过depth控制递归深度, 所以取代了this->GetNodeGrandsonNodeNum(string want_data)和GetNodeSonNodeNum(string want_data)
 	int GetNodeSonNodeNum(string want_data, int depth);
+	int GetNodeStudentNum(string want_data);
 };
 

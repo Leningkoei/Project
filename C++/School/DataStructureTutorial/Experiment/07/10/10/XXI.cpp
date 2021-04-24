@@ -216,6 +216,25 @@ int XXI::GetNodeStartDegree(Node* p)
 	return num;
 }
 
+int XXI::GetNodeStudentNum(Node* p)
+{
+	int num;
+
+	if (p == NULL)
+	{
+		return 0;
+	}
+	if (p->left_node_ip == NULL)
+	{
+		return stoi(p->data);
+	}
+	num = 0;
+	num = num + this->GetNodeStudentNum(p->left_node_ip);
+	num = num + this->GetNodeStudentNum(p->right_node_ip);
+
+	return num;
+}
+
 //		public:
 
 XXI::~XXI()
@@ -378,6 +397,24 @@ int XXI::GetNodeSonNodeNum(string want_data, int depth)
 		return this->GetNodeStartDegree(p->left_node_ip);
 	}
 	num = this->GetNodeSonNodeNum(p->left_node_ip, depth - 1);
+
+	return num;
+}
+
+int XXI::GetNodeStudentNum(string want_data)
+{
+	int num;
+	Node* p;
+
+	p = this->FindNodeIP(want_data);
+	if (p == NULL)
+	{
+		cout << "Error!!! this nodeÃ»ÕÒµ½" << endl;
+
+		return false;
+	}
+	num = 0;
+	num = num + this->GetNodeStudentNum(p->left_node_ip);
 
 	return num;
 }
