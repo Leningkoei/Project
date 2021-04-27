@@ -1,15 +1,15 @@
-#include "Stack.h"
+#include "QnPb.h"
 #include <iostream>
 
 using namespace std;
 
 int main()
 {
-	Stack* stack0 = new Stack();
+	QnPb* qn_pb_0 = new QnPb();
 
-	stack0->AddNode(0, 0);
-	stack0->AddNode(1, 2);
-	stack0->DisplayStack();
+	qn_pb_0->SetQnNum(15);
+	qn_pb_0->GetAns();
+	delete qn_pb_0;
 
 	return 0;
 }

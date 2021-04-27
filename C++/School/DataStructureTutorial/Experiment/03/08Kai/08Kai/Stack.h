@@ -11,12 +11,12 @@ private:
 	int length;
 
 	bool TvlStack(int x, int y);
-	bool TvlStack(int x);
 
 public:
 	~Stack();
 	Stack();
-	void AddNode(int x, int y);
 	void DisplayStack();
+	void Pop();
+	void Push(int x, int y);
 };
 
