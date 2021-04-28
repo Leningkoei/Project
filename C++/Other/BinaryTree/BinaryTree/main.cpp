@@ -16,6 +16,11 @@ int main()
 	cout << endl;
 	cout << "want node level: " << tree0->find_node_level('E') << endl;
 
+	if (tree0->FindBrother('D', 'G') == true)
+		cout << "true" << endl;
+	else
+		cout << "false" << endl;
+
 	delete tree0;
 
 	return 0;

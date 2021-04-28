@@ -221,3 +221,25 @@ int BinaryTree::get_bina_tree_length(Node* p)
 
 	return length;
 }
+
+bool BinaryTree::FindBrother(char x, char y)
+{
+	Node* x_ip;
+	Node* y_ip;
+
+	x_ip = this->find_node_ip(x);
+	y_ip = this->find_node_ip(y);
+
+	if (this->FindBrother(x_ip, y_ip) == true)
+		return true;
+	return this->FindBrother(y_ip, x_ip);
+}
+
+bool BinaryTree::FindBrother(Node* now_ip, Node* goal_ip)
+{
+	if (now_ip == NULL)
+		return false;
+	if (now_ip == goal_ip)
+		return true;
+	return this->FindBrother(now_ip->right_node_ip, goal_ip);
+}
