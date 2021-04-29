@@ -1,0 +1,94 @@
+/*
+引入样式表: 使用@import声明将1个外部样式表文件引入到另1个CSS文件中, 被引入的CSS文件中的样式规则定义语句成为该文件的一部分
+*/
+#nav
+{
+    font-size: 16px;
+    /*菜单所在层的堆叠顺序*/
+    z-index: 100;
+    /*菜单与网页边距*/
+    text-align: center;
+    display: block;
+    margin-top: 0;
+    margin-right: auto;
+    margin-bottom: 0;
+    position: static;
+    height: 35px;
+    width: 1000px;
+    background-color: #CFF;
+    /*background-image: url(../Image/4.jpg);*/
+    background-repeat: repeat-x;
+    background-position: 0px -96px;
+}
+
+#nav #menu0
+{
+    line-height: 24px;
+    list-style: none;
+    display: block;
+    margin-top: 0px;
+    margin-left: auto;
+    font-size: 16px;
+    background-color: #F00;
+    margin-right: auto;
+    width: 510px;
+}
+
+#nav ul li
+{
+    /*列表向左浮动*/
+    float: left;
+    /*父级菜单的宽度*/
+    width: 80px;
+    text-align: center;
+    margin-top: 4px;
+    margin-right: 20px;
+    background-color: #F00;
+}
+
+#nav ul li ul
+{
+    /*列表向左浮动*/
+    float: left;
+    position: absolute;
+    line-height: 24px;
+    display: none;
+    list-style-type: none;
+    width: 80px;
+    background-color: #FCF;
+    padding: 0px;
+}
+
+#nav ul li ul li
+{
+    /*二级菜单的黒い背景色*/
+    background-color: #000;
+}
+
+#nav ul li.mouseover ul
+{
+    display: block;
+    width: 80px;
+}
+
+#nav a
+{
+    cursor: hand;
+    width: 70px;
+    display: block;
+    color: #30f;
+    width: 80px;
+    text-align: center;
+    text-decoration: none;
+}
+
+#nav a :hover
+{
+    color: #fff;
+    /*超链接覆盖的颜色*/
+    background-color: #0cc;
+    display: block;
+    border-left-width: 3px;
+    border-left-style: solid;
+    border-left-color: #F00;
+}

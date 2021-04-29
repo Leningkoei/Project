@@ -6,8 +6,28 @@
         <title>
             案例2: 使用CSS+UL制作导航栏菜单
         </title>
+        <!--外部样式表-->
+        <link href="../CSS/Style.css" rel="stylesheet" type="text/css"/>
+        <script>
+            function MakeMenu()
+            {
+                var
+                items = document.getElementById("nav").getElementsByTagName("li");
+                for (var i = 0; i < items.length; i++)
+                {
+                    items[i].onmouseover = function()
+                    {
+                        this.className = "mouseover";
+                    }
+                    items[i].onmouseout = function()
+                    {
+                        this.className = "";
+                    }
+                }
+            }
+        </script>
     </head>
-    <body onLoad="makeMenu()">
+    <body onLoad="MakeMenu()">
         <div id="nav">
             <ul id="menu0">
                 <li>
