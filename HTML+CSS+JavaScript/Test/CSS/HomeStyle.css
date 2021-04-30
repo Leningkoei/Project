@@ -1,7 +1,7 @@
 body
 {
     font-size: 14px;
-    background-color: #CCC;
+    background-color: grey;
     /*  消除body的空白  */
     /*  设置边距  */
     margin: 0;
@@ -35,14 +35,12 @@ a :hover{
     /*  侧边的自动值与宽度结合使用, 可以将布局居中对齐  */
     /*  0?  */
     margin: 0 auto;
-    text-align: left;
-    background-color: #00f;
+    background-color: #fff;
 }
 
 .Header
 {
-    padding: 10px 0;
-    background-color: #9cf;
+    font-size: 0;
 }
 
 .Line
@@ -126,10 +124,10 @@ a :hover{
 
 .Footer
 {
-    /*  清楚前后的浮动元素, 使页脚显示在最下方  */
+    /*  清除前后的浮动元素, 使页脚显示在最下方  */
     clear: both;
     position: relative;
     padding: 10px 0;
     background-color: #f99;
-    text-align: cener;
+    text-align: center;
 }

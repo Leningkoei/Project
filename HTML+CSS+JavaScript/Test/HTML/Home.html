@@ -6,20 +6,115 @@
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
         <title>Home</title>
         <link href="../CSS/HomeStyle.css" rel="stylesheet" type="text/css"/>
+        <link href="../CSS/MapStyle.css" rel="stylesheet" type="text/css"/>
+        <script>
+            function MakeMap()
+            {
+                var items;
+                var i;
+
+                items = document.getElementById("nav").getElementsByTagName("li");
+                for (i = 0; i < items.length; i++)
+                {
+                    items[i].onmouseover = function()
+                    {
+                        this.className = "mouseover";
+                    }
+                    items[i].onmouseout = function()
+                    {
+                        this.className = "";
+                    }
+                }
+            }
+            function myMain()
+            {
+                MakeMap();
+            }
+        </script>
     </head>
-    <body>
+    <body onLoad="MakeMap()">
+        <!--
+            <div></div>:
+                一个区块容器标记, 可以标签容纳段落, 标题, 表格, 图片, 章节, 摘要和备注等各种HTML要素
+                用于被CSS控制
+        -->
         <div class="Container">
             <div class="Header">
                 <h1>
-                    网页头部
+                    <img src="../Image/Background.jpg" width="100%" alt=""/>
                 </h1>
             </div>
             <!--分割线-->
             <div class=Line></div>
             <div id="nav">
-                <h1>
-                    导航栏
-                </h1>
+                <ul id="menu0">
+                    <li>
+                        <a href="#">
+                            首页
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            课程介绍
+                        </a>
+                        <ul>
+                            <li>
+                                <a href="#">
+                                    课程性质
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    课程标准
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    考核方式
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">
+                            课程学习
+                        </a>
+                        <ul>
+                            <li>
+                                <a href="#">
+                                    理论知识
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    脚本调试
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">
+                            教务管理
+                        </a>
+                        <ul>
+                            <li>
+                                <a href="#">
+                                    成绩导入
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    学生选课
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">
+                            在线测试
+                        </a>
+                    </li>
+                </ul>
             </div>
             <div class="Content">
                 <div class="SideLeft">
