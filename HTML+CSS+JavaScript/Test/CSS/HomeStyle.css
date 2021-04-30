@@ -1,0 +1,135 @@
+body
+{
+    font-size: 14px;
+    background-color: #CCC;
+    /*  消除body的空白  */
+    /*  设置边距  */
+    margin: 0;
+    /*  设置内部填充  */
+    padding: 0;
+    text-align: center;
+}
+
+*
+{
+    /*  设置边距  */
+    margin: 0;
+    /*  设置内部填充  */
+    padding: 0;
+}
+
+a
+{
+    color: #000;
+    text-decoration: none;
+}
+
+a :hover{
+    color: #00f;
+    text-decoration: none;
+}
+
+.Container
+{
+    width: 66.7%;
+    /*  侧边的自动值与宽度结合使用, 可以将布局居中对齐  */
+    /*  0?  */
+    margin: 0 auto;
+    text-align: left;
+    background-color: #00f;
+}
+
+.Header
+{
+    padding: 10px 0;
+    background-color: #9cf;
+}
+
+.Line
+{
+    width: 100%;
+    height: 5px;
+    background-color: red;
+    margin: 0 auto;
+}
+
+/*
+#nav
+{
+    padding: 10px 0;
+    background-color: #990066;
+}
+*/
+
+.SideLeft
+{
+    float: left;
+    background-color: #ff0;
+    width: 33%;
+}
+
+.SideRight
+{
+    float: left;
+    background-color: #96c;
+    width: 33%;
+}
+
+.SideMiddle
+{
+    float: left;
+    background-color: #00ffff;
+    width: 34%;
+}
+
+.LeftTop
+{
+    width: 100%;
+    background-color: #909;
+    padding: 10px 0;
+}
+
+.LeftBottom
+{
+    width: 100%;
+    background-color: #f09;
+    padding: 10px 0;
+}
+
+.RightTop
+{
+    width: 100%;
+    background-color: #909;
+    padding: 10px 0;
+}
+
+.RightBottom
+{
+    width: 100%;
+    background-color: #f09;
+    padding: 10px 0;
+}
+
+.Content1
+{
+    width: 100%;
+    background-color: #f09;
+    padding: 10px 0;
+}
+
+.Content2
+{
+    width: 100%;
+    background-color: #909;
+    padding: 10px 0;
+}
+
+.Footer
+{
+    /*  清楚前后的浮动元素, 使页脚显示在最下方  */
+    clear: both;
+    position: relative;
+    padding: 10px 0;
+    background-color: #f99;
+    text-align: cener;
+}
