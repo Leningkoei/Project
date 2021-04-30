@@ -1,0 +1,68 @@
+body
+{
+    background-color: red;
+
+    /*  消除body的空白  */
+    margin: 0;
+    padding: 0;
+
+    text-align: center;
+}
+
+body .Container
+{
+    background-color: #cff;
+
+    /*  侧边的自动值与宽度结合使用, 可以将布局居中对齐  */
+    margin: 0 auto;
+
+    padding: 16px;
+    text-align: left;
+    width: 66.7%;
+}
+
+body .Container .Header
+{
+    background-color: #f9f;    
+}
+
+body .Container .Nav
+{
+    background-color: #9ff;
+}
+
+body .Container .Section
+{
+    background-color: #f9f;
+    float: left;
+    padding-left: 1%;
+    padding-right: 1%;
+    width: 48%;
+}
+
+body .Container .Section .Article
+{
+    background-color: #fc9;
+    width: 100%;
+}
+
+body .Container .Sidebar
+{
+    background-color: #ff9;
+    float: right;
+    padding-left: 1%;
+    padding-right: 1%;
+    width: 32%;
+}
+
+body .Container .Sidebar .Article
+{
+    background-color: #ccf;
+    width: 100%;
+}
+
+body .Container .Footer
+{
+    background-color: #fcf;
+    clear: both;
+}
