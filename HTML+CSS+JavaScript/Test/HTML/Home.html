@@ -8,7 +8,7 @@
         <link href="../CSS/HomeStyle.css" rel="stylesheet" type="text/css"/>
         <link href="../CSS/MapStyle.css" rel="stylesheet" type="text/css"/>
         <script>
-            function MakeMap()
+            function makeMap()
             {
                 var items;
                 var i;
@@ -26,13 +26,14 @@
                     }
                 }
             }
+            //      window.alert("悪くないね。")
             function myMain()
             {
-                MakeMap();
+                makeMap();
             }
         </script>
     </head>
-    <body onLoad="MakeMap()">
+    <body onLoad="makeMap()">
         <!--
             <div></div>:
                 一个区块容器标记, 可以标签容纳段落, 标题, 表格, 图片, 章节, 摘要和备注等各种HTML要素
@@ -45,7 +46,7 @@
                 </h1>
             </div>
             <!--分割线-->
-            <div class=Line></div>
+            <div class=line></div>
             <div id="nav">
                 <ul id="menu0">
                     <li>
@@ -119,12 +120,64 @@
             <div class="Content">
                 <div class="SideLeft">
                     <div class="LeftTop">
-                        <h1>
-                            左侧导航上
-                        </h1>
-                        <h1>
-                            左侧导航上
-                        </h1>
+                        <form>
+                            <table border="0" width=100%>
+                                <tr>
+                                    <td align="center" colspan="3">
+                                        用户登录
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="right" width="33.3%">
+                                        邮箱
+                                    </td>
+                                    <td align="left" colspan="2">
+                                        <input name="Email" id="Email" type="text"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="right">
+                                        密码
+                                    </td>
+                                    <td align="left" colspan="2">
+                                        <input name="Password" id="Password" type="password" size="20"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="right">
+                                        验证码
+                                    </td>
+                                    <td align="left" colspan="2">
+                                        <input name="VeriCode" id="VeriCode" type="text"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td align="left" colspan="2">
+                                        <input name="MakeVeriCode" id="MakeVeriCode" type="button" value="生成验证码"/>
+                                        <input name="ShowVeriCode" id="ShowVeriCode" type="text" size="4"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3" align="center">
+                                        <button name="Submit" id="submit" type="submit">
+                                            登录
+                                        </button>
+                                        <input name="Reset" id="Reset" type="reset" value="重置"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3" align="right">
+                                        <a href="#" target="blank">
+                                            快速注册
+                                        </a>
+                                        <a href="#" target="blank">
+                                            完整注册
+                                        </a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </form>
                     </div>
                     <div class="LeftBottom">
                         <h1>
@@ -176,6 +229,9 @@
                 <h1>
                     网页底部
                 </h1>
+                <h2>
+                    该网站仅供个人学习使用
+                </h2>
             </div>
         </div>
     </body>
