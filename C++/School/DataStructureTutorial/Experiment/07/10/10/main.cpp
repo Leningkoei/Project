@@ -5,13 +5,20 @@ using namespace std;
 
 int main()
 {
-	XXI* xxi0 = new XXI();
+	//		XXI* xxi0 = new XXI();
+	//		操还能这样
+	XXI* xxi0;
+	
+	xxi0 = new XXI();
+	//		我对象也优雅起来了, 以前都避免赋值构造函数来着了太蠢了
 	
 	//		(1), (2)
 	//		(2)的结果融入在XXI::AddTXT(string address)中了
 	//		把大学结构和学生人数分开存储为txt了, 合并起来也是可以的, 运行时注意地址是否正确
-	xxi0->AddTXT("D:\\MicrosoftVisualStudio\\Project\\C++\\School\\DataStructureTutorial\\Experiment\\07\\10\\10\\UniversityStruct.txt");
-	xxi0->AddTXT("D:\\MicrosoftVisualStudio\\Project\\C++\\School\\DataStructureTutorial\\Experiment\\07\\10\\10\\StudentNumber.txt");
+	//		更新: 改成相对地址了, 以后会避免使用绝对地址
+	xxi0->AddTXT("UniversityStruct.txt");
+	xxi0->AddTXT("StudentNumber.txt");
+	//		over
 	//		(3)
 	xxi0->DisplayXXI();
 	//		(4)
