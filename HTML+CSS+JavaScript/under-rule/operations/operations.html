@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>四则运算计算器</title>
+        <script src="src/main.js"></script>
+    </head>
+    <body>
+        <form name="form0" id="form0" method="post">
+            <p>
+                四则运算计算器
+            </p>
+            <p>
+                <label for="x">
+                    第0个数
+                </label>
+                <input name="x" id="x" type="text">
+            </p>
+            <p>
+                <label for="y">
+                    第1个数
+                </label>
+                <input name="y" id="y" type="text">
+            </p>
+            <p>
+                <button name="add" id="add" type="button" onclick="getResult('+')">
+                    +
+                </button>
+                <button name="sub" id="sub" type="button" onclick="getResult('-')">
+                    -
+                </button>
+                <button name="mul" id="mul" type="button" onclick="getResult('*')">
+                    *
+                </button>
+                <button name="div" id="div" type="button" onclick="getResult('/')">
+                    /
+                </button>
+            </p>
+            <p>
+                <label for="result">
+                    计算结果
+                    <input name="result" id="result" type="text">
+                </label>
+            </p>
+            <p>
+                输入表达式
+                <input name="exp" id="exp" type="text">
+                <button name="equ" id="equ" type="button" onclick="getResult('=')">
+                    =
+                </button>
+            </p>
+            <p>
+                表达式结果
+                <input name="expresult" id="expresult" type="text">
+            </p>
+            <p>
+                <button name="reset" id="reset" type="reset">
+                    清除
+                </button>
+            </p>
+        </form>
+    </body>
+</html>
