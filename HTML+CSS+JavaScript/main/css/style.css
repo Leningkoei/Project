@@ -1,0 +1,122 @@
+/*
+style{
+    position;
+    size;
+    border;
+    background;
+    list;
+    font;
+}
+*/
+*{
+    /* position-边距 */
+    margin: auto;
+    /* position?-内部填充 */
+    padding: 0;
+}
+a{
+    color: #000;
+    /* 貌似是加不加下划线??? */
+    text-decoration: none;
+}
+a:hover{
+    color: #00f;
+}
+body{
+    background-color: grey;
+    font-size: 16px;
+    text-align: center;
+}
+.page{
+    width: 66.7%;
+    background-color: #fff;
+}
+.header{
+    font-size: 0;
+}
+.line{
+    height: 8px;
+    width: 100%;
+    background-color: green;
+}
+#nav{
+    height: 64px;
+    width: 100%;
+    background-color: blue;
+    font-size: 16px;
+    text-align: center;
+}
+#nav ul{
+    list-style: none;
+}
+#nav ul li{
+    float: left;
+    margin: 2%;
+    width: 16%;
+    background-color: red;
+}
+#nav ul li.mouseOver ul{
+    display: block;
+}
+#nav ul li ul{
+    /* list-style = "#nav ul.list-style"; */
+    display: none;
+}
+#nav ul li ul li{
+    /* margin = "#nav ul li.margin" */
+    float: left;
+    width: 96%;
+    background-color: green;
+}
+.sideLeft{
+    margin: 1%;
+    float: left;
+    width: 31%;
+    background-color: #ff0;
+}
+.leftTop{
+    margin: 2%;
+    background-color: #909;
+    color: #fff;
+}
+.leftTop a{
+    color: #fff;
+}
+.leftBottom{
+    margin: 2%;
+    background-color: #f09;
+}
+.sideRight{
+    margin: 1%;
+    float: left;
+    width: 31%;
+    background-color: #96c;
+}
+.rightTop{
+    margin: 2%;
+    background-color: #909;
+}
+.rightBottom{
+    margin: 2%;
+    background-color: #f09;
+}
+.sideMiddle{
+    margin: 1%;
+    float: left;
+    width: 32%;
+    background-color: #00ffff;
+}
+.content0{
+    margin: 2%;
+    background-color: #f09;
+}
+.content1{
+    margin: 2%;
+    background-color: #909;
+}
+.footer{
+    clear: both;
+    margin: 1%;
+    position: relative;
+    background-color: #f99;
+}
