@@ -28,11 +28,14 @@ body{
     text-align: center;
 }
 .page{
-    width: 66.7%;
+    width: 100%;
     background-color: #fff;
 }
 .header{
-    font-size: 0;
+    width: 100%;
+    height: 500px;
+    background-image: url(img/background.jpg);
+    background-size: 100% 100%;
 }
 .line{
     height: 8px;
@@ -51,16 +54,21 @@ body{
 }
 #nav ul li{
     float: left;
+    height: 24px;
     margin: 2%;
     width: 16%;
     background-color: red;
 }
-#nav ul li.mouseOver ul{
-    display: block;
-}
 #nav ul li ul{
+    width: 16%;
     /* list-style = "#nav ul.list-style"; */
     display: none;
+    position: absolute;
+    line-height: 24px;
+    background-color: yellow;
+}
+#nav ul li.mouseOver ul{
+    display: block;
 }
 #nav ul li ul li{
     /* margin = "#nav ul li.margin" */
@@ -118,5 +126,6 @@ body{
     clear: both;
     margin: 1%;
     position: relative;
+    bottom: 0;
     background-color: #f99;
 }
