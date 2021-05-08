@@ -1,0 +1,141 @@
+*{
+    margin: 0 auto;
+    padding: 0;
+}
+a{
+    color: #000;
+    text-decoration: none;
+}
+a:hover{
+    color: #00f;
+}
+html{
+    /* html必须至少占满整个浏览器的宽度, width仅仅是一个用来向下传递的数值 */
+    min-width: 1024px;
+    /* width = 100% * x, 传递给了body */
+    /* 当出现html的红色时表示出现了问题 */
+    background-color: red;
+}
+body{
+    /* 意味着在body能够到达的顶部(html圈的内层最顶部)引入了body, 虽然是可能不占空间0.1px */
+    /* 在边框效果上类似于float??? */
+    padding-top: 0.1px;
+    /* width = 100% * 66.7% * x, 传递给了.page */
+    width: 100%;
+    /* 当出现body的灰色时表示出现了问题 */
+    background-color: grey;
+
+    font-size: 16px;
+    text-align: center;
+}
+.page{
+    /* width = 100% * 66.7% * 66.7% * x, 传递给了 */
+    /* 意味着在page能到达的最顶部(body圈的内层的最顶部引入了page, 虽然是可能不占空间的0.1px */
+    padding-top: 0.1px;
+    width: 100%;
+    background-color: #fff;
+}
+.header{
+    /* 意味着在header能到达的最顶部(page圈的内层的最顶部)引入了header */
+    padding-top: 0.1px;
+    /* 意味着在header能到达的最底部(图片块的下方)引入了header */
+    padding-bottom: 0.1px;
+    margin: 2%;
+    width: 96%;
+    background-color: orange;
+    font-size: 0;
+}
+.img{
+    margin: 2%;
+}
+.line{
+    height: 8px;
+    background-color: green;
+}
+#nav{
+    height: 24px;
+    background-color: blue;
+}
+#nav ul{
+    width: 66.7%;
+    list-style: none;
+}
+#nav ul li{
+    float: left;
+    margin: 0 2%;
+    position: relative;
+    width: 16%;
+    background-color: yellow;
+}
+#nav ul li ul{
+    display: none;
+    /* "position: absolute"的意思: 不管其他同级及以下元素, 只向父元素遵循定位规则 */
+    /* "position: absolute"时, 查找该元素的上一个position属性不为static的元素作为其父元素, 直到html */
+    /* "position: relative"则没有此限制 */
+    position: absolute;
+    width: 100%;
+    background-color: pink;
+}
+#nav ul li.mouse_over ul{
+    display: block;
+}
+#nav ul li ul li{
+    float: left;
+    margin: 2%;
+    width: 96%;
+    background-color: green;
+}
+.side_left{
+    float: left;
+    margin: 1%;
+    width: 31.3%;
+    background-color: #ff0;
+}
+.left_top{
+    margin: 2%;
+    width: 96%;
+    background-color: green;
+}
+.left_bottom{
+    margin: 2%;
+    width: 96%;
+    background-color: red;
+}
+.side_middle{
+    float: left;
+    margin: 1%;
+    width: 31.4%;
+    background-color: #00ffff;
+}
+.content0{
+    margin: 2%;
+    width: 96%;
+    background-color: red;
+}
+.content1{
+    margin: 2%;
+    width: 96%;
+    background-color: green;
+}
+.side_right{
+    float: left;
+    margin: 1%;
+    width: 31.3%;
+    background-color: #96c;
+}
+.right_top{
+    margin: 2%;
+    width: 96%;
+    background-color: green;
+}
+.right_bottom{
+    margin: 2%;
+    width: 96%;
+    background-color: red;
+}
+.footer{
+    clear: both;
+    position: relative;
+    width: 100%;
+    background-color: pink;
+}

@@ -5,14 +5,13 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>home</title>
-        <link href="css/style.css" rel="stylesheet">
-        <script src="src/afterMain.js" async></script>
+        <link href="css/style-kai.css" rel="stylesheet">
+        <script src="src/front-main.js"></script>
+        <script src="src/after-main.js" async></script>
     </head>
     <body>
         <div class="page">
-            <div class="header">
-                <h1></h1>
-            </div>
+            <div class="header"><div class="img"><img src="img/background.jpg" width="100%"></div></div>
             <div class="line"></div>
             <div id="nav">
                 <ul>
@@ -43,14 +42,14 @@
                 </ul>
             </div>
             <div class="content">
-                <div class="sideLeft">
-                    <div class="leftTop">
-                        <form>
+                <div class="side_left">
+                    <div class="left_top">
+                        <form name="form0" id="form0" method="post" action="home.html" onsubmit="return sumbitMain()">
                             <table border="0" width=100%>
                                 <tr><td align="center" colspan="3">用户登录</td></tr>
                                 <tr>
                                     <td align="right" width="33.3%">邮箱</td>
-                                    <td align="left" colspan="2"><input type="text" name="eMail" id="eMail"></td>
+                                    <td align="left" colspan="2"><input type="text" name="email" id="email"></td>
                                 </tr>
                                 <tr>
                                     <td align="right" width="33.3%">密码</td>
@@ -58,13 +57,13 @@
                                 </tr>
                                 <tr>
                                     <td align="right">验证码</td>
-                                    <td align="left" colspan="2"><input type="text" name="veriCode" id="veriCode"></td>
+                                    <td align="left" colspan="2"><input type="text" name="veri_code" id="veri_code"></td>
                                 </tr>
                                 <tr>
                                     <td></td>
                                     <td align="left" colspan="2">
-                                        <button name="makeVeriCode" id="makeVeriCode">生成验证码</button>
-                                        <input type="text" name="showVeriCode" id="showVeriCode" size="4">
+                                        <button type="button" name="make_veri_code" id="make_veri_code" onClick="makeVeriCode()">生成验证码</button>
+                                        <input type="text" name="show_veri_code" id="show_veri_code" size="4">
                                     </td>
                                 </tr>
                                 <tr>
@@ -82,12 +81,12 @@
                             </table>
                         </form>
                     </div>
-                    <div class="leftBottom">
+                    <div class="left_bottom">
                         <h1>左侧导航下</h1>
                         <h1>左侧导航下</h1>
                     </div>
                 </div>
-                <div class="sideMiddle">
+                <div class="side_middle">
                     <div class="content0">
                         <h1>网页正文0</h1>
                         <h1>网页正文0</h1>
@@ -97,12 +96,12 @@
                         <h1>网页正文1</h1>
                     </div>
                 </div>
-                <div class="sideRight">
-                    <div class="rightTop">
+                <div class="side_right">
+                    <div class="right-top">
                         <h1>右侧导航上</h1>
                         <h1>右侧导航上</h1>
                     </div>
-                    <div class="rightBottom">
+                    <div class="right_bottom">
                         <h1>右侧导航下</h1>
                         <h1>右侧导航下</h1>
                     </div>
@@ -110,7 +109,7 @@
             </div>
             <div class="footer">
                 <h1>网页底部</h1>
-                <h2>该网站仅供本地个人学习使用</h2>
+                该网站仅供本地个人学习使用
             </div>
         </div>
     </body>
