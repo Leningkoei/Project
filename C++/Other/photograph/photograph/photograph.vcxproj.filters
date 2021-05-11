@@ -21,12 +21,18 @@
     <ClInclude Include="single-linked-list.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="graph.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="node.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="single-linked-list.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="graph.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

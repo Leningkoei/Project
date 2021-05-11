@@ -1,10 +1,9 @@
 #pragma once
-class Node
-{
+class Node{
+    friend class Graph;
 private:
-    char data;
     Node* nextNodeIp;
-
+    char value;
 public:
     ~Node();
     Node();

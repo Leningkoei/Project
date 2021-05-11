@@ -19,10 +19,12 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="graph.h" />
     <ClInclude Include="node.h" />
     <ClInclude Include="single-linked-list.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="graph.cpp" />
     <ClCompile Include="node.cpp" />
     <ClCompile Include="single-linked-list.cpp" />
   </ItemGroup>
