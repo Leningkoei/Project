@@ -1,12 +1,17 @@
 #pragma once
 #include "node.h"
-class SingleLinkedList{
+class SinLinLis{
     friend class Graph;
 private:
     Node* headNodeIp;
     Node* lastNodeIp;
+    int length;
+    SinLinLis(int* list, int listLength);
+    void addNode(int value);
+    void displayList();
+    Node* findNodeIp(int value);
 public:
-    ~SingleLinkedList();
-    SingleLinkedList();
+    ~SinLinLis();
+    SinLinLis();
 };
 

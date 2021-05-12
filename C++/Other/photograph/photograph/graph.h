@@ -2,12 +2,16 @@
 #include "single-linked-list.h"
 class Graph{
 private:
-    Node* data[10];
+    SinLinLis* data[10];
     int nodeNum;
-    Node* findNodeIp(char value);
+    void addNewList(int* list, int listLength);
+    void addNode(int headValue, int newValue);
+    SinLinLis* findNodeIp(int value);
 public:
     ~Graph();
     Graph();
-    void addList(char list);
+    void addList(int* list, int listLength);
+    void addList(void** list, int nodeNum);
+    void displayGraph();
 };
 

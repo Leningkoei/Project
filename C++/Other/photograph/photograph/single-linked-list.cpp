@@ -1,12 +1,52 @@
 #include "single-linked-list.h"
 #include <iostream>
 using namespace std;
-SingleLinkedList::~SingleLinkedList(){
+SinLinLis::~SinLinLis(){
     cout << "正在删除this single linked list" << endl;
     //      TODO;
     cout << "删除this single linked list了哦" << endl;
 }
-SingleLinkedList::SingleLinkedList(){
+SinLinLis::SinLinLis(){
     this->headNodeIp = NULL;
     this->lastNodeIp = NULL;
+    this->length = 0;
+}
+SinLinLis::SinLinLis(int* list, int listLength){
+    int i;
+    Node* node;
+    node = new Node(list[0]);
+    this->length++;
+    this->headNodeIp = node;
+    this->lastNodeIp = node;
+    for (i = 1; i < listLength; i++){
+        this->addNode(list[i]);
+    }
+}
+void SinLinLis::addNode(int value){
+    Node* node;
+    node = new Node(value);
+    this->lastNodeIp->nextNodeIp = node;
+    this->lastNodeIp = node;
+    this->length++;
+}
+void SinLinLis::displayList(){
+    Node* p;
+    p = this->headNodeIp;
+    p->displayNode();
+    cout << ": ";
+    for (p = p->nextNodeIp; p != NULL; p = p->nextNodeIp){
+        p->displayNode();
+        if (p->nextNodeIp != NULL){
+            cout << ", ";
+        }
+    }
+}
+Node* SinLinLis::findNodeIp(int value){
+    Node* p;
+    for (p = this->headNodeIp; p != NULL; p = p->nextNodeIp){
+        if (p->value == value){
+            return p;
+        }
+    }
+    return NULL;
 }
