@@ -12,6 +12,15 @@ Graph::Graph(){
         this->data[i] = NULL;
     }
     this->nodeNum = 0;
+    this->type = true;
+}
+Graph::Graph(bool type){
+    int i;
+    for (i = 0; i < 10; i++){
+        this->data[i] = NULL;
+    }
+    this->nodeNum = 0;
+    this->type = type;
 }
 SinLinLis* Graph::findNodeIp(int value){
     int i;
@@ -29,6 +38,7 @@ void Graph::addNewList(int* list, int listLength){
     this->data[this->nodeNum] = sinLinLis;
     this->nodeNum++;
 }
+//      当创建无向图的时候调用
 //      (如果邻接表中没有值为ipValue的节点则会创建1个)在ipValue处追加value的单链表节点;
 void Graph::addNode(int ipValue, int value){
     SinLinLis* p;
@@ -36,14 +46,24 @@ void Graph::addNode(int ipValue, int value){
     p = this->findNodeIp(ipValue);
     //      如果在邻接表中没有值为ipValue的节点;
     if (p == NULL){
-        //      以ipValue和value创建1个列表;
-        int list[] = { ipValue, value };
-        //      用该列表创建1个新的节点并添加进邻接表;
-        this->addNewList(list, 2);
+        //      如果本图是无向图;
+        if (this->type == false){
+            //      以ipValue和value创建1个列表;
+            int list[] = { ipValue, value };
+            //      用该列表创建1个新的节点并添加进邻接表;
+            this->addNewList(list, 2);
+        }
+        //      如果本图是有向图;
+        else{
+            int list[] = { ipValue };
+            this->addNewList(list, 1);
+        }
     }
     //      如果在邻接表中存在值为ipValue的节点, 此时p指向值为ipValue的节点的单链表;
     else{
-        p->addNode(value);
+        if (this->type == false){
+            p->addNode(value);
+        }
     }
 }
 void Graph::addList(int* list, int listLength){
@@ -77,6 +97,8 @@ void Graph::addList(void** list, int nodeNum){
     int i;
     int j;
     int k;
+    //      把图的类型确定为有向图;
+    this->type = true;
     for (i = 0; i < nodeNum; i++){
         int listIn[20];
         for (k = 0; k < 20; k++){
@@ -90,6 +112,27 @@ void Graph::addList(void** list, int nodeNum){
             }
         }
         this->addList(listIn, nodeNum);
+    }
+}
+void Graph::addPowerList(int ip, int* list, int listLength){
+    int i;
+    SinLinLis* p;
+    Node* q;
+    Node* r;
+    p = this->findNodeIp(ip);
+    if (p == NULL){
+        cout << "NMSL" << endl;
+    }
+    else{
+        for (i = 0, q = p->headNodeIp->nextNodeIp; q != NULL; i++, q = q->nextNodeIp){
+            q->power = list[i];
+        }
+    }
+    if (this->type == false){
+        for (i = 0; i < listLength; i++){
+            p = this->findNodeIp(list[i]);
+            p->findNodeIp(ip)->power = ;
+        }
     }
 }
 void Graph::displayGraph(){

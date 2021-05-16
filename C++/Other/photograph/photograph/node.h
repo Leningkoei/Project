@@ -4,8 +4,8 @@ class Node{
     friend class SinLinLis;
 private:
     Node* nextNodeIp;
-    int value;
     int power;
+    int value;
     Node(int value);
     void displayNode();
 public:

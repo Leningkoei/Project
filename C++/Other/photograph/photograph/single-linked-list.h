@@ -6,6 +6,7 @@ private:
     Node* headNodeIp;
     Node* lastNodeIp;
     int length;
+    int name;
     SinLinLis(int* list, int listLength);
     void addNode(int value);
     void displayList();
