@@ -3,7 +3,9 @@
 using namespace std;
 int main(){
     XXSortI* tree0;
-    int list[] = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+    int list[] = { 89, 200, 2000, 3000, 4000, 5000, 6000, 7000, 8000, 9000 };
     tree0 = new XXSortI(list, 10);
+    tree0->printXXSortI();
+    delete tree0;
     return 0;
 }

@@ -6,6 +6,7 @@ class Node
     Node* leftNode;
     int name;
     Node* rightNode;
+    void printNode();
     public:
     ~Node();
     Node();
