@@ -1,0 +1,62 @@
+<!--已经使用过的id
+    all
+    button
+    choose class
+    choose course
+    choose course system
+    choose major
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>学生选课系统</title>
+    </head>
+    <body>
+        <form name="choose_course_system" id="choose_course_system">
+            <table align="center" border="1">
+                <tr><td align="center" colspan="2">课程选择</td></tr>
+                <tr>
+                    <td width="91">专业</td>
+                    <td width="232">
+                        <!--什么几把命名-->
+                        <select name="choose_major">
+                            <option>--choose major--</option>
+                            <option value="计算机信息管理">计算机信息管理</option>
+                            <option value="计算机应用技术">计算机应用技术</option>
+                            <option value="计算机软媒技术">计算机软媒技术</option>
+                            <option value="计算机网络技术">计算机网络技术</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>班级</td>
+                    <td>
+                        <select name="choose_class" id="class"><option>--choose class--</option></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="choose_course" value="4"></td>
+                    <td>Java程序设计(4point)</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="choose_course" value="4"></td>
+                    <td>JavaScript脚本语言(4point)</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="choose_course" value="3"></td>
+                    <td>网页制作(3point)</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="choose_course" value="3"></td>
+                    <td>JSP商务网站制作(3point)</td>
+                </tr>
+                <tr>
+                    <!--be careful-->
+                    <td><a id="all">全要参加</a></td>
+                    <td><button type="button" name="button" id="button" value="计算">计算学分</button></td>
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>
