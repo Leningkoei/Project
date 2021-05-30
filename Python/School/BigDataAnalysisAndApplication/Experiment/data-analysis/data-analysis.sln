@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31313.79
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "data-analysis", "data-analysis\data-analysis.pyproj", "{34F03033-1DE0-4C17-8D7F-3E3B953FB423}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{34F03033-1DE0-4C17-8D7F-3E3B953FB423}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34F03033-1DE0-4C17-8D7F-3E3B953FB423}.Release|Any CPU.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {635BEE2F-60DF-40B0-8212-5AA806FF70A4}
+	EndGlobalSection
+EndGlobal
