@@ -1,8 +1,9 @@
-#include "main.h"
 #include "quick-sort.h"
 #include <iostream>
 using namespace std;
 QuickSort::~QuickSort() {
+    cout << "sorted data =" << "\t";
+    this->printData();
     cout << "deleted this quick sort" << endl;
 }
 QuickSort::QuickSort() {
@@ -20,41 +21,24 @@ void QuickSort::doQuickSort(int bgn, int end) {
     int flag;
     int i;
     int j;
-    int k;
-    QuickSort* quickSort;
     flag = this->data[bgn];
-    for (i = bgn + 1, j = end, k = 0; i < j;) {
-//        cout << i << ", " << j << endl;
-        if (this->data[i] < flag) {
-            i++;
-        }
-        if (this->data[j] > flag) {
-            j--;
-        }
-        if (this->data[i] > flag && this->data[j] < flag) {
-            this->data[i - 1] = this->data[j];
-            this->data[j] = this->data[i];
-            i++;
-            j--;
-            k++;
-            /*
-            for (int k = 0; k < this->dataLength; k++) {
-                cout << this->data[k];
-            }
-            cout << endl;
-            */
-        }
+    for (i = bgn, j = end - 1; i < j;) {
+        //      查找1个value小于flag的索引j;
+        for (; i < j && this->data[j] >= flag; j--);
+        this->data[i] = this->data[j];
+        //      查找1个value大于flag的索引;
+        for (; i < j && this->data[i] <= flag; i++);
+        this->data[j] = this->data[i];
     }
-//    cout << endl;
-    this->data[k] = this->data[j];
-    this->data[j] = flag;
-    for (k = 0; k < this->dataLength; k++) {
-        cout << this->data[k];
+    this->data[i] = flag;
+    this->printData();
+    this->doQuickSort(bgn, i);
+    this->doQuickSort(i + 1, end);
+}
+void QuickSort::printData() {
+    int i;
+    for (i = 0; i < this->dataLength; i++) {
+        cout << "\t" << this->data[i];
     }
     cout << endl;
-//    cout << i << endl;
-//    cout << j << endl;
-    quickSort = new QuickSort(this->data, this->dataLength);
-    quickSort->doQuickSort(bgn, i - 1);
-    quickSort->doQuickSort(j + 1, end);
 }
