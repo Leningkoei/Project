@@ -57,6 +57,7 @@ create table MiddleShopInfor (
 /* 财务总表 */
 create table Profit (
 	Date varchar(20) primary key,
+	Money int,
 	OutputMoney int,
 	InputMoney int
 );

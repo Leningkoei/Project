@@ -22,7 +22,10 @@
                 <!--进库录入-->
                 <div>
                     <p>
-                        <asp:Button ID="Button2" runat="server" Text="进库" OnClick="Button2_Click" /></p>
+                        <asp:Button ID="Button2" runat="server" Text="进库" OnClick="Button2_Click" />
+                        &nbsp;&nbsp;
+                        <asp:Button ID="Button20" runat="server" Text="查询" OnClick="Button20_Click" />
+                    </p>
                     <p>
                         <label>代销处ID</label>
                         <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
@@ -93,6 +96,8 @@
                         <asp:Button ID="Button8" runat="server" Text="补全/更改信息" OnClick="Button8_Click" />
                         &nbsp;&nbsp;
                         <asp:Button ID="Button9" runat="server" Text="查看全部" OnClick="Button9_Click" />
+                        &nbsp;&nbsp;
+                        <asp:Button ID="Button22" runat="server" Text="导出全部为表格" OnClick="Button22_Click" />
                     </p>
                     <p>
                         <label>商户ID</label>
@@ -170,7 +175,12 @@
                 <!--出库录入-->
                 <div>
                     <p>
-                        <asp:Button ID="Button3" runat="server" Text="出库" OnClick="Button3_Click" /></p>
+                        <asp:Button ID="Button3" runat="server" Text="出库" OnClick="Button3_Click" />
+                        &nbsp;&nbsp;
+                        <asp:Button ID="Button21" runat="server" Text="查询" OnClick="Button21_Click" />
+                        &nbsp;&nbsp;
+                        <asp:Button ID="Button24" runat="server" Text="导出今日送货信息为表格" OnClick="Button24_Click" />
+                    </p>
                     <p>
                         <label>代销处ID</label>
                         <asp:TextBox ID="TextBox12" runat="server"></asp:TextBox>
@@ -230,7 +240,18 @@
                 </div>
                 <!--通过客户ID操作客户表-->
                 <div>
-                    <p><label>客户</label></p>
+                    <p>
+                        <label>客户</label>
+                        <asp:Button ID="Button10" runat="server" Text="查询" OnClick="Button10_Click" />
+                        &nbsp;&nbsp;
+                        <asp:Button ID="Button11" runat="server" Text="代销处查询" OnClick="Button11_Click" />
+                        &nbsp;&nbsp;
+                        <asp:Button ID="Button12" runat="server" Text="补全/更改信息" OnClick="Button12_Click" />
+                        &nbsp;&nbsp;
+                        <asp:Button ID="Button13" runat="server" Text="查看全部" OnClick="Button13_Click" />
+                        &nbsp;&nbsp;
+                        <asp:Button ID="Button23" runat="server" Text="导出全部为表格" OnClick="Button23_Click" />
+                    </p>
                     <p>
                         <label>客户ID</label>
                         <asp:TextBox ID="TextBox27" runat="server"></asp:TextBox>
@@ -243,10 +264,12 @@
                         <label>联系电话</label>
                         <asp:TextBox ID="TextBox29" runat="server"></asp:TextBox>
                     </p>
+                    <!--
                     <p>
                         <label>地址</label>
                         <asp:TextBox ID="TextBox30" runat="server"></asp:TextBox>
                     </p>
+                    -->
                     <p>
                         <label>代销处ID</label>
                         <asp:TextBox ID="TextBox31" runat="server"></asp:TextBox>
@@ -276,7 +299,17 @@
             <div>
                 <!--代销处操作-->
                 <div>
-                    <p><label>代销处</label></p>
+                    <p>
+                        <label>代销处</label>
+                        &nbsp;&nbsp;
+                        <asp:Button ID="Button14" runat="server" Text="增" OnClick="Button14_Click" />
+                        &nbsp;&nbsp;
+                        <asp:Button ID="Button15" runat="server" Text="删" OnClick="Button15_Click" />
+                        &nbsp;&nbsp;
+                        <asp:Button ID="Button16" runat="server" Text="查" OnClick="Button16_Click" />
+                        &nbsp;&nbsp;
+                        <asp:Button ID="Button17" runat="server" Text="查看全部" OnClick="Button17_Click" />
+                    </p>
                     <p>
                         <label>ID</label>
                         <asp:TextBox ID="TextBox33" runat="server"></asp:TextBox>
@@ -295,14 +328,50 @@
                     <p>
                         <asp:GridView ID="GridView6" runat="server" AutoGenerateColumns="False" DataKeyNames="Id" DataSourceID="SqlDataSource6">
                             <Columns>
-                                <asp:BoundField DataField="Id" HeaderText="Id" ReadOnly="True" SortExpression="Id" />
-                                <asp:BoundField DataField="Manager" HeaderText="名称" SortExpression="Manager" />
+                                <asp:BoundField DataField="Id" HeaderText="ID" ReadOnly="True" SortExpression="Id" />
+                                <asp:BoundField DataField="Manager" HeaderText="姓名" SortExpression="Manager" />
                                 <asp:BoundField DataField="telephone" HeaderText="电话" SortExpression="telephone" />
                             </Columns>
                         </asp:GridView>
                         <asp:SqlDataSource ID="SqlDataSource6" runat="server" ConnectionString="<%$ ConnectionStrings:middle shopConnectionString %>" SelectCommand="SELECT * FROM [MiddleShopInfor]"></asp:SqlDataSource>
                     </p>
                 </div>
+            </div>
+            <!--利润部分-->
+            <div>
+                <!--利润输出(TextBox)-->
+                <p>
+                    <label>总利润</label>
+                    <asp:TextBox ID="TextBox36" runat="server"></asp:TextBox>
+                </p>
+                <p>
+                    <label>总支出</label>
+                    <asp:TextBox ID="TextBox37" runat="server"></asp:TextBox>
+                </p>
+                <p>
+                    <label>总收入</label>
+                    <asp:TextBox ID="TextBox38" runat="server"></asp:TextBox>
+                </p>
+                <!--UI-->
+                <p>
+                    <asp:Button ID="Button18" runat="server" Text="查询" OnClick="Button18_Click" />
+                    &nbsp;&nbsp;
+                    <asp:Button ID="Button19" runat="server" Text="查看全部" OnClick="Button19_Click" />
+                    &nbsp;&nbsp;
+                    <asp:Button ID="Button25" runat="server" Text="导出全部为表格" OnClick="Button25_Click" />
+                </p>
+                <!--利润输出(表)-->
+                <p>
+                    <asp:GridView ID="GridView7" runat="server" AutoGenerateColumns="False" DataKeyNames="Date" DataSourceID="SqlDataSource7">
+                        <Columns>
+                            <asp:BoundField DataField="Date" HeaderText="日期" ReadOnly="True" SortExpression="Date" />
+                            <asp:BoundField DataField="Money" HeaderText="利润" SortExpression="Money" />
+                            <asp:BoundField DataField="OutputMoney" HeaderText="支出" SortExpression="OutputMoney" />
+                            <asp:BoundField DataField="InputMoney" HeaderText="收入" SortExpression="InputMoney" />
+                        </Columns>
+                    </asp:GridView>
+                    <asp:SqlDataSource ID="SqlDataSource7" runat="server" ConnectionString="<%$ ConnectionStrings:middle shopConnectionString %>" SelectCommand="SELECT * FROM [Profit]"></asp:SqlDataSource>
+                </p>
             </div>
         </div>
     </form>

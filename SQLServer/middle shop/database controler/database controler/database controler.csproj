@@ -75,8 +75,10 @@
     <Compile Include="DataBase.cs" />
     <Compile Include="FromShop.cs" />
     <Compile Include="InputItem.cs" />
+    <Compile Include="MiddleShop.cs" />
     <Compile Include="OutputItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ToShop.cs" />
     <Compile Include="WebForm1.aspx.cs">
       <DependentUpon>WebForm1.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
