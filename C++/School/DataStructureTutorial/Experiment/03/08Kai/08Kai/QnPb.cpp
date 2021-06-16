@@ -9,7 +9,8 @@ using namespace std;
 
 QnPb::~QnPb()
 {
-	//		cout << "É¾³ýthis queen problemÁËÅ¶" << endl;
+	delete this->ans;
+	//		cout << "åˆ é™¤this queen problemäº†å“¦" << endl;
 }
 
 QnPb::QnPb()
@@ -102,7 +103,7 @@ bool QnPb::FuncKai(int x, int y, int &no)
 	{
 		//no++;
 		cout << "no: " << no++ << endl;
-		this->ans->DisplayStackKai();
+		this->ans->DisplayStack();
 	}
 	this->ans->Pop();
 	result = this->FuncKai(x + 1, y, no);

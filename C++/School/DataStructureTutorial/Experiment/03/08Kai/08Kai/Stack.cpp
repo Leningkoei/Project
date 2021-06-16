@@ -7,7 +7,7 @@ using namespace std;
 
 Stack::~Stack()
 {
-	//		cout << "ÕýÔÚÉ¾³ýthis stack" << endl;
+	//		cout << "æ­£åœ¨åˆ é™¤this stack" << endl;
 
 	int i;
 
@@ -16,7 +16,7 @@ Stack::~Stack()
 		delete this->data[i];
 	}
 
-	//		cout << "É¾³ýthis stackÁËÅ¶" << endl;
+	//		cout << "åˆ é™¤this stackäº†å“¦" << endl;
 }
 
 Stack::Stack()
