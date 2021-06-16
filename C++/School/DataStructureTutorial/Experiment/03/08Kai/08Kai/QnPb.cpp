@@ -100,9 +100,9 @@ bool QnPb::FuncKai(int x, int y, int &no)
 	}
 	if (ans->length == qn_num)
 	{
-		no++;
-//		cout << "no: " << no++;
-//		this->ans->DisplayStack();
+		//no++;
+		cout << "no: " << no++ << endl;
+		this->ans->DisplayStackKai();
 	}
 	this->ans->Pop();
 	result = this->FuncKai(x + 1, y, no);

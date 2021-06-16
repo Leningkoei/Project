@@ -74,3 +74,26 @@ void Stack::Push(int x, int y)
 	data[length] = node;
 	length++;
 }
+void Stack::DisplayStackKai() {
+	int i;
+	cout << "   a   b   c   d   e   f   g   h" << endl;
+	for (i = 0; i < this->length; i++) {
+		cout << " +---+---+---+---+---+---+---+---+" << endl;
+		cout << 8 - i;
+		this->printSpace(data[i]->x);
+		this->printQueen();
+		this->printSpace(7 - data[i]->x);
+		cout << "|" << 8 - i << endl;
+	}
+	cout << " +---+---+---+---+---+---+---+---+" << endl;
+	cout << "   a   b   c   d   e   f   g   h" << endl;
+}
+void Stack::printQueen() {
+	cout << "| * ";
+}
+void Stack::printSpace(int num) {
+	int i;
+	for (i = 0; i < num; i++) {
+		cout << "|   ";
+	}
+}
