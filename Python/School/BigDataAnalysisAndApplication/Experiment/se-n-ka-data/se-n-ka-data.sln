@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31321.278
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "se-n-ka-data", "se-n-ka-data\se-n-ka-data.pyproj", "{38BA0856-942A-447D-AA47-A2EDC3498222}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{38BA0856-942A-447D-AA47-A2EDC3498222}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38BA0856-942A-447D-AA47-A2EDC3498222}.Release|Any CPU.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {32345EC3-F635-4AF0-B66F-CE16B16AA717}
+	EndGlobalSection
+EndGlobal
