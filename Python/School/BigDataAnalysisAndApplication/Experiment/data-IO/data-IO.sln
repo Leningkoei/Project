@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31205.134
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "data-IO", "data-IO\data-IO.pyproj", "{C5AAB6BB-DE49-402C-B777-2011CC62B01A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C5AAB6BB-DE49-402C-B777-2011CC62B01A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5AAB6BB-DE49-402C-B777-2011CC62B01A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E3FDE618-88FA-4CEB-8A80-B4AA4B8B2637}
+	EndGlobalSection
+EndGlobal
