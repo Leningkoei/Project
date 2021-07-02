@@ -11,6 +11,7 @@
     <head>
         <meta charset="UTF-8">
         <title>学生选课系统</title>
+        <script src="src/after-main.js" async></script>
     </head>
     <body>
         <form name="choose_course_system" id="choose_course_system">
@@ -19,8 +20,8 @@
                 <tr>
                     <td width="91">专业</td>
                     <td width="232">
-                        <!--什么几把命名-->
-                        <select name="choose_major">
+                        <!--什么弱智命名-->
+                        <select name="choose_major" onChange="changeMajor()">
                             <option>--choose major--</option>
                             <option value="计算机信息管理">计算机信息管理</option>
                             <option value="计算机应用技术">计算机应用技术</option>
@@ -53,8 +54,8 @@
                 </tr>
                 <tr>
                     <!--be careful-->
-                    <td><a id="all">全要参加</a></td>
-                    <td><button type="button" name="button" id="button" value="计算">计算学分</button></td>
+                    <td><a id="all" href="JavaScript:allIn()">全要参加</a></td>
+                    <td><button type="button" name="button" id="button" value="计算" onClick="getScore()">计算学分</button></td>
                 </tr>
             </table>
         </form>
