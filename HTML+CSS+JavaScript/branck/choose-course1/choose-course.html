@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>学生逃课系统</title>
+        <script src="src/after-main.js" async></script>
+    </head>
+    <body>
+        <form id="form1" name="form1" method="post">
+            <p>专业</p>
+            <p>
+                <input id="radio_group_0_0" name="profession" type="radio" value="计算机信息管理" checked>
+                计算机管理
+                <br />
+                <input id="radio_group_0_1" name="profession" type="radio" value="计算机应用技术">
+                计算机应用技术
+            </p>
+            <p>年级</p>
+            <p>
+                <!---->
+                <select id="grade" name="grade" onChange="getGrade(this)">
+                    <option>--choose grade--</option>
+                    <option value="2011">2011</option>
+                    <option value="2012">2012</option>
+                    <option value="2013">2013</option>
+                    <option value="2014">2014</option>
+                    <option value="2015">2015</option>
+                </select>
+            </p>
+            <p>可选课程</p>
+            <p>
+                <input id="checkbox_group_0_0" name="subject" type="checkbox" value="嵌入式面向对象编程规范">
+                嵌入式面向对象编程规范
+                <br />
+                <input id="checkbox_group_0_1" name="subject" type="checkbox" value="网页制作">
+                网页制作
+                <br />
+                <input id="checkbox_group_0_2" name="subject" type="checkbox" value="脚本语言与动态网页设计">
+                脚本语言与动态网页设计
+                <br />
+                <input id="checkbox_group_0_3" name="subject" type="checkbox" value="信息系统设计与实施">
+                信息系统设计与实施
+                <br />
+                <input id="checkbox_group_0_4" name="subject" type="checkbox" value="JSP商务网站设计">
+                JSP商务网站设计
+            </p>
+            <!---->
+            <p>
+                <button id="button_0" name="button_0" type="button" value="确定" onClick="getInfor(this.form)">确定</button>
+                <button id="button_1" name="button_1" type="button" value="重置" onClick="resetForm(this.form)">重置</button>
+            </p>
+            <p>选课情况</p>
+            <p>
+                <textarea id="textarea_0" name="textarea_0" cols="50" rows="5"></textarea>
+            </p>
+        </form>
+    </body>
+</html>
