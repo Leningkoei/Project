@@ -4,12 +4,11 @@ var main;
 getInput = function() {
     var input;
     input = document.getElementById("input").value;
-    return input.split(", ");
+    return input;
 }
 getResult = function(input) {
     var nums;
     var pivotIndex;
-    nums = input;
     pivotIndex = function(nums) {
         var mid;
         var lftSum;
@@ -54,6 +53,9 @@ getResult = function(input) {
         return -1;
         */
     }
+    // nums = input; -- 字符串转数组
+    // eval("nums = " + input + ";");
+    nums = new Function("return " + input + ";")();
     return pivotIndex(nums);
 }
 main = function() {
