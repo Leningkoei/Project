@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>旋转矩阵</title>
+    <link href="../../css/problem_style_kai.css" rel="stylesheet">
+    <script src="../../src/main_kai.js" async></script>
+    <script src="src/main.js" async></script>
+</head>
+<body onload="CREATE_BODY.main()">
+    <!-- <div id="container" class="container">
+        <div id="word_part" class="word_part">
+            <p id="problem_describe">
+                <h1>problem describe</h1>
+                <label>matrix: 形如[ [坐标..], .. ]的方阵;</label>
+            </p>
+            <p id="input_test">
+                <h1>
+                    input test
+                    <button type="button" onclick="MAIN.main()">test</button>
+                </h1>
+                <textarea id="input" class="textarea" cols="80" rows="8">
+[ [ 1,2,3 ],
+  [ 4,5,6 ],
+  [ 7,8,9 ] ]
+</textarea>
+            </p>
+            <p id="result_print">
+                <h1>result print</h1>
+                <textarea id="result" class="textarea" cols="80"></textarea>
+            </p>
+        </div>
+        <div id="code_part" class="code_part">
+            <p id="answer_show">
+                <h1>answer show</h1>
+                <textarea class="textarea" cols="80" rows="40">
+const rotateMatrix = function(matrix) {
+    // position: matrix[y][x];
+    // let temp;
+    let x;
+    let y;
+    // 水平翻转;
+    // for (y = 0; y < matrix.length / 2; y++) {
+    //     temp = matrix[y];
+    //     matrix[y] = matrix[matrix.length - 1 - y];
+    //     matrix[matrix.length - 1 - y] = temp;
+    // }
+    matrix.reverse();
+    // 主对角线翻转;
+    for (y = 1; y < matrix.length; y++) {
+        for (x = 0; x < y; x++) {
+            // temp = matrix[y][x];
+            // matrix[y][x] = matrix[x][y];
+            // matrix[x][y] = temp;
+            [ matrix[y][x], matrix[x][y] ] = [ matrix[x][y], matrix[y][x] ];
+        }
+    }
+}
+</textarea>
+            </p>
+        </div>
+    </div> -->
+    <p id="code">/**
+ * 
+ * @param {number[][]} matrix 
+ * @returns {void} 
+ */
+const rotateMatrix = function(matrix) {
+    // position: matrix[y][x];
+    // let temp;
+    let x;
+    let y;
+    // 水平翻转;
+    // for (y = 0; y < matrix.length / 2; y++) {
+    //     temp = matrix[y];
+    //     matrix[y] = matrix[matrix.length - 1 - y];
+    //     matrix[matrix.length - 1 - y] = temp;
+    // }
+    matrix.reverse();
+    // 主对角线翻转;
+    for (y = 1; y < matrix.length; y++) {
+        for (x = 0; x < y; x++) {
+            // temp = matrix[y][x];
+            // matrix[y][x] = matrix[x][y];
+            // matrix[x][y] = temp;
+            [ matrix[y][x], matrix[x][y] ] = [ matrix[x][y], matrix[y][x] ];
+        }
+    }
+}
+</p>
+</body>
+</html>
