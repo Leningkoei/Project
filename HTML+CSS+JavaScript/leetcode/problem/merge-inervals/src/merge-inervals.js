@@ -35,7 +35,7 @@ getResult = function(input) {
         //         };
         //     };
         // };
-        intervals.sort(function (a, b) {
+        intervals.sort(function(a, b) {
             return a[0] - b[0];
         });
         for (flag = 0, i = 1; i < intervals.length; i++) {
