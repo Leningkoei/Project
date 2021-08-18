@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>实现strStr()</title>
+    <link href="../../css/problem_style_kai.css" rel="stylesheet">
+    <script src="../../src/main_kai.js" async></script>
+    <script src="./src/main.js" async></script>
+</head>
+<body onload="CREATE_BODY.main()">
+    <p id="code">this.strStr = function(haystack, needle) {
+    // return haystack.indexOf(needle);
+    if (needle === "") {
+        return 0;
+    }
+    const buildNext = function() {
+        let next = new Array(needle.length);
+        next[0] = -1;
+        for (let i = -1, j = 0; j < needle.length - 1;) {
+            if (needle[j] === needle[next[j]]) {
+                next[j] = next[next[j]];
+            }
+            if (i < 0 || needle[i] === needle[j]) {
+                i++;
+                j++;
+                next[j] = i;
+            } else {
+                i = next[i];
+            }
+        }
+        return next;
+    }
+    const next = buildNext();
+    for (let i = 0, j = 0; i < haystack.length;) {
+        if (haystack[i] === needle[j]) {
+            i++;
+            j++;
+            if (j === needle.length) {
+                return (i - needle.length);
+            }
+        } else {
+            if (next[j] === -1) {
+                i++;
+                j = 0;
+            } else {
+                j = next[j];
+            }
+        }
+    }
+    return -1;
+}
+</p>
+</body>
+</html>
