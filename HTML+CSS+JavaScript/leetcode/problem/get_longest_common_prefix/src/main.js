@@ -1,6 +1,6 @@
 const MAIN = {
     Custom: function() {
-        this.problem = "TODO;";
+        this.problem = "找出字符串数组strs中的最长公共前缀;";
         this.input = [ "[ \"flower\", \"flow\", \"flight\" ]" ];
     },
     Problem: function() {
