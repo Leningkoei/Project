@@ -1,0 +1,36 @@
+p {
+    color: red;
+}
+html {
+    background-color: #00539F;
+    font-size: 10px;
+}
+body {
+    background-color: #FF9500;
+    /* 边框的厚度; */
+    border: 5px solid black;
+    /* 边框外的边框的厚度; */
+    margin: 0 auto;
+    /* 边框内的边框的厚度; */
+    padding: 0 20px 20px 20px;
+    width: 600px;
+}
+h1 {
+    color: #00539F;
+    font-size: 60px;
+    margin: 0;
+    padding: 20px 0;
+    text-align: center;
+    text-shadow: 3px 3px 1px black;
+}
+p, li {
+    font-size: 16px;
+    /* if typeOf(line-height) === number: line height = font-size * line-height */
+    line-height: 2;
+    letter-spacing: 1px;
+}
+img {
+    display: block;
+    margin: 0 auto;
+    width: 400px;
+}
