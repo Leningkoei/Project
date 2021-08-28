@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2数之和II - 输入有序数组(简单)</title>
+    <link href="../../css/problem_style_kai.css" rel="stylesheet">
+</head>
+<body>
+    <p id="code">this.twoSum = function(numbers, target) {
+    let x = 0;
+    let y = numbers.length - 1;
+    for (let sum = 0; x < y && target !== (sum = numbers[x] + numbers[y]); sum < target ? x++ : y--);
+    if (x === y) {
+        return [ -1, -1 ];
+    }
+    // 此处与leetCode不同;
+    return [ x, y ];
+    // for (let x = 0, y = 0; x < y && numbers[x] + numbers[y] !== target; numbers[x] + numbers[y] < target ? x++ : y--);
+    // for (let x = 0, y = 0; x < y;) {
+    //     if (numbers[x] + numbers[y] ===  target) {
+    //         return [ x + 1, y + 1 ];
+    //     }
+    //     else if (numbers[x] + numbers[y] < target) {
+    //         x++;
+    //     } else if (numbers[x] + numbers[y] > target) {
+    //         y--;
+    //     }
+    // }
+}
+</p>
+    <script src="./scripts/main.js"></script>
+    <script src="../../src/main-kai-ni.js"></script>
+</body>
+</html>
