@@ -1,13 +1,13 @@
 const CREATE_BODY = {
     /**
      * 
-     * @param {Object} parentNode 
+     * @param {object} parentNode 
      */
     NewBr: function(parentNode) {
         this.parentNode = parentNode;
         /**
          * 
-         * @returns {Object} 
+         * @returns {object} 
          */
         this.createElem = function() {
             let newElem = window.document.createElement("br");
@@ -17,15 +17,15 @@ const CREATE_BODY = {
     },
     /**
      * 
-     * @param {Object} parentNode 
-     * @param {String} innerText 
+     * @param {object} parentNode 
+     * @param {string} innerText 
      */
     NewButton: function(parentNode, innerText) {
         this.parentNode = parentNode;
         this.innerText = innerText;
         /**
          * 
-         * @returns {Object} 
+         * @returns {object} 
          */
         this.createElem = function() {
             let newElem = window.document.createElement("button");
@@ -37,28 +37,29 @@ const CREATE_BODY = {
     },
     /**
      * 
-     * @param {Object} parentNode 
-     * @param {String} className 
+     * @param {object} parentNode 父节点;
+     * @param {string} className class;
      */
     NewDiv: function(parentNode, className) {
         this.parentNode = parentNode;
         this.className = className;
         /**
          * 
-         * @returns {Object} 
+         * @returns {object} 
          */
         this.createElem = function() {
             let newElem = window.document.createElement("div");
             newElem.className = this.className;
+            newElem.id = this.className;
             this.parentNode.appendChild(newElem);
             return newElem;
         }
     },
     /**
      * 
-     * @param {Object} parentNode 
-     * @param {String} type 
-     * @param {String} innerHTML 
+     * @param {object} parentNode 
+     * @param {string} type 
+     * @param {string} innerHTML 
      */
     NewH: function(parentNode, type, innerHTML) {
         this.parentNode = parentNode;
@@ -66,7 +67,7 @@ const CREATE_BODY = {
         this.innerHTML = innerHTML;
         /**
          * 
-         * @returns {Object} 
+         * @returns {object} 
          */
         this.createElem = function() {
             let newElem = window.document.createElement(this.type);
@@ -75,17 +76,27 @@ const CREATE_BODY = {
             return newElem;
         }
     },
+    NewImg: function(parentNode, src) {
+        this.parentNode = parentNode;
+        this.src = src;
+        this.createElem = function() {
+            let newElem = window.document.createElement("img");
+            newElem.src = this.src;
+            this.parentNode.appendChild(newElem);
+            return newElem;
+        }
+    },
     /**
      * 
-     * @param {Object} parentNode 
-     * @param {String} id 
+     * @param {object} parentNode 
+     * @param {string} id 
      */
     NewLabel: function(parentNode, id) {
         this.parentNode = parentNode;
         this.id = id;
         /**
          * 
-         * @returns {Object} 
+         * @returns {object} 
          */
         this.createElem = function() {
             let newElem = window.document.createElement("label");
@@ -96,13 +107,13 @@ const CREATE_BODY = {
     },
     /**
      * 
-     * @param {Object} parentNode 
+     * @param {object} parentNode 
      */
     NewP: function(parentNode) {
         this.parentNode = parentNode;
         /**
          * 
-         * @returns {Object} 
+         * @returns {object} 
          */
         this.createElem = function() {
             let newElem = window.document.createElement("p");
@@ -112,11 +123,11 @@ const CREATE_BODY = {
     },
     /**
      * 
-     * @param {Object} parentNode 
-     * @param {String} id 
-     * @param {String} className 
-     * @param {String} cols 
-     * @param {String} rows 
+     * @param {object} parentNode 
+     * @param {string} id 
+     * @param {string} className 
+     * @param {string} cols 
+     * @param {string} rows 
      */
     NewTextarea: function(parentNode, id, className, cols, rows) {
         this.parentNode = parentNode;
@@ -126,7 +137,7 @@ const CREATE_BODY = {
         this.rows = rows;
         /**
          * 
-         * @returns {Object} 
+         * @returns {object} 
          */
         this.createElem = function() {
             let newElem = window.document.createElement("textarea");
@@ -150,13 +161,13 @@ const CREATE_BODY = {
         const containerDivObject = containerDiv.createElem();
         const word_divDiv = new this.NewDiv(containerDivObject, "word_div");
         const word_divDivObject = word_divDiv.createElem();
-        const problem_discribeP = new this.NewDiv(word_divDivObject, "");
+        const problem_discribeP = new this.NewDiv(word_divDivObject, "problem_discribe");
         const problem_discribePObject = problem_discribeP.createElem();
         const problem_discribeHead = new this.NewH(problem_discribePObject, "h2", "problem describe");
         const problem_discribeHeadObject = problem_discribeHead.createElem();
         const problem_discribeLabel = new this.NewLabel(problem_discribePObject, "problem");
         const problem_discribeLabelObject = problem_discribeLabel.createElem();
-        const input_testP = new this.NewDiv(word_divDivObject, "");
+        const input_testP = new this.NewDiv(word_divDivObject, "input_test");
         const input_testPObject = input_testP.createElem();
         const input_testHead = new this.NewH(input_testPObject, "h2", "input test");
         const input_testHeadObject = input_testHead.createElem();
@@ -165,7 +176,7 @@ const CREATE_BODY = {
         let input_testTextarea = undefined;
         let input_testTextareaObject = undefined;
         let input_testBr = undefined;
-        const result_printP = new this.NewDiv(word_divDivObject, "");
+        const result_printP = new this.NewDiv(word_divDivObject, "result_print");
         const result_printPObject = result_printP.createElem();
         const result_printHead = new this.NewH(result_printPObject, "h2", "result print");
         const result_printHeadObject = result_printHead.createElem();
@@ -173,7 +184,7 @@ const CREATE_BODY = {
         const result_printTextareaObject = result_printTextarea.createElem();
         const code_divDiv = new this.NewDiv(containerDivObject, "code_div");
         const code_divDivObject = code_divDiv.createElem();
-        const answer_showP = new this.NewDiv(code_divDivObject, "");
+        const answer_showP = new this.NewDiv(code_divDivObject, "answer_show");
         const answer_showPObject = answer_showP.createElem();
         const answer_showHead = new this.NewH(answer_showPObject, "h2", "answer show");
         const answer_showHeadObject = answer_showHead.createElem();
