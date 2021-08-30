@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>移除元素</title>
+    <link href="../../css/problem_style_kai.css" rel="stylesheet">
+</head>
+<body>
+    <p id="code">this.removeElement = function(nums, val) {
+    let slow = 0;
+    for (const fast of nums) {
+        if (fast !== val) {
+            nums[slow++] = fast;
+        }
+    }
+    return slow;
+}
+</p>
+    <script src="./scripts/main.js"></script>
+    <script src="../../src/main-kai-ni.js"></script>
+</body>
+</html>
