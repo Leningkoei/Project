@@ -1,13 +1,13 @@
 const CREATE_BODY = {
     /**
-     * 
-     * @param {object} parentNode 
+     * 设置将要新建的<br>的位置和各项属性
+     * @param {object} parentNode 父节点指针
      */
     NewBr: function(parentNode) {
         this.parentNode = parentNode;
         /**
-         * 
-         * @returns {object} 
+         * 新建<br>
+         * @returns {object} 新节点指针
          */
         this.createElem = function() {
             let newElem = window.document.createElement("br");
@@ -16,16 +16,16 @@ const CREATE_BODY = {
         }
     },
     /**
-     * 
-     * @param {object} parentNode 
-     * @param {string} innerText 
+     * 设置将要新建的<button>的位置和各项属性
+     * @param {object} parentNode 父节点指针
+     * @param {string} innerText innerText属性
      */
     NewButton: function(parentNode, innerText) {
         this.parentNode = parentNode;
         this.innerText = innerText;
         /**
-         * 
-         * @returns {object} 
+         * 新建<button>
+         * @returns {object} 新节点指针
          */
         this.createElem = function() {
             let newElem = window.document.createElement("button");
@@ -36,16 +36,16 @@ const CREATE_BODY = {
         }
     },
     /**
-     * 
-     * @param {object} parentNode 父节点;
-     * @param {string} className class;
+     * 设置将要新建的<div>的位置和各项属性
+     * @param {object} parentNode 父节点指针
+     * @param {string} className class属性
      */
     NewDiv: function(parentNode, className) {
         this.parentNode = parentNode;
         this.className = className;
         /**
-         * 
-         * @returns {object} 
+         * 新建<div>
+         * @returns {object} 新节点指针
          */
         this.createElem = function() {
             let newElem = window.document.createElement("div");
@@ -56,29 +56,38 @@ const CREATE_BODY = {
         }
     },
     /**
-     * 
-     * @param {object} parentNode 
-     * @param {string} type 
-     * @param {string} innerHTML 
+     * 设置将要新建的<h_>的位置和等级和各项属性
+     * @param {object} parentNode 父节点指针
+     * @param {string} rank 标题等级
+     * @param {string} innerText innerText属性
      */
-    NewH: function(parentNode, type, innerHTML) {
+    NewH: function(parentNode, rank, innerText) {
         this.parentNode = parentNode;
-        this.type = type;
-        this.innerHTML = innerHTML;
+        this.rank = rank;
+        this.innerText = innerText;
         /**
-         * 
-         * @returns {object} 
+         * 新建<h_>
+         * @returns {object} 新节点指针
          */
         this.createElem = function() {
-            let newElem = window.document.createElement(this.type);
-            newElem.innerHTML = this.innerHTML;
+            let newElem = window.document.createElement(this.rank);
+            newElem.innerText = this.innerText;
             this.parentNode.appendChild(newElem);
             return newElem;
         }
     },
+    /**
+     * 设置将要新建的<img>的位置和各项属性
+     * @param {object} parentNode 父节点指针
+     * @param {string} src src属性
+     */
     NewImg: function(parentNode, src) {
         this.parentNode = parentNode;
         this.src = src;
+        /**
+         * 新建<img>
+         * @returns {object} 新节点指针
+         */
         this.createElem = function() {
             let newElem = window.document.createElement("img");
             newElem.src = this.src;
@@ -87,16 +96,16 @@ const CREATE_BODY = {
         }
     },
     /**
-     * 
-     * @param {object} parentNode 
-     * @param {string} id 
+     * 设置将要新建的<label>的位置和各项属性
+     * @param {object} parentNode 父节点指针
+     * @param {string} id id属性
      */
     NewLabel: function(parentNode, id) {
         this.parentNode = parentNode;
         this.id = id;
         /**
-         * 
-         * @returns {object} 
+         * 新建<label>
+         * @returns {object} 新节点指针
          */
         this.createElem = function() {
             let newElem = window.document.createElement("label");
@@ -106,14 +115,14 @@ const CREATE_BODY = {
         }
     },
     /**
-     * 
-     * @param {object} parentNode 
+     * 设置将要新建的<p>的位置和各项属性
+     * @param {object} parentNode 父节点指针
      */
     NewP: function(parentNode) {
         this.parentNode = parentNode;
         /**
-         * 
-         * @returns {object} 
+         * 新建<p>
+         * @returns {object} 新节点指针
          */
         this.createElem = function() {
             let newElem = window.document.createElement("p");
@@ -122,12 +131,12 @@ const CREATE_BODY = {
         }
     },
     /**
-     * 
-     * @param {object} parentNode 
-     * @param {string} id 
-     * @param {string} className 
-     * @param {string} cols 
-     * @param {string} rows 
+     * 设置将要新建的<textarea>的位置和各项属性
+     * @param {object} parentNode 父节点指针
+     * @param {string} id id属性
+     * @param {string} className class属性
+     * @param {string} cols cols属性
+     * @param {string} rows rows属性
      */
     NewTextarea: function(parentNode, id, className, cols, rows) {
         this.parentNode = parentNode;
@@ -136,8 +145,8 @@ const CREATE_BODY = {
         this.cols = cols;
         this.rows = rows;
         /**
-         * 
-         * @returns {object} 
+         * 新建<textarea>
+         * @returns {object} 新节点指针
          */
         this.createElem = function() {
             let newElem = window.document.createElement("textarea");
@@ -201,10 +210,10 @@ const CREATE_BODY = {
         }
         answer_showTextareaObject.innerHTML = answerCode;
         problem_discribeLabelObject.innerHTML = custom.problem;
-        for (let i in custom.input) {
-            input_testTextarea = new this.NewTextarea(input_testPObject, "input" + i.toString(), "textarea", "80", "8");
+        for (const i in custom.input) {
+            input_testTextarea = new this.NewTextarea(input_testPObject, "input" + i, "textarea", "80", "8");
             input_testTextareaObject = input_testTextarea.createElem();
-            input_testTextareaObject.innerHTML = custom.input[i];
+            input_testTextareaObject.innerHTML = custom.input[parseInt(i)];
             input_testBr = new this.NewBr(input_testPObject);
             input_testBr.createElem();
         }
