@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>删除排序数组中的重复项(简单)</title>
+    <link rel="icon" href="../../images/favicon.ico">
+    <link rel="stylesheet" href="../../css/problem_style_kai.css">
+</head>
+<body>
+    <p id="code">this.removeDulicates = function(nums) {
+    if (!nums.length) {
+        return 0;
+    }
+    let slow = 0;
+    for (const fast of nums) {
+        if (nums[slow] !== fast) {
+            nums[++slow] = fast;
+        }
+    }
+    return slow + 1;
+}
+</p>
+    <script src="./scripts/main.js"></script>
+    <script src="../../src/main-kai-ni.js"></script>
+</body>
+</html>
