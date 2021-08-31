@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>杨辉三角</title>
+    <link rel="icon" href="../../images/favicon.ico">
+    <link rel="stylesheet" href="../../css/problem_style_kai.css">
+</head>
+<body>
+    <p id="code">this.generate = function(numRows) {
+    let result = new Array(numRows);
+    result[0] = [ 1 ];
+    for (let rowIndex = 1; rowIndex < numRows; rowIndex++) {
+        let row = new Array(rowIndex + 1).fill(1);
+        for (let i = 1, j = row.length - 2; i <= j; i++, j--) {
+            row[i] = result[rowIndex - 1][i - 1] + result[rowIndex - 1][i];
+            row[j] = result[rowIndex - 1][j - 1] + result[rowIndex - 1][j];
+        }
+        result[rowIndex] = row;
+    }
+    return result;
+}
+</p>
+    <script src="./scripts/main.js"></script>
+    <script src="../../src/main-kai-ni.js"></script>
+</body>
+</html>
