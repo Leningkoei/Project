@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>寻找旋转排序数组中的最小值(中等)</title>
+    <link rel="icon" href="../../images/favicon.ico">
+    <link rel="stylesheet" href="../../css/problem_style_kai.css">
+</head>
+<body>
+    <p id="code">this.findMin = function(nums) {
+    let left = 0;
+    let right = nums.length;
+    let temp = 0;
+    while (left < right) {
+        temp = parseInt((left + right) / 2);
+        nums[temp] > nums[right] ? left = temp + 1 : right = temp;
+    }
+    return nums[left];
+}
+</p>
+    <script src="./script/main.js"></script>
+    <script src="../../src/main-kai-ni.js"></script>
+</body>
+</html>
