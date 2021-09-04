@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>圣杯布局</title>
+    <style>
+        * {
+            margin: 0 auto;
+        }
+        #header {
+            background-color: #666;
+            height: 50px;
+            text-align: center;
+        }
+        #body {
+            height: 100px;
+            padding: 0 200px 0 180px;   /* 联动left.left, right.right; 边框属性不会继承; */
+        }
+        #middle {
+            background-color: #00F;
+            float: left;
+            height: 100px;
+            width: 100%;
+        }
+        #left {
+            float: left;
+            height: 100px;
+            width: 180px;
+            background-color: #0C9;
+            margin-left: -100%; /* 设置left的左边顶到浏览器的左边; */
+            position: relative;
+            left: -180px;   /* 把图像的左边缘设置在其包含元素左边缘向右left.value的位置; */
+        }
+        #right {
+            float: left;
+            height: 100px;
+            width: 200px;
+            background-color: #0C9;
+            margin-left: -200px;    /* 设置right的左边顶到距浏览器的右边的向左200px的位置; 联动this.right; */
+            position: relative;
+            right: -200px;  /* 把图像的右边缘设置在其包含元素右边缘向做right.value的位置; */
+        }
+        #footer {
+            background-color: #666;
+            height: 50px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="header">header</div>
+    <div id="body">
+        <div id="middle">middle</div>
+        <div id="left">left</div>
+        <div id="right">right</div>
+    </div>
+    <div id="footer">footer</div>
+</body>
+</html>
