@@ -17,6 +17,8 @@
         #body {
             height: 100px;
             padding: 0 200px 0 180px;   /* 联动left.left, right.right; 边框属性不会继承; */
+            min-width: 180px;   /* 其实应该是left div的宽度 */
+            /* 至此布局效果完成，不过还需要考虑最后一步，那就是页面的最小宽度，但是这并不是简单的200+150=350px，回想之前left使用了position：relative，所以就意味着在center开始的领域，还存在着一个left的宽度（在使用相对定位时，无论是否进行移动，元素仍然占据原来的空间。因此，移动元素会导致它覆盖其它框。），所以页面的最小宽度应该为200+150+200=550px: */
         }
         #middle {
             background-color: #00F;
