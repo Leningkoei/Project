@@ -32,7 +32,7 @@
         let charOfS = 0;
         for (const char of word) {
             const indexOfcharInS = f[charOfS][char.charCodeAt() - "a".charCodeAt()];
-            if (m === f[charOfS][indexOfcharInS]) {
+            if (m === indexOfcharInS) {
                 match = false;
                 break;
             }
