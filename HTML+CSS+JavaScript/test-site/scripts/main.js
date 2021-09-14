@@ -25,5 +25,18 @@ if (!localStorage.getItem("name")) {
     myHeading.textContent = "Mozilla is cool, " + storedName;
 }
 myButton.onclick = function() {
-    setUserName();
+    // setUserName();
+    myFunction();
+}
+const myFunction = function() {
+    const xhr = new XMLHttpRequest();
+    xhr.open("get", "./scripts/test.asp")
+    xhr.send();
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4) {
+            if (xhr.status === 200) {
+                console.log(xhr.responseText);
+            }
+        }
+    }
 }
