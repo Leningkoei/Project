@@ -1,8 +1,9 @@
+const leetcode = window.leetcode || {};
 /**
  * @param {character[][]} board
  * @return {boolean}
  */
- const isValidSudoku = function(board) {
+leetcode.isValidSudoku = function(board) {
     // const rowList = new Array(9).fill(undefined).map(() => []);
     // const colList = new Array(9).fill(undefined).map(() =>[]);
     // const blockList = new Array(9).fill(undefined).map(() => []);
@@ -42,6 +43,33 @@
                 rowSet.add(rowInfo);
                 colSet.add(colInfo);
                 blockSet.add(blockInfo);
+            }
+        }
+    }
+    return true;
+}
+/**
+ * 更加完美的哈希表;
+ * @param {character[][]} board
+ * @return {boolean}
+ */
+leetcode.isValidSudokuKai = function(board) {
+    // array[9][9]: 前面以位置为索引, 后面以val的种类为索引, 存储该位置该val出现的bool;
+    const rowList = new Array(9).fill(undefined).map(() => new Array(9).fill(false));
+    const colList = new Array(9).fill(undefined).map(() => new Array(9).fill(false));
+    const blockList = new Array(9).fill(undefined).map(() => new Array(9).fill(false));
+    for (let row = 0; row < 9; row++) {
+        for (let col = 0; col < 9; col++) {
+            const char = board[row][col];
+            if (char !== ".") {
+                const val = Number(char);
+                const block = parseInt(row / 3) + parseInt(col / 3) * 3;
+                if (rowList[row][val] || colList[col][val] || blockList[block][val]) {
+                    return false;
+                }
+                rowList[row][val] = true;
+                colList[col][val] = true;
+                blockList[block][val] = true;
             }
         }
     }

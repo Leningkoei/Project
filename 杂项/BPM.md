@@ -1,3 +1,4 @@
+#   Basic Principles of Marxism
 #   答题规律
 ##  [描述] [a]和[b]的辩证关系
 -   [a]与[b]是紧密联系, 不可分割的辩证统一关系;

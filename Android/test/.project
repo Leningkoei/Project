@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>hello_world</name>
-	<comment>Project Android created by Buildship.</comment>
+	<name>test</name>
+	<comment>Project test created by Buildship.</comment>
 	<projects>
 	</projects>
 	<buildSpec>
@@ -16,7 +16,7 @@
 	</natures>
 	<filteredResources>
 		<filter>
-			<id>1631535128291</id>
+			<id>1631720961134</id>
 			<name></name>
 			<type>30</type>
 			<matcher>
