@@ -1,4 +1,4 @@
-const leetcode = window.leetcode || {};
+const leetcode = leetcode || {};
 leetcode.TreeNode = class {
     /**
      * @param {number} val
