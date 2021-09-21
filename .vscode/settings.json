@@ -2,5 +2,6 @@
     "java.project.sourcePaths": [
         "Java/other/hello_world/src",
         "Java\\other"
-    ]
+    ],
+    "editor.fontFamily": "Courier New"
 }
