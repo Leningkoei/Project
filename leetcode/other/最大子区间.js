@@ -1,10 +1,10 @@
-const leetcode = leetcode || {};
+export { maxSubArray };
 /**
  * 分治;
  * @param {number[]} nums
  * @returns {number}
  */
-leetcode.maxSubArray = function(nums) {
+const maxSubArray = function(nums) {
     const Status = class {
         /**
          * @param {number} leftSum
@@ -20,9 +20,9 @@ leetcode.maxSubArray = function(nums) {
         }
     }
     /**
-     * @param {leetcode.Status} left
-     * @param {leetcode.Status} right
-     * @returns {leetcode.Status}
+     * @param {Status} left
+     * @param {Status} right
+     * @returns {Status}
      */
     const pushUp = function(left, right) {
         const leftSum = Math.max(left.leftSum, left.allSum + right.leftSum);
