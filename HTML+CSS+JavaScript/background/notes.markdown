@@ -33,6 +33,10 @@ const vm = new Vue({
 vm.$mount("#root");             // 绑定容器; -- 与上面的写法2选1; -- mount: 挂载;
 ```
 ```
-<${tag} v-blind:${attribute}="{{${expression}}}"> -- 单向绑定
-<${tag} v-model:value="{{${expression}}}"> -- 双向绑定, 只能绑定于表单类元素中
+<${tag} v-blind:${attribute}="{{${expression}}}"> -- 单向绑定;
+<${tag} v-model:value="{{${expression}}}"> -- 双向绑定, 只能绑定于表单类元素中;
 ```
+#   byte operation
+***
+-   永远认为位运算符优先级低于常规运算符;
+-   ^ 优先级低于 <<, >>;                -- 测试结果;
