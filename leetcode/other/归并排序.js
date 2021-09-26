@@ -1,21 +1,23 @@
 export { mergeSort };
-/**
- * @param {number[]} nums
- * @param {number} left
- * @param {number} right
- * @returns {number[]}
- */
-const mergeSort = function(nums, left, right) {
-    if (left >= right) {
-        return left;
+const mergeSort = function(nums) {
+    const sort = function(left, right) {
+        if (left < right) {
+            const mid = left + right >> 1;
+            sort(left, mid);
+            sort(mid + 1, right);
+            merge(left, mid, right);
+        }
     }
-    const middle = left + right >> 1;
-    return merge(mergeSort(nums, left, middle), mergeSort(nums, middle + 1, right));
-}
-/**
- * @param {number} leftPart
- * @param {number} rightPart
- */
-const merge = function(leftPart, rightPart) {
-    //
+    const merge = function(left, mid, right) {
+        for (let p = mid + 1; p <= right; p++) {
+            for (let q = p; q > left && nums[q - 1] > nums[q]; q--) {
+                console.log(nums[q - 1], nums[q]);
+                result++;
+                [ nums[q - 1], nums[q] ] = [ nums[q], nums[q - 1] ];
+            }
+        }
+    }
+    let result = 0;
+    sort(0, nums.length - 1);
+    console.log(result);
 }
