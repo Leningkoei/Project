@@ -1,32 +1,19 @@
 export { countPrimes };
 /**
+ * 埃氏筛;
  * @param {number} n
  * @returns {number}
  */
 const countPrimes = function(n) {
-    if (n === 0) {
-        return 0;
-    }
-    if (n === 1) {
-        return 0;
-    }
-    if (n === 2) {
-        return 1;
-    }
-    const checkNum = function(num) {
-        for (const i of map) {
-            if (num % i === 0) {
-                return false;
+    let result = 0;
+    const map = new Array(n).fill(true);
+    for (let i = 2; i < n; i++) {
+        if (map[i]) {
+            result++;
+            for (let j = i * i; j < n; j += i) {
+                map[j] = false;
             }
         }
-        return true;
     }
-    const map = [2];
-    let count = 0;
-    while (count < n) {
-        if (checkNum(count)) {
-            map.push(count);
-        }
-    }
-    return map.length;
+    return result;
 }

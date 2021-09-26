@@ -4,6 +4,11 @@ const vm = new Vue({
         return {
             head: "nmsl",
         }
+    },
+    methods: {
+        showInfo: function() {
+            alert("nmsl!");
+        }
     }
 })
 vm.$mount("#root");

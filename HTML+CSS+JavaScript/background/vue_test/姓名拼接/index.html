@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>姓名拼接</title>
+    <script src="../../../../javascript_lib/Vue/vue.js"></script>
+</head>
+<body>
+    <div id="root">
+        <label>first name: <input type="text" v-model="firstName"></label><br>
+        <label>last name: <input type="text" v-model="secondName"></label><br>
+        <!-- <label>name: <span>{{subName()}}</span></label> -->
+        <label>name: <span>{{subName}}</span></label><br>
+        <button @click="resetName">RESET</button>
+    </div>
+    <script src="./scripts/main.js"></script>
+</body>
+</html>
