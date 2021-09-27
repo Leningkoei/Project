@@ -12,12 +12,13 @@ const mergeSort = function(nums) {
         for (let p = mid + 1; p <= right; p++) {
             for (let q = p; q > left && nums[q - 1] > nums[q]; q--) {
                 console.log(nums[q - 1], nums[q]);
-                result++;
+                result.push([ nums[q - 1], nums[q] ]);
                 [ nums[q - 1], nums[q] ] = [ nums[q], nums[q - 1] ];
             }
         }
     }
-    let result = 0;
+    const result = [];
     sort(0, nums.length - 1);
-    console.log(result);
+    console.log(result.length);
+    return result;
 }
