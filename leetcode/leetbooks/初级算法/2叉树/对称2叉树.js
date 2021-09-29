@@ -15,11 +15,32 @@ leetcode.TreeNode = class {
     }
 }
 /**
+ * 12句话似乎不太好描述;
+ * @param {leetcode.TreeNode} root
+ */
+leetcode.isSymmetric = function(root) {
+    /**
+     * @param {leetcode.TreeNode} rootLeft
+     * @param {leetcode.TreeNode} rootRight
+     * @returns {boolean}
+     */
+    const myFunction = function(rootLeft, rootRight) {
+        if (!rootLeft && !rootRight) {
+            return true;
+        }
+        if (!rootLeft || !rootRight || rootLeft.val !== rootRight.val) {
+            return false;
+        }
+        return myFunction(rootLeft.left, rootRight.right) && myFunction(rootLeft.right, rootRight.left);
+    }
+    return myFunction(root.left, root.right);
+}
+/**
  * 中序遍历存入数组, 检查数组是否对称; -- 比想象中的复杂许多, 会有各种特殊情况出现
  * @param {leetcode.TreeNode} root
  * @return {boolean}
  */
-leetcode.isSymmetric = function(root) {
+leetcode.isSymmetricKai = function(root) {
     const myList = [];
     const myListKai = [];
     const myForEach = function(root, level) {
@@ -73,25 +94,4 @@ leetcode.isSymmetric = function(root) {
         }
     }
     return true;
-}
-/**
- * 12句话似乎不太好描述;
- * @param {leetcode.TreeNode} root
- */
-leetcode.isSymmetricKai = function(root) {
-    /**
-     * @param {leetcode.TreeNode} rootLeft
-     * @param {leetcode.TreeNode} rootRight
-     * @returns {boolean}
-     */
-    const myFunction = function(rootLeft, rootRight) {
-        if (!rootLeft && !rootRight) {
-            return true;
-        }
-        if (!rootLeft || !rootRight || rootLeft.val !== rootRight.val) {
-            return false;
-        }
-        return myFunction(rootLeft.left, rootRight.right) && myFunction(rootLeft.right, rootRight.left);
-    }
-    return myFunction(root.left, root.right);
 }

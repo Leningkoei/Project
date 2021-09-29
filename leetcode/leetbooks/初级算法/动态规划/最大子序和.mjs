@@ -1,4 +1,4 @@
-export {maxSubArray};
+export { maxSubArray };
 /**
  * @param {number[]} nums
  * @returns {number}

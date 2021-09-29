@@ -1,5 +1,5 @@
 export { rob };
-import { ListNode } from "../../classes/ListNode.js";
+import { ListNode } from "../../../classes/ListNode.mjs";
 /**
  * @param {numbers[]} nums
  * @returns {number}
