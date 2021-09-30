@@ -24,14 +24,14 @@
 ##  基础语法
 ```javascript []
 const vm = new Vue({
-    el: "#${id}",               // 绑定容器; -- 与下面的写法2选1;
-    data: function() {          // 设置容器中插值的值;
+    "el": "#${id}",               // 绑定容器; -- 与下面的写法2选1;
+    "data": function() {          // 设置容器中插值的值;
         return {
             ${somethingUseful}  // typeof(somethingUseful) === json;
         }
     },
-    computed: {
-        ${property}: {
+    "computed": {
+        "${property}": {
             "get": function() {
                 //
             },
@@ -40,8 +40,16 @@ const vm = new Vue({
             }
         }
     },
-    methods: {
+    "methods": {
         ${function(event, params) {...}}
+    },
+    "watch": {
+        "${property}": {
+            "immediate": ${boolean};
+            "handler": function(newValue, oldValue) {
+                // TODO;
+            }
+        }
     }
 })
 vm.$mount("#root");             // 绑定容器; -- 与上面的写法2选1; -- mount: 挂载;

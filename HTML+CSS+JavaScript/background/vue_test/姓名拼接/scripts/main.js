@@ -1,11 +1,13 @@
 const main = function() {
     const vm = new Vue({
+        // 数据;
         "data": function() {
             return {
                 "firstName": "Zhang",
                 "secondName": "3"
             }
         },
+        // 计算属性;
         "computed": {
             "subName": {
                 "get": function() {
@@ -18,7 +20,8 @@ const main = function() {
                 }
             }
         },
-        methods: {
+        // 方法;
+        "methods": {
         //     "subName": function() {
         //         return this.firstName.slice(0, 10) + "-" + this.secondName.slice(0, 10);
         //     }
