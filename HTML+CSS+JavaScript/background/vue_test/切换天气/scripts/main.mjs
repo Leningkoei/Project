@@ -3,7 +3,11 @@ const main = function() {
     const vm = new Vue({
         "data": function() {
             return {
-                "isHot": true
+                "isHot": true,
+                "numbers": {
+                    "a": 1,
+                    "b": 1
+                }
             }
         },
         "computed": {
@@ -19,6 +23,12 @@ const main = function() {
         "methods": {
             "changeWeather": function() {
                 this.isHot = !this.isHot;
+            },
+            "app": function() {
+                this.numbers.a++;
+            },
+            "bpp": function() {
+                this.numbers.b++;
             }
         },
         // 监视属性;
@@ -38,4 +48,10 @@ const main = function() {
             console.log(newValue, oldValue);
         }
     });
+    vm.$watch("numbers", {
+        "deep": true,           // 是否深度监视;
+        "handler": function(newValue, oldValue) {
+            console.log("numbers was changed");
+        }
+    })
 }

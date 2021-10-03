@@ -24,10 +24,10 @@
 ##  基础语法
 ```javascript []
 const vm = new Vue({
-    "el": "#${id}",               // 绑定容器; -- 与下面的写法2选1;
-    "data": function() {          // 设置容器中插值的值;
+    "el": "#${id}",                 // 绑定容器; -- 与下面的写法2选1;
+    "data": function() {            // 设置容器中插值的值;
         return {
-            ${somethingUseful}  // typeof(somethingUseful) === json;
+            ${somethingUseful}      // typeof(somethingUseful) === json;
         }
     },
     "computed": {
@@ -43,7 +43,7 @@ const vm = new Vue({
     "methods": {
         ${function(event, params) {...}}
     },
-    "watch": {
+    "watch": {                      // 设置监视属性;
         "${property}": {
             "immediate": ${boolean};
             "handler": function(newValue, oldValue) {
@@ -52,7 +52,14 @@ const vm = new Vue({
         }
     }
 })
-vm.$mount("#root");             // 绑定容器; -- 与上面的写法2选1; -- mount: 挂载;
+vm.$mount("#root");                 // 绑定容器; -- 与上面的写法2选1; -- mount: 挂载;
+vm.$watch("${property}", {          // 设置监视属性;
+    "deep": ${boolean},             // 是否深度监视;
+    "handler": function(newValue, oldValue) {
+        // TODO;
+    },
+    "immediate": ${boolean}         // 是否立即执行;
+})
 ```
 ##  事件修饰符
 ```javascript []
