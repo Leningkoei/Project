@@ -4,32 +4,40 @@ export { fractionToDecimal };
  * @param {number} denominator 分母;
  */
 const fractionToDecimal = function(numerator, denominator) {
-    let count = 10000;
+    if (numerator % denominator === 0) {
+        return (numerator / denominator).toString();
+    }
+    const result = [];
     const map = new Map();
+    let count = 10000;
+    if (numerator < 0 ^ denominator < 0) {
+        result.push("-");
+    }
+    numerator = Math.abs(numerator);
+    denominator = Math.abs(denominator);
     const remainder = numerator % denominator;
     const quotient = (numerator - remainder) / denominator;
-    const front = quotient.toString() + ".";
-    if (remainder === 0) {
-        return front + "0";
-    }
+    result.push(quotient.toString());
+    result.push(".");
+    let location = result.length;
     numerator = remainder * 10;
     while (count--) {
-        /**
-         * 余数;
-         */
-        const remainder = numerator % denominator;
-        if (map.has(remainder)) {
+        if (map.has(numerator)) {
+            location = map.get(numerator);
             break;
+        } else {
+            const remainder = numerator % denominator;
+            const quotient = (numerator - remainder) / denominator;
+            result.push(quotient);
+            if (remainder === 0) {
+                return result.join("");
+            }
+            map.set(numerator, location);
+            location++;
+            numerator = remainder * 10;
         }
-        /**
-         * 商;
-         */
-        const quotient = (numerator - remainder) / denominator;
-        map.set(remainder, quotient);
-        if (remainder === 0) {
-            return front + map.values.join("");
-        }
-        numerator = remainder * 10;
     }
-    return front + "(" + map.values.join("") + ")";
+    result.splice(location, 0, "(");
+    result.push(")");
+    return result.join("");
 }
