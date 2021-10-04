@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>绑定样式</title>
+    <link rel="stylesheet" href="./styles/style.css">
+    <script src="../../../../javascript_lib/Vue/vue.js"></script>
+    <script type="module" src="./scripts/main.mjs"></script>
+    <script type="module">
+        import { main } from "./scripts/main.mjs";
+        window.main = main();
+        window.document.getElementsByTagName("body").onload="main()";
+    </script>
+</head>
+<body>
+    <div id="root">
+        <div class="basic" :class="style" id="result" @click="changeColor"></div>
+    </div>
+    <div class="basic float first"></div>
+    <div class="basic float second"></div>
+    <div class="basic float third"></div>
+    <div class="basic float forth"></div>
+    <div class="basic float fifth"></div>
+</body>
+</html>

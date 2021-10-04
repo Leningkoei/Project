@@ -1,0 +1,31 @@
+* {
+    margin: 0;
+}
+#root {
+    height: 400px;
+}
+.basic {
+    height: 200px;
+    width: 300px;
+    border-width: 8px;
+    border-color: #000000;
+    border-style: solid;
+}
+.float {
+    float: left;
+}
+.first {
+    background-color: #FFFF00;
+}
+.second {
+    background-color: #FF00FF;
+}
+.third {
+    background-color: #00FFFF;
+}
+.forth {
+    background-color: #FF0000;
+}
+.fifth {
+    background-color: #00FF00;
+}

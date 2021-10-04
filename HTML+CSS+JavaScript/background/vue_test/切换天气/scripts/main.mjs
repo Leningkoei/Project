@@ -31,10 +31,9 @@ const main = function() {
                 this.numbers.b++;
             }
         },
-        // 监视属性;
         "watch": {
             "weather": {
-                "immediate": true,  // 是否立即执行; -- 默认false;
+                "immediate": true,
                 "handler": function(newValue, oldValue) {
                     console.log(newValue, oldValue);
                 }
@@ -49,7 +48,7 @@ const main = function() {
         }
     });
     vm.$watch("numbers", {
-        "deep": true,           // 是否深度监视;
+        "deep": true,
         "handler": function(newValue, oldValue) {
             console.log("numbers was changed");
         }

@@ -4,29 +4,38 @@ const main = function() {
         "data": function() {
             return {
                 "firstName": "Zhang",
-                "secondName": "3"
+                "lastName": "3",
+                "fillName": "Zhang-3"
             }
         },
-        // 计算属性;
-        "computed": {
-            "subName": {
-                "get": function() {
-                    return this.firstName.slice(0, 10) + "-" + this.secondName.slice(0, 10);
-                },
-                "set": function(value) {
-                    const fillName = value.split("-");
-                    this.firstName = fillName[0];
-                    this.secondName = fillName[1];
-                }
-            }
-        },
-        // 方法;
-        "methods": {
-        //     "subName": function() {
-        //         return this.firstName.slice(0, 10) + "-" + this.secondName.slice(0, 10);
+        // // 计算属性;
+        // "computed": {
+        //     "subName": {
+        //         "get": function() {
+        //             return this.firstName.slice(0, 10) + "-" + this.lastName.slice(0, 10);
+        //         },
+        //         "set": function(value) {
+        //             const fillName = value.split("-");
+        //             this.firstName = fillName[0];
+        //             this.lastName = fillName[1];
+        //         }
         //     }
-            "resetName": function() {
-                this.subName = "Zhang-3";
+        // },
+        // // 方法;
+        // "methods": {
+        // //     "subName": function() {
+        // //         return this.firstName.slice(0, 10) + "-" + this.lastName.slice(0, 10);
+        // //     }
+        //     "resetName": function() {
+        //         this.subName = "Zhang-3";
+        //     }
+        // },
+        "watch": {
+            "firstName": function(newValue) {
+                this.fillName = newValue + "-" + this.lastName;
+            },
+            "lastName": function(newValue) {
+                this.fillName = this.firstName + "-" + newValue;
             }
         }
     })

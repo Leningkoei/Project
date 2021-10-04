@@ -50,6 +50,11 @@ const vm = new Vue({
                 // TODO;
             }
         }
+    },
+    "watch": {                      // 简写;
+        "${property}": function(newValue, oldValue) {
+            // TODO;
+        }
     }
 })
 vm.$mount("#root");                 // 绑定容器; -- 与上面的写法2选1; -- mount: 挂载;
@@ -59,6 +64,9 @@ vm.$watch("${property}", {          // 设置监视属性;
         // TODO;
     },
     "immediate": ${boolean}         // 是否立即执行;
+})
+vm.$watch("${property}", function(newValue, oldValue) { // 简写;
+    // TODO;
 })
 ```
 ##  事件修饰符
