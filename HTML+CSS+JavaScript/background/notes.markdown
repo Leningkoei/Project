@@ -80,12 +80,17 @@ passive;    // 事件的默认行为立即执行, 无需等待事件回调执行
 ${keybord}  // 绑定键盘按键;
 ```
 ```
-<${tag} v-bind:${property}="{{${expression}}}">        -- 单向绑定;
+<${tag} v-bind:${property}="{{${expression}}}">         -- 单向绑定;
 <${tag} :${property}="{{${expression}}}>
 <${tag} v-model:value="{{${expression}}}">              -- 双向绑定, 只能绑定于表单类元素中;
 <${tag} v-model="{{${expression}}}">
 <${tag} v-method:${kind}="{{${function name}}}>
 <${tag} @{kind}="{{${function($event, ${params})}}}>
+<${tag} v-show="${boolean}">                            -- template不能与之配合;
+<${tag} v-if="${boolean}">
+<${tag} v-else-if="${boolean}">
+<${tag} v-else">
+<li v-for="(${elem}, index) in || of ${Array}" :key="${id}" || "index">{{${elem}}}</li> -- 可以遍历对象(${value}, ${name})和string和指定次数;
 ```
 #   byte operation
 ***
