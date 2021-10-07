@@ -1,7 +1,24 @@
 export { buildTreeKai as buildTree };
 import { TreeNode } from "../../../classes/TreeNode.mjs";
+/**
+ * @param {number[]} preorder
+ * @param {number[]} inorder
+ * @returns {TreeNode}
+ */
 const buildTree = function(preorder, inorder) {
-    return;
+    if (!preorder.length) {
+        return null;
+    }
+    const node = new TreeNode(preorder[0], null, null);
+    let index = 0;
+    while (inorder[index++] !== preorder[0]);   // pay attition!!!
+    const leftSubtreePreorder = preorder.slice(1, index);
+    const rightSubtreePreorder = preorder.slice(index, preorder.length);
+    const leftSubtreeInorder = inorder.slice(0, index - 1);
+    const rightSubtreeInorder = inorder.slice(index, inorder.length);
+    node.left = buildTree(leftSubtreePreorder, leftSubtreeInorder);
+    node.right = buildTree(rightSubtreePreorder, rightSubtreeInorder);
+    return node;
 }
 /**
  * @param {number[]} preorder
