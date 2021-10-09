@@ -1,10 +1,10 @@
 #   0th exprement
-##  目录
+##  文件目录
 ```
 |---./
-    |---app
-        |---src
-            |---main
+    |---app/
+        |---src/
+            |---main/
                 |---java/com/test/MainActivity.java
                 |---res/layout/activity_main.xml
 ```
