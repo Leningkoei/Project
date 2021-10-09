@@ -1,5 +1,4 @@
-package hellow_world.src;
-
+package other.hellow_world.src;
 public class App {
     public static void main(String[] args) throws Exception {
         System.out.println("Hello, World!");
