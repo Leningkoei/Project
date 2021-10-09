@@ -1,10 +1,21 @@
 #   0th exprement
+##  目录
+```
+|---./
+    |---app
+        |---src
+            |---main
+                |---java/com/test/MainActivity.java
+                |---res/layout/activity_main.xml
+```
+
 ##  运行结果
-![avatar](./readme_images/welcome.jpg)
-![avatar](./readme_images/chat.jpg)
-![avatar](./readme_images/mail.jpg)
-![avatar](./readme_images/find.jpg)
-![avatar](./readme_images/me.jpg)
+<img src="./readme_images/welcome.jpg" width="300">;
+<img src="./readme_images/chat.jpg" width="300">;
+<img src="./readme_images/mail.jpg" width="300">;
+<img src="./readme_images/find.jpg" width="300">;
+<img src="./readme_images/me.jpg" width="300">;
+
 ##  code
 ```MainActivity.java```
 ``` java []
