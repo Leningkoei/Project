@@ -1,3 +1,11 @@
+#   0th exprement
+##  运行结果
+![avatar](./readme_images/welcome.jpg)
+![avatar](./readme_images/chat.jpg)
+![avatar](./readme_images/mail.jpg)
+![avatar](./readme_images/find.jpg)
+![avatar](./readme_images/me.jpg)
+##  code
 ```MainActivity.java```
 ``` java []
 package com.test;
