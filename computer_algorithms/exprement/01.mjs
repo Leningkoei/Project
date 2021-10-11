@@ -1,6 +1,6 @@
 export { myFunction };
 function myFunction() {
-    const map = new Set([ 2, 3, 5, 7, 11, 13, 17 ]);
+    const map = new Set([ 2, 3, 5, 7, 11, 13, 17, 19 ]);
     const grid = new Array(3).fill(undefined).map(() => new Array(3).fill(undefined));
     const log = new Set();
     let count = 0;
@@ -13,6 +13,7 @@ function myFunction() {
             }
             grid[y][x] = p;
             if (delta(x, y)) {
+                log.add(p);
                 if (x === 2) {
                     if (y === 2) {
                         count++;
@@ -21,15 +22,12 @@ function myFunction() {
                             console.log(row.toString());
                         }
                     } else {
-                        log.add(p);
                         myFunction1(0, y + 1);
-                        log.delete(grid[y][x]);
                     }
                 } else {
-                    log.add(p);
                     myFunction1(x + 1, y);
-                    log.delete(grid[y][x]);
                 }
+                log.delete(grid[y][x]);
             }
         }
         grid[y][x] = undefined;
