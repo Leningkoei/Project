@@ -9,7 +9,7 @@ function myFunction() {
      * @param {number} y 当前坐标的y值;
      */
     function dfs(x, y) {
-        if (x === 0 && y === 3) {
+        if (y === 3) {
             // 递归出口;
             count++;
             console.log("------");
