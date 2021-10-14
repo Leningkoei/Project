@@ -22,7 +22,7 @@
 #   Vue
 ***
 ##  基础语法
-```javascript []
+``` JavaScript []
 const vm = new Vue({
     "el": "#${id}",                 // 绑定容器; -- 与下面的写法2选1;
     "data": function() {            // 设置容器中插值的值;
@@ -68,9 +68,10 @@ vm.$watch("${property}", {          // 设置监视属性;
 vm.$watch("${property}", function(newValue, oldValue) { // 简写;
     // TODO;
 })
+Vue.set(vm.${property}, "${key}", "${value}");
 ```
 ##  事件修饰符
-```javascript []
+``` JavaScript []
 prevent;    // 阻止默认事件;
 stop;       // 阻止事件冒泡;
 once;       // 事件只触发1次;
