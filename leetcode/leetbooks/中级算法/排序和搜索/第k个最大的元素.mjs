@@ -40,9 +40,10 @@ function findKthLargestKai(nums, k) {
         let right = end;
         const flag = nums[left];
         while (left < right) {
-            do {
-                right--;
-            } while (left < right && nums[right] >= target);
+            // do {
+            //     right--;
+            // } while (left < right && nums[right] >= flag);
+            while (left < --right && nums[right] >= flag);
             [ nums[left], nums[right] ] = [ nums[right], nums[left] ];
             while (left < right && nums[left] <= flag) {
                 left++;
@@ -59,7 +60,7 @@ function findKthLargestKai(nums, k) {
         if (left === targetIndex) {
             return nums[left];
         } else if (left < targetIndex) {
-            return quickSelect(left, end);
+            return quickSelect(left + 1, end);
         } else if (left > targetIndex) {
             return quickSelect(bgn, left);
         }
