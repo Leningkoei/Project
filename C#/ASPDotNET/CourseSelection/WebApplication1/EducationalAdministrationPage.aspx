@@ -5,13 +5,38 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title></title>
+    <title>教务管理页面</title>
+    <!-- 为啥ASP.NET似乎不能正常引入.mjs阿 -->
+    <link rel="stylesheet" href="./style.css">
+    <script type="text/javascript" src="./Vue.js"></script>
 </head>
 <body>
-    <form id="form1" runat="server">
-        <div>
+    <div id="root">
+        <div class="header">
+            <div class="buttonDivInHeader" @click="focusOnStudentDiv">
+                <div>
+                    <label>学生</label>
+                </div>
+            </div>
+            <div class="buttonDivInHeader" @click="focusOnTeacherDiv">
+                <div>
+                    <label>教师</label>
+                </div>
+            </div>
+            <div class="buttonDivInHeader" @click="focusOnCourseDiv">
+                <div>
+                    <label>课程</label>
+                </div>
+            </div>
+            <div class="buttonDivInHeader" @click="focusOnGradeDiv">
+                <div>
+                    <label>成绩</label>
+                </div>
+            </div>
+        </div>
+        <form id="form1" runat="server">
             <!-- student -->
-            <div>
+            <div :class="studentDivStyle">
                 <h2>student</h2>
                 <!-- buttons -->
                 <div>
@@ -28,7 +53,7 @@
                     <label>class</label><asp:TextBox ID="TextBox4" runat="server"></asp:TextBox><br>
                 </div>
                 <!-- grid view -->
-                <div>
+                <!-- <div> -->
                     <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="studentId" DataSourceID="student_table">
                         <Columns>
                             <asp:BoundField DataField="studentId" HeaderText="studentId" InsertVisible="False" ReadOnly="True" SortExpression="studentId" />
@@ -38,10 +63,10 @@
                         </Columns>
                     </asp:GridView>
                     <asp:SqlDataSource ID="student_table" runat="server" ConnectionString="<%$ ConnectionStrings:CourseSelectionConnectionString %>" SelectCommand="SELECT * FROM [Student]"></asp:SqlDataSource>
-                </div>
+                <!-- </div> -->
             </div>
             <!-- teacher -->
-            <div>
+            <div :class="teacherDivStyle">
                 <h2>teacher</h2>
                 <!-- buttons -->
                 <div>
@@ -69,7 +94,7 @@
                 </div>
             </div>
             <!-- course -->
-            <div>
+            <div :class="courseDivStyle">
                 <h2>course</h2>
                 <!-- buttons -->
                 <div>
@@ -103,7 +128,7 @@
                 </div>
             </div>
             <!-- grade -->
-            <div>
+            <div :class="gradeDivStyle">
                 <h2>grade</h2>
                 <!-- buttons -->
                 <div>
@@ -120,17 +145,28 @@
                 </div>
                 <!-- grid view -->
                 <div>
-                    <asp:GridView ID="GridView4" runat="server" AutoGenerateColumns="False" DataSourceID="grade_table">
+                    <asp:GridView ID="GridView4" runat="server" AutoGenerateColumns="False" DataSourceID="greate_view" DataKeyNames="studentId,teacherId,courseId">
                         <Columns>
-                            <asp:BoundField DataField="studentId" HeaderText="studentId" SortExpression="studentId" />
-                            <asp:BoundField DataField="courseId" HeaderText="courseId" SortExpression="courseId" />
+                            <asp:BoundField DataField="studentId" HeaderText="studentId" SortExpression="studentId" ReadOnly="True" />
+                            <asp:BoundField DataField="studentName" HeaderText="studentName" SortExpression="studentName" />
+                            <asp:BoundField DataField="studentDepartment" HeaderText="studentDepartment" SortExpression="studentDepartment" />
+                            <asp:BoundField DataField="studentClass" HeaderText="studentClass" SortExpression="studentClass" />
+                            <asp:BoundField DataField="teacherId" HeaderText="teacherId" ReadOnly="True" SortExpression="teacherId" />
+                            <asp:BoundField DataField="teacherName" HeaderText="teacherName" SortExpression="teacherName" />
+                            <asp:BoundField DataField="teacherDepartment" HeaderText="teacherDepartment" SortExpression="teacherDepartment" />
+                            <asp:BoundField DataField="courseId" HeaderText="courseId" ReadOnly="True" SortExpression="courseId" />
+                            <asp:BoundField DataField="courseName" HeaderText="courseName" SortExpression="courseName" />
+                            <asp:BoundField DataField="courseDay" HeaderText="courseDay" SortExpression="courseDay" />
+                            <asp:BoundField DataField="courseTime" HeaderText="courseTime" SortExpression="courseTime" />
+                            <asp:BoundField DataField="studentNum" HeaderText="studentNum" SortExpression="studentNum" />
                             <asp:BoundField DataField="grade" HeaderText="grade" SortExpression="grade" />
                         </Columns>
                     </asp:GridView>
-                    <asp:SqlDataSource ID="grade_table" runat="server" ConnectionString="<%$ ConnectionStrings:CourseSelectionConnectionString %>" SelectCommand="SELECT * FROM [Grade]"></asp:SqlDataSource>
+                    <asp:SqlDataSource ID="greate_view" runat="server" ConnectionString="<%$ ConnectionStrings:CourseSelectionConnectionString %>" SelectCommand="SELECT * FROM [GreatView]"></asp:SqlDataSource>
                 </div>
             </div>
-        </div>
-    </form>
+        </form>
+    </div>
+    <script type="text/javascript" src="./main.js"></script>
 </body>
 </html>

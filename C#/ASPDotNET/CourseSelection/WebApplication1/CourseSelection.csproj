@@ -68,6 +68,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="EducationalAdministrationPage.aspx" />
+    <Content Include="style.css" />
+    <Content Include="Vue.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -87,6 +89,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <Content Include="main.js" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

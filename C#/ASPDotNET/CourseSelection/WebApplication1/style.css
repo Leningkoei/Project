@@ -1,0 +1,29 @@
+﻿body {
+
+}
+* {
+    margin: 0 auto;
+    padding: 0;
+}
+.header {
+    /* width: 100%; */
+    text-align: center;         /* 居中行内块元素 */
+}
+.show {
+    /* display: ""; */
+    text-align: center;
+}
+.hide {
+    display: none;
+}
+.buttonDivInHeader {
+    height: 40px;
+    width: 100px;
+    background-color: grey;
+    border-width: 4px;
+    border-color: red;
+    border-style: solid;
+    display: inline-flex;
+    align-items: center;        /* 垂直对齐子div */
+    justify-content: center;    /* 水平对齐子div */
+}

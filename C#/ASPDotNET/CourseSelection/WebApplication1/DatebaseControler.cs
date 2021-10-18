@@ -11,9 +11,9 @@ namespace WebApplication1
 {
     public class DatebaseControler
     {
-        private SqlCommand command;
-        private SqlConnection connection;
-        private string connectionString;
+        private SqlCommand command;         // 将要被database执行的语句, 不仅仅具有CommandText属性;
+        private SqlConnection connection;   // 和database的连接;
+        private string connectionString;    // 建立和database连接的字符串;
         public DatebaseControler() {
             this.command = new SqlCommand();
             this.connection = new SqlConnection();
@@ -37,6 +37,16 @@ namespace WebApplication1
             this.command.CommandText = commandText;
             this.command.ExecuteNonQuery();
             this.closeConnection();
+        }
+        // 执行查询语句 select * from ${table} where ${key} = ${id};
+        // 判断表table中是否存在id;
+        public bool findRecode(string commandText) {
+            this.connectDatabase();
+            this.command.CommandText = commandText;
+            SqlDataReader sqlDataReader = this.command.ExecuteReader();
+            bool result = sqlDataReader.HasRows;
+            this.closeConnection();
+            return result;
         }
     }
 }
