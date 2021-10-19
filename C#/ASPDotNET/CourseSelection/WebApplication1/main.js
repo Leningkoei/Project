@@ -1,11 +1,11 @@
-﻿window.vm = new Vue({
+window.vm = new Vue({
     "el": "#root",
     "data"() {
         return {
-            "studentDivStyle": "hide",
-            "teacherDivStyle": "hide",
-            "courseDivStyle": "hide",
-            "gradeDivStyle": "hide"
+            "studentDivStyle": "show",
+            "teacherDivStyle": "show",
+            "courseDivStyle": "show",
+            "gradeDivStyle": "show"
         }
     },
     "methods": {
