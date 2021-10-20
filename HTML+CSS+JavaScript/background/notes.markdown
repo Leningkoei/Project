@@ -55,6 +55,11 @@ const vm = new Vue({
         "${property}": function(newValue, oldValue) {
             // TODO;
         }
+    },
+    "filters": {
+        "${functionName}"(params) {
+            // TODO;
+        }
     }
 })
 vm.$mount("#root");                 // 绑定容器; -- 与上面的写法2选1; -- mount: 挂载;
@@ -68,9 +73,11 @@ vm.$watch("${property}", {          // 设置监视属性;
 vm.$watch("${property}", function(newValue, oldValue) { // 简写;
     // TODO;
 })
-Vue.set(vm.${property}, "${key}", "${value}");
+Vue.set(window.vm.${property}, "${key}", "${value}");
+vm.$set(window.vm.${property}, "${key}", "${value}");
 ```
 ##  事件修饰符
+***
 ``` JavaScript []
 prevent;    // 阻止默认事件;
 stop;       // 阻止事件冒泡;
@@ -81,17 +88,18 @@ passive;    // 事件的默认行为立即执行, 无需等待事件回调执行
 ${keybord}  // 绑定键盘按键;
 ```
 ```
-<${tag} v-bind:${property}="{{${expression}}}">         -- 单向绑定;
-<${tag} :${property}="{{${expression}}}>
-<${tag} v-model:value="{{${expression}}}">              -- 双向绑定, 只能绑定于表单类元素中;
-<${tag} v-model="{{${expression}}}">
-<${tag} v-method:${kind}="{{${function name}}}>
-<${tag} @{kind}="{{${function($event, ${params})}}}>
-<${tag} v-show="${boolean}">                            -- template不能与之配合;
+<${tag} v-bind:${property}="${expression}">         -- 单向绑定;
+<${tag} :${property}="${expression}>
+<${tag} v-model:value="${expression}">              -- 双向绑定, 只能绑定于表单类元素中;
+<${tag} v-model="${expression}">
+<${tag} v-method:${kind}="${function name}>
+<${tag} @{kind}="${function($event, ${params})}>
+<${tag} v-show="${boolean}">                        -- template不能与之配合;
 <${tag} v-if="${boolean}">
 <${tag} v-else-if="${boolean}">
 <${tag} v-else">
 <li v-for="(${elem}, index) in || of ${Array}" :key="${id}" || "index">{{${elem}}}</li> -- 可以遍历对象(${value}, ${name})和string和指定次数;
+value | ${filterA(params)} | ${filterB(params)} | ... | ${filterZ(params)};
 ```
 #   byte operation
 ***

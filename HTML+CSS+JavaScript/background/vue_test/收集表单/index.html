@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>收集表单</title>
+    <script type="text/javascript" src="../../../../javascript_lib/Vue/vue.js"></script>
+    <script type="text/javascript" src="../../../../javascript_lib/day.js/dayjs.min.js"></script>
+    <script type="module" src="./scripts/main.mjs"></script>
+</head>
+<body>
+    <div id="root">
+        <label>now time is {{time}}</label><br>
+        <label>now time is {{getTime()}}</label><br>
+        <label>now time is {{Date.now() | timeFormater("YYYY-MM-DD HH:mm:ss")}}</label>
+        <form @submit.prevent="sendMsg">
+            <label for="account">account:</label>&nbsp;<input type="text" id="account" v-model.trim="userInfo.account"><br>
+            <label for="password">password:</label>&nbsp;<input type="password" id="password" v-model.trim="userInfo.password"><br>
+            <label>sex:</label>&nbsp;<label>male</label><input type="radio" name="sex" value="male" v-model="userInfo.sex"><label>female</label><input type="radio" name="sex" value="female" v-model="userInfo.sex"><br>
+            <label>hobby:</label>&nbsp;<label>study<input type="checkbox" name="hobby" value="study" v-model="userInfo.hobby"></label><label>game<input type="checkbox" name="hobby" value="game" v-model="userInfo.hobby"></label><label>food</label><input type="checkbox" name="hobby" value="food" v-model="userInfo.hobby"><br>
+            <label>game:</label>&nbsp;<select v-model="userInfo.game">
+                <option>--choose one--</option>
+                <option>bgo</option>
+                <option>kancolle</option>
+                <option>bandori</option>
+                <option>pcr</option>
+            </select><br>
+            <label>other info:</label>&nbsp;<textarea v-model.lazy="userInfo.otherInfo"></textarea><br>
+            <label>accept user aggrement:</label>&nbsp;<input type="checkbox" name="acceptUserAgreement" v-model.boolean="userInfo.acceptUserAgreement"><label>I have read <a href="#">user agreement</a>.</label><br>
+            <button>submit</button>
+        </form>
+    </div>
+</body>
+</html>
