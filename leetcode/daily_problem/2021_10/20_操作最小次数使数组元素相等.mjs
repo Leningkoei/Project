@@ -4,10 +4,11 @@ export { minMoves };
  * @returns {number}
  */
 function minMoves(nums) {
+    const minVal = Math.min(...nums);
     // let result = 0;
     // for (const num of nums) {
-    //     result += Math.abs(num - nums[0]);
+        // result += num - minVal;
     // }
     // return result;
-    return nums.reduce((previousValue, currentValue) => previousValue += Math.abs(previousValue - currentValue), 0);
+    return nums.reduce((previousValue, currentValue) => previousValue += currentValue - minVal, 0);
 }
