@@ -36,7 +36,8 @@ const vm = new Vue({
                 //
             },
             "set": function(value) {
-                //
+                // TODO;
+                return TODO;
             }
         }
     },
@@ -58,6 +59,22 @@ const vm = new Vue({
     },
     "filters": {
         "${functionName}"(params) {
+            // TODO;
+        }
+    },
+    "directives": {
+        "${name}": {
+            "bind"() {                  // 模板更新时, 元素绑定成功时调用;
+                // TODO;
+            },
+            "inserted"() {              // 只有元素插入页面时调用;
+                // TODO;
+            },
+            "update"() {                // 模板重新解析时调用;
+                // TODO;
+            }
+        }
+        "${name}"(element, binding) {   // 模板更新时, 元素绑定成功时调用;
             // TODO;
         }
     }
@@ -100,6 +117,9 @@ ${keybord}  // 绑定键盘按键;
 <${tag} v-else">
 <li v-for="(${elem}, index) in || of ${Array}" :key="${id}" || "index">{{${elem}}}</li> -- 可以遍历对象(${value}, ${name})和string和指定次数;
 value | ${filterA(params)} | ${filterB(params)} | ... | ${filterZ(params)};
+v-cloak;    -- 当Vue渲染结束后会消失, 可以和display: none配合使用;
+v-once;     -- Vue仅渲染1次;
+v-pre;      -- 跳过Vue的渲染;
 ```
 #   byte operation
 ***
