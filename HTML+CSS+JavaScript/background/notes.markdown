@@ -77,6 +77,9 @@ const vm = new Vue({
         "${name}"(element, binding) {   // 模板更新时, 元素绑定成功时调用;
             // TODO;
         }
+    },
+    "mounted"() {                       // Vue在页面中挂载初始真实DOM时调用;
+        // TODO;
     }
 })
 vm.$mount("#root");                 // 绑定容器; -- 与上面的写法2选1; -- mount: 挂载;
@@ -90,6 +93,7 @@ vm.$watch("${property}", {          // 设置监视属性;
 vm.$watch("${property}", function(newValue, oldValue) { // 简写;
     // TODO;
 })
+Vue.directive("${name}", ${object});
 Vue.set(window.vm.${property}, "${key}", "${value}");
 vm.$set(window.vm.${property}, "${key}", "${value}");
 ```
