@@ -1,0 +1,40 @@
+body {
+    background-color: #35363A;
+    color: #F0F0F0;
+}
+.img-list {
+    height: auto;
+    width: 100px;
+    overflow: hidden;
+    background-color: #FF0000;
+}
+.img-list img {
+    width: 100%;
+    /* margin-bottom: 8px; */
+    background-color: #F4F4F4;
+    display: flex;
+}
+/* 否定选择器; */
+.img-list li:not(:last-child) {
+    margin-bottom: 8px;
+}
+.left-menu {
+    width: 320px;
+    background-color: #FFFFFF;
+    color: #000000;
+}
+.item {
+    height: 32px;
+    line-height: 32px;
+    padding: 0 8px 0 8px;
+}
+.item:hover {
+    /* background-color: rgb(128, 128, 128) */
+    background-color: #808080;
+}
+.item a {
+    text-decoration: none;
+}
+.item a:hover {
+    color: #FF0000;
+}
