@@ -23,11 +23,14 @@
 ***
 ##  基础语法
 ``` JavaScript []
+const ${name} = Vue.extend({        // 创建 name 组件;
+    // TODO;
+})
 const vm = new Vue({
     "el": "#${id}",                 // 绑定容器; -- 与下面的写法2选1;
-    "data": function() {            // 设置容器中插值的值;
+    "data"() {                      // 设置容器中插值的值;
         return {
-            ${somethingUseful}      // typeof(somethingUseful) === json;
+            ${somethingUseful}      // typeof(somethingUseful) === Object;
         }
     },
     "computed": {
