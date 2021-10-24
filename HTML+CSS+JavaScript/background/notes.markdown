@@ -23,14 +23,22 @@
 ***
 ##  基础语法
 ``` JavaScript []
-const ${name} = Vue.extend({        // 创建 name 组件;
+const ${name} = Vue.extend({            // 创建 name 组件;
+    "name": "${name}",                  // 配置该组件在Vue开发者工具中显示的名字;
+    "template": `TODO`
     // TODO;
 })
+const ${name} = {                       // 创建 name 组件的简写形式;
+    // TODO;
+}
 const vm = new Vue({
-    "el": "#${id}",                 // 绑定容器; -- 与下面的写法2选1;
-    "data"() {                      // 设置容器中插值的值;
+    "el": "#${id}",                     // 绑定容器; -- 与下面的写法2选1;
+    "components": {
+        "${componentName}": ${name};    // 以 componentName 为名注册 name 组件;
+    },
+    "data"() {                          // 设置容器中插值的值;
         return {
-            ${somethingUseful}      // typeof(somethingUseful) === Object;
+            ${somethingUseful}          // typeof(somethingUseful) === Object;
         }
     },
     "computed": {
@@ -81,7 +89,28 @@ const vm = new Vue({
             // TODO;
         }
     },
+    "beforeCreate"() {
+        // TODO;
+    },
+    "created"() {
+        // TODO;
+    },
+    "beforeMounted"() {
+        // TODO;
+    },
     "mounted"() {                       // Vue在页面中挂载初始真实DOM时调用;
+        // TODO;
+    },
+    "beforeUpdate"() {
+        // TODO;
+    },
+    "updated"() {
+        // TODO;
+    },
+    "beforeDestroy"() {
+        // TODO;
+    },
+    "destroyed"() {
         // TODO;
     }
 })
