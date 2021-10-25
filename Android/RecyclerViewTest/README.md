@@ -1,8 +1,8 @@
 #   2nd exprement
 ##  blogs' address
 ***
--   `01st exprement  `https://github.com/Leningkoei/Project/tree/master/Android/test;
--   `02nd exprement  `here;
+-   `01st exprement`&nbsp;&nbsp;&nbsp;&nbsp;https://github.com/Leningkoei/Project/tree/master/Android/test;
+-   `02nd exprement`&nbsp;&nbsp;&nbsp;&nbsp;here;
 
 ##  feeling
 ***
@@ -17,9 +17,9 @@
         |-- src/
             |-- main/
                 |-- java/com/recyclerviewtest/recycleviewtest/
-                    |-- describeActivity.java   -- .java怎么小写开头了;
-                    |-- MainActivity.java
-                    |-- MyAdapter.java
+                |   |-- describeActivity.java   -- .java怎么小写开头了;
+                |   |-- MainActivity.java
+                |   |-- MyAdapter.java
                 |-- res/
                     |-- drawable/...            -- icons;
                     |-- layout/

@@ -1,22 +1,31 @@
-#   0th exprement
-##  文件目录
+#   1st exprement
+***
+##  blogs' address
+***
+-   `01st exprement`&nbsp;&nbsp;&nbsp;&nbsp;here;
+-   `02nd exprement`&nbsp;&nbsp;&nbsp;&nbsp;https://github.com/Leningkoei/Project/tree/master/Android/RecyclerViewTest;
+##  dir
+***
 ```
-|---./
-    |---app/
-        |---src/
-            |---main/
-                |---java/com/test/MainActivity.java
-                |---res/layout/activity_main.xml
+|-- ./
+    |-- app/
+        |-- src/
+            |-- main/
+                |-- java/com/test/MainActivity.java
+                |-- res/layout/activity_main.xml
+
 ```
 
-##  运行结果
-<img src="./readme_images/welcome.jpg" width="300">;
-<img src="./readme_images/chat.jpg" width="300">;
-<img src="./readme_images/mail.jpg" width="300">;
-<img src="./readme_images/find.jpg" width="300">;
-<img src="./readme_images/me.jpg" width="300">;
+##  run result
+***
+<img src="./readme_images/welcome.jpg" width="300px">;
+<img src="./readme_images/chat.jpg" width="300px">;
+<img src="./readme_images/mail.jpg" width="300px">;
+<img src="./readme_images/find.jpg" width="300px">;
+<img src="./readme_images/me.jpg" width="300px">;
 
 ##  code
+***
 ```MainActivity.java```
 ``` java []
 package com.test;
