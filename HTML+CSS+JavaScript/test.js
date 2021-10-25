@@ -1,2 +1,2 @@
-import { myFunction } from "../computer_algorithms/exprement/01.mjs";
-window.f = myFunction;
+import { manageLine } from "../computer_algorithms/exprement/02Kai.mjs";
+window.f = manageLine;
