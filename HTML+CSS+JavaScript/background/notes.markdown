@@ -1,16 +1,17 @@
-#   cmd: command || terminal
+#   notes
+##  cmd: command || terminal
 ***
 -       dir;  -- show     dir;
 -       cd;   -- change   dir;
 -       md;   -- make     dir;
 -       rd;   -- remove   dir;
-#   引入express
+##  引入express
 ***
 -       cd ${path}/servers;                 -- 进入目标路径下的servers文件夹;
 -       npm init -y;                        -- 初始化npm;
 -       npm install express;                -- 安装express;
 -       const express = require("express"); -- server.js中引入express;
-#   进程和线程
+##  进程和线程
 ***
 -   进程至少包含1个线程;
 -   进程
@@ -19,9 +20,9 @@
 -   线程
     -   处理器任务调度和执行的基本单位;
     -   同1个进程中, 所有线程共享那个进程的堆和方法区资源;
-#   Vue
+##  Vue
 ***
-##  基础语法
+### 基础语法
 ``` JavaScript []
 const ${name} = Vue.extend({            // 创建 name 组件;
     "name": "${name}",                  // 配置该组件在Vue开发者工具中显示的名字;
@@ -32,10 +33,10 @@ const ${name} = {                       // 创建 name 组件的简写形式;
     // TODO;
 }
 const vm = new Vue({
-    "el": "#${id}",                     // 绑定容器; -- 与下面的写法2选1;
     "components": {
         "${componentName}": ${name};    // 以 componentName 为名注册 name 组件;
     },
+    "el": "#${id}",                     // 绑定容器; -- 与下面的写法2选1;
     "data"() {                          // 设置容器中插值的值;
         return {
             ${somethingUseful}          // typeof(somethingUseful) === Object;
@@ -129,7 +130,7 @@ Vue.directive("${name}", ${object});
 Vue.set(window.vm.${property}, "${key}", "${value}");
 vm.$set(window.vm.${property}, "${key}", "${value}");
 ```
-##  事件修饰符
+### 事件修饰符
 ***
 ``` JavaScript []
 prevent;    // 阻止默认事件;
@@ -157,7 +158,7 @@ v-cloak;    -- 当Vue渲染结束后会消失, 可以和display: none配合使�
 v-once;     -- Vue仅渲染1次;
 v-pre;      -- 跳过Vue的渲染;
 ```
-#   byte operation
+##  byte operation
 ***
 -   永远认为位运算符优先级低于常规运算符;
 -   ^ 优先级低于 <<, >>;                -- 测试结果;
