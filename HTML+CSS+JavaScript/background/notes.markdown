@@ -165,7 +165,10 @@ v-pre;      -- 跳过Vue的渲染;
 -   n &= n - 1;     -- 消除末尾的1;
 
 ##  npm configs
-npm config get [...];
-npm config set proxy=http://127.0.0.1:10809;
-npm config set registry="https://registry.npmjs.org;
-npm config set registry="https://registry.npm.taobao.org;
+```
+npm config get [...];                                       // 获取当前 ... 项的配置;
+npm config set proxy=http://127.0.0.1:10809;                // 设置 npm proxy;
+<!-- npm config set registry="https://registry.npmjs.org; -->
+npm config delete registry;                                 // 删除镜像源, 恢复本源;
+npm config set registry="https://registry.npm.taobao.org;   // 设置淘宝镜像源
+```
