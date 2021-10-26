@@ -163,3 +163,9 @@ v-pre;      -- 跳过Vue的渲染;
 -   永远认为位运算符优先级低于常规运算符;
 -   ^ 优先级低于 <<, >>;                -- 测试结果;
 -   n &= n - 1;     -- 消除末尾的1;
+
+##  npm configs
+npm config get [...];
+npm config set proxy=http://127.0.0.1:10809;
+npm config set registry="https://registry.npmjs.org;
+npm config set registry="https://registry.npm.taobao.org;
