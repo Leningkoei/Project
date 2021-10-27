@@ -10,8 +10,10 @@
 // 引入特定路径的AppKai;
 // import HelloWorld from "./components/HelloWorld.vue";    -- 自带的;
 // import AppKai from "./components/ref_test/AppKai.vue";
-import AppKai from "./components/props_test/AppKai.vue";
-
+// import AppKai from "./components/props_test/AppKai.vue";
+// import AppKai from "./components/mixin_test/AppKai.vue";
+// import AppKai from "./components/scoped_test/AppKai.vue";
+import AppKai from "./components/todo_list/AppKai.vue";
 export default {
     name: "App",
     components: {
@@ -22,12 +24,5 @@ export default {
 </script>
 
 <style>
-/* #app {
-    font-family: Avenir, Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-align: center;
-    color: #2c3e50;
-    margin-top: 60px;
-} */
+
 </style>
