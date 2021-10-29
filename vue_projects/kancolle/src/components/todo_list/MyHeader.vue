@@ -18,22 +18,17 @@ export default {
             "newTask": ""
         }
     },
-    "props": [ "request" ],
+    "props": [ "request", "changeCount" ],
     "methods": {
-        /**
-         * @param {event} event 发生的事件;
-         */
         "addTodo"() {
             if (this.newTask.trim()) {
-                // // event.target: 发生事件的元素;
-                // console.log(event.target.value);
-                // console.log(this.newTask);
                 const todo = {
                     "id": nanoid(),
                     "task": this.newTask,
                     "isComplete": false
                 }
                 this.request(todo);
+                this.changeCount(true);
             } else {
                 alert("别nm输入空的了");
             }

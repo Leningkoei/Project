@@ -2,6 +2,7 @@
 <div class="content">
     <Todos
         ref="todos"
+        :changeCompletedCount = "changeCompletedCount"
     ></Todos
     >
 </div>
@@ -12,6 +13,7 @@ import Todos from "./Todos.vue";
 export default {
     "name": "MyContent",
     "components": { Todos },
+    "props": [ "changeCompletedCount" ],
     "methods": {
         "request"(respond) {
             // console.log("This is my content, I was got respond");

@@ -3,8 +3,10 @@
     <div style = "display: inline-block"
     ><input
         type = "checkbox"
-    ><span
-    >0 / 1 tasks has done</span
+    ><!-- <span
+    >{{completedCount}} / {{count}} tasks has done</span
+    > --><span
+    >{{completedCountKai}} / {{countKai}} tasks has done</span
     ></div
     ><button
         class = "btn btn-danger"
@@ -15,7 +17,41 @@
 
 <script>
 export default {
-    "name": "MyFooter"
+    "name": "MyFooter",
+    "props": [ "myContent" ],
+    "data"() {
+        return {
+            "completedCount": 0,
+            "count": 0,
+            // "todos": null
+        }
+    },
+    "methods": {
+        "changeCompletedCount"(flag) {
+            flag ? this.completedCount++ : this.completedCount--;
+        },
+        "changeCount"(flag) {
+            flag ? this.count++ : this.count--;
+        }
+    },
+    "computed": {
+        "todos"() {
+            return this.myContent ? this.myContent.$refs.todos.todos : undefined;
+        },
+        "completedCountKai"() {
+            if (this.todos) {
+                return this.todos.reduce((count, todo) => {
+                    if (todo.isCompleted) {
+                        count++;
+                    }
+                    return count;
+                }, 0);
+            }
+        },
+        "countKai"() {
+            return this.todos ? this.todos.length : undefined;
+        }
+    }
 }
 </script>
 

@@ -3,14 +3,17 @@
     <MyHeader
         ref = "myHeader"
         :request = "request"
+        :changeCount = "changeCount"
     ></MyHeader
     >
     <MyContent
         ref = "myContent"
+        :changeCompletedCount = "changeCompletedCount"
     ></MyContent
     >
     <MyFooter
         ref = "myFooter"
+        :myContent = myContent
     ></MyFooter
     >
 </div>
@@ -23,6 +26,11 @@ import MyFooter from "./MyFooter.vue";
 export default {
     "name": "AppKai",
     "components": { MyHeader, MyContent, MyFooter },
+    "data"() {
+        return {
+            "myContent": null
+        }
+    },
     "methods": {
         "request"(respond) {
             // this.pass(respond);
@@ -33,7 +41,16 @@ export default {
         },
         "unshiftNewTodo"(respond) {
             this.$refs.myContent.$refs.todos.unshiftNewTodo(respond);
+        },
+        "changeCompletedCount"(flag) {
+            this.$refs.myFooter.changeCompletedCount(flag);
+        },
+        "changeCount"(flag) {
+            this.$refs.myFooter.changeCount(flag);
         }
+    },
+    "mounted"() {
+        this.myContent = this.$refs.myContent;
     }
 }
 </script>

@@ -18,7 +18,7 @@
 <script>
 export default {
     "name": "Todo",
-    "props": [ "todo", "changeCompleted" ],    // 注意只读; -- (x)v-model = "todo.isCompleted";
+    "props": [ "todo", "changeCompleted" ], // 注意只读; -- (x)v-model = "todo.isCompleted";
     "methods": {
         /**
          * 拿到 isComplated 被改变的 todo 的 id;

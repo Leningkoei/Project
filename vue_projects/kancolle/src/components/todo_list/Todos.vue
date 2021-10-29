@@ -15,6 +15,7 @@ import Todo from "./Todo.vue";
 export default {
     "name": "Todos",
     "components": { Todo },
+    "props": [ "changeCompletedCount" ],
     "data"() {
         return {
             "todos": [
@@ -26,7 +27,7 @@ export default {
                 {
                     "id": "01",
                     "task": "bangdream",
-                    "isCompleted": true
+                    "isCompleted": false
                 },
                 {
                     "id": "02",
@@ -47,7 +48,14 @@ export default {
         "changeCompleted"(id) {
             for (const todo of this.todos) {
                 if (todo.id === id) {
-                    todo.isCompleted = !todo.isCompleted;
+                    // todo.isCompleted = !todo.isCompleted;
+                    if (todo.isCompleted) {
+                        todo.isCompleted = false;
+                        this.changeCompletedCount(false);
+                    } else {
+                        todo.isCompleted = true;
+                        this.changeCompletedCount(true);
+                    }
                 }
             }
         }
