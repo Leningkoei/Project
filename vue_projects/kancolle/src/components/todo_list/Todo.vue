@@ -10,6 +10,7 @@
     ></div
     ><button
         class = "btn btn-danger"
+        @click = "getIdKai(todo.id)"
     >delete this task</button
     >
 </div>
@@ -18,7 +19,7 @@
 <script>
 export default {
     "name": "Todo",
-    "props": [ "todo", "changeCompleted" ], // 注意只读; -- (x)v-model = "todo.isCompleted";
+    "props": [ "todo", "changeCompleted", "deleteTodo" ], // 注意只读; -- (x)v-model = "todo.isCompleted";
     "methods": {
         /**
          * 拿到 isComplated 被改变的 todo 的 id;
@@ -28,14 +29,19 @@ export default {
             // console.log(id);
             // console.log(this.changeCompleted);
             this.changeCompleted(id);
+        },
+        "getIdKai"(id) {
+            // console.log(id);
+            this.deleteTodo(id);
         }
     }
 }
 </script>
 
 <style lang="less" scoped>
-// total-width: 578px = 8px * 2 + [562px];
+// total-width: 578px = 10px * 2 + 0 * 2 + 8px * 2 + [562px];
 .todo {
+    margin: 10px;
     padding: 0 8px;
     height: 36px;
     line-height: 32px;
@@ -80,6 +86,12 @@ export default {
     }
     /deep/ button {
         display: none;
+    }
+}
+.todo:hover {
+    background-color: #dddddd;
+    /deep/ button {
+        display: inline-block;
     }
 }
 .todo:before {

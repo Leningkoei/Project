@@ -61,7 +61,8 @@ const vm = new Vue({
             "immediate": ${boolean};
             "handler": function(newValue, oldValue) {
                 // TODO;
-            }
+            },
+            "deep": ${boolean};
         }
     },
     "watch": {                      // 简写;

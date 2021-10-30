@@ -25,7 +25,7 @@ export default {
                 const todo = {
                     "id": nanoid(),
                     "task": this.newTask,
-                    "isComplete": false
+                    "isCompleted": false
                 }
                 this.request(todo);
                 this.changeCount(true);

@@ -56,11 +56,12 @@ export default {
 </script>
 
 <style lang="less" scoped>
-// total-width: html-width = [?] * 2 + 1px * 2 + 640px;
+// total-width: html-width = [?] * 2 + 1px * 2 + 620px;
 .app-kai {
     margin: 0 auto;
     border: 1px solid #dddddd;
-    width: 640px;
+    padding-bottom: 10px;
+    width: 620px;
     border-radius: 4px;
 }
 </style>
