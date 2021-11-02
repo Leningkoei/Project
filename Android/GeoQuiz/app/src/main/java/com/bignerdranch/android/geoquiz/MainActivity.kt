@@ -1,7 +1,9 @@
 package com.bignerdranch.android.geoquiz
 
 import android.app.Activity
+import android.app.ActivityOptions
 import android.content.Intent
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -72,8 +74,14 @@ class MainActivity : AppCompatActivity() {
             val answerIsTrue = this.quizViewModel.currentQuestionAnswer;    // 获得该题的正确答案;
             // 居然在 MainActivity 中调用 CheatActivity 的方法启动 CheatActivity?
             val intent = CheatActivity.newIntent(this@MainActivity, answerIsTrue);  // 将 Content 和 正确答案 传递给 cheat activity; -- @后跟的是注释?
-            // startActivity(intent);
-            startActivityForResult(intent, REQUEST_CODE_CHEAT); // md, 更新的方法看上去好难, 没 Kotlin 基础看不懂阿这;
+            // 区别 Android SDK 版本启动;
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                val options = ActivityOptions.makeClipRevealAnimation(view, 0, 0, view.width, view.height);
+                startActivityForResult(intent, REQUEST_CODE_CHEAT, options.toBundle());
+            } else {
+                // startActivity(intent);
+                startActivityForResult(intent, REQUEST_CODE_CHEAT); // md, 更新的方法看上去好难, 没 Kotlin 基础看不懂阿这, 只能照抄书上的过时方法了;
+            }
         }
         // set next button listener;
         this.nextButton.setOnClickListener { view: View ->
@@ -123,6 +131,7 @@ class MainActivity : AppCompatActivity() {
         resultCode: Int,
         data: Intent?
     ) {
+        super.onActivityResult(requestCode, resultCode, data);
         if (resultCode != Activity.RESULT_OK) {
             return;
         } else {
@@ -143,11 +152,17 @@ class MainActivity : AppCompatActivity() {
     private fun checkAnswer(userAnswer: Boolean) {
         // val correctAnswer = this.questionBank[this.currentIndex].answer;
         val correctAnswer = this.quizViewModel.currentQuestionAnswer;   // get 当前 question current answer by quiz view model 的计算属性;
-        // 判断答案是否正确;
-        val messageResId = if (userAnswer == correctAnswer) {
-            R.string.correct_toast
-        } else {
-            R.string.incorrect_toast
+        // // 判断答案是否正确;
+        // val messageResId = if (userAnswer == correctAnswer) {
+        //     R.string.correct_toast;
+        // } else {
+        //     R.string.incorrect_toast;
+        // }
+        // 判断答案是否正确和是否作弊;
+        val messageResId = when {
+            this.quizViewModel.isCheater -> R.string.judgment_toast;
+            userAnswer == correctAnswer -> R.string.correct_toast;
+            else -> R.string.incorrect_toast;
         }
         Toast.makeText(this, messageResId, Toast.LENGTH_SHORT).show();  // 展示答案;
     }

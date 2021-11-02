@@ -10,7 +10,7 @@ import android.widget.Button
 import android.widget.TextView
 
 private const val EXTRA_ANSWER_IS_TRUE = "com.bignerdranch.android.geoquize.answer_is_true";    // 这个是防止 key 重名, 使用包名来命名?
-private const val EXTRA_ANSWER_SHOWN   = "com.bignerdranch.android.geoquize.answer_shown";
+const val EXTRA_ANSWER_SHOWN = "com.bignerdranch.android.geoquize.answer_shown";    // 全局常量?
 
 class CheatActivity : AppCompatActivity() {
     private var answerIsTrue = false;
