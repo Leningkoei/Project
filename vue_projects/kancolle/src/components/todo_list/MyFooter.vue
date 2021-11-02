@@ -138,7 +138,7 @@ export default {
             margin-right: 8px;
             vertical-align: middle;
             position: relative;     // 使 top 属性可设置;
-            top: -2px;              // top < 0 ? 向上偏移 : 向下偏移;
+            // top: -2px;              // top < 0 ? 向上偏移 : 向下偏移;
         }
     }
     /deep/ .btn {

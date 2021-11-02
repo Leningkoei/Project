@@ -42,7 +42,8 @@ export default {
 // total-width: 578px = 10px * 2 + 0 * 2 + 8px * 2 + [562px];
 .todo {
     margin: 10px;
-    padding: 0 8px;
+    // padding: 0 8px;
+    padding: 0 0 0 8px;
     height: 36px;
     line-height: 32px;
     font-size: 16px;
@@ -56,7 +57,7 @@ export default {
             margin-right: 8px;
             vertical-align: middle;
             position: relative;
-            top: -2px;
+            // top: -2px;
         }
     }
     /deep/ .btn {
