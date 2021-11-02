@@ -46,10 +46,17 @@ class CrimeListFragment : Fragment() {
         this.crimeRecyclerView.adapter = adapter;
     }
 
-    private inner class CrimeHolder(view: View) : RecyclerView.ViewHolder(view) {
+    private inner class CrimeHolder(view: View) : RecyclerView.ViewHolder(view), View.OnClickListener {
+        private lateinit var crime: Crime;
         // itemView 是 ViewHolder 中的1个属性;
         val titleTextView: TextView = itemView.findViewById(R.id.crime_title);
         val dateTextView: TextView = itemView.findViewById(R.id.crime_date);
+
+        fun bind(crime: Crime) {
+            this.crime = crime;
+            this.titleTextView.text = this.crime.title;
+            this.dateTextView.text = this.crime.date.toString();
+        }
     }   // 这俩类是怎么关联起来的呢, 下面的类为什么能访问上面类的局部变量?
     private inner class CrimeAdapter(var crimes: List<Crime>) : RecyclerView.Adapter<CrimeHolder>() {
         //                                                                           ^^^^^^^^^^^
@@ -59,11 +66,12 @@ class CrimeListFragment : Fragment() {
         }
         override fun onBindViewHolder(holder: CrimeHolder, position: Int) {
             val crime = crimes[position];
-            holder.apply() {
-                // 这个 this 是什么???????? 怎么刚好是 CrimeListFragment.CrimeHolder???????????????????
-                this.titleTextView.text = crime.title;
-                this.dateTextView.text = crime.date.toString();
-            }
+            // holder.apply() {
+            //     // 这个 this 是什么???????? 怎么刚好是 CrimeListFragment.CrimeHolder???????????????????
+            //     this.titleTextView.text = crime.title;
+            //     this.dateTextView.text = crime.date.toString();
+            // }
+            holder.bind(crime);
         }
         override fun getItemCount() = crimes.size;
     }

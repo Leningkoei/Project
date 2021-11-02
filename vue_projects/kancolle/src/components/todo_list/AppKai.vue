@@ -63,5 +63,8 @@ export default {
     padding-bottom: 10px;
     width: 620px;
     border-radius: 4px;
+    display: flex;
+    height: 96vh;
+    flex-direction: column;
 }
 </style>
