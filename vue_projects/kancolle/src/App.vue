@@ -14,7 +14,8 @@
 // import AppKai from "./components/props_test/AppKai.vue";
 // import AppKai from "./components/mixin_test/AppKai.vue";
 // import AppKai from "./components/scoped_test/AppKai.vue";
-import AppKai from "./components/todo_list/AppKai.vue";
+// import AppKai from "./components/todo_list/AppKai.vue";
+import AppKai from "./components/custom_event/AppKai.vue";
 export default {
     name: "App",
     components: {
