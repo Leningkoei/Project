@@ -26,6 +26,7 @@ npm install [-g] [moldules name] [params]
     |   |   |-- mixin_test/     -- 配置2个组件共享配置项, 可以全局混入;
     |   |   |-- scoped_test/    -- style 中的属性名, 设置后可以使 style 绑定该组件;
     |   |   |-- todo_list/      -- todo list;
+    |   |   |-- custom_event/   -- 自定义事件;
     |   |-- App.vue
     |   |-- main.js
     |-- .gitignore

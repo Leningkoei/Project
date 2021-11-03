@@ -13,7 +13,7 @@ export default {
     "name": "School",
     "data"() {
         return {
-            "name": "bei da university"
+            "name": "Bei Da University"
         }
     }
 }
