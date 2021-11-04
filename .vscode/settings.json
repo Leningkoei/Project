@@ -2,7 +2,8 @@
     "java.project.sourcePaths": [
         "Java"
     ],
-    "editor.fontFamily": "Courier New"//,
+    "editor.fontFamily": "Courier New",
+    "java.dependency.packagePresentation": "hierarchical"   //,
     // "java.dependency.syncWithFolderExplorer": false,
     // "java.dependency.packagePresentation": "hierarchical"
 }

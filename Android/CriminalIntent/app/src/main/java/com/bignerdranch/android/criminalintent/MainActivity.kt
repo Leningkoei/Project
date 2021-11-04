@@ -30,12 +30,13 @@ class MainActivity : AppCompatActivity(), CrimeListFragment.Callbacks { // 这�
     // 点击 1条 crime 就会用 CrimeFragment 替换掉 CrimeListFragment;
     override fun onCrimeSelected(crimeId: UUID) {
         // Log.d(TAG, "MainActivity.onCrimeSelected: $crimeId");
-        val fragment = CrimeFragment();
+        // val fragment = CrimeFragment();
+        val fragment = CrimeFragment.newInstance(crimeId);
         supportFragmentManager
             .beginTransaction()
             .replace(R.id.fragment_container, fragment)
             .addToBackStack("nmsl") // push fragment into back stack; -- name: null, 是1个 String, 有没有都无所谓;
-                                    //            ^^^^^^^^ 这个 fragment 指的是那个 fragment 呢? -- 额, 这 idea 自作聪明显示的 hint 打乱缩进了;
+                                    //            ^^^^^^^^ 这个 fragment 指的是那个 fragment 呢? -- 额, 这 idea 显示的 hint 打乱缩进了;
                                     // 首先怀疑书翻译描述的问题, replace() 之后是不是会返回原先的 fragment 呢, 那么 push 进 back stack 中的就是被 replace 的 fragment: CrimeListFragment,
                                     // 这样不管是从代码层面还是从应用层面都更符合直觉把;
                                     // 写 JavaScript 的时候也会遇到这种连续用到函数返回值的情况, 不过太直觉了就没仔细想过, 而且也没有拖过这么长, 这次可能是翻译的锅巴, 也有可能是我1波瞎几把分析了;
