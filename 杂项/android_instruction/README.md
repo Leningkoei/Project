@@ -1,8 +1,4 @@
 #   Android Instruction
-##  Token
-`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`
-`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`
-
 ##  RecyclerView
 ***
 MainActivity.java
@@ -23,7 +19,6 @@ public class MainActivity extents AppCompatActivity {
         recyclerView.setAdapter(myAdapter);
     }
 }
-
 ```
 MyAdapter.java
 ```java []
@@ -63,5 +58,4 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         }
     }
 }
-
 ```
