@@ -3,7 +3,9 @@
         "Java"
     ],
     "editor.fontFamily": "Courier New",
-    "java.dependency.packagePresentation": "hierarchical"   //,
+    "java.dependency.packagePresentation": "hierarchical",
+    "java.project.outputPath": "Java\\bin",
+    "java.dependency.syncWithFolderExplorer": false
     // "java.dependency.syncWithFolderExplorer": false,
     // "java.dependency.packagePresentation": "hierarchical"
 }
