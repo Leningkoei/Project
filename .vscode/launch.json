@@ -1,12 +1,12 @@
 {
     "configurations": [
-        {
-            "type": "java",
-            "name": "Launch Third",
-            "request": "launch",
-            "mainClass": "school.exprement_01.Third.src.Third",
-            "projectName": ""
-        }
+        // {
+        //     "type": "java",
+        //     "name": "Launch Third",
+        //     "request": "launch",
+        //     "mainClass": "school.exprement_01.Third.src.Third",
+        //     "projectName": ""
+        // }
         // {
         //     "type": "node",
         //     "name": "Launch Program",
