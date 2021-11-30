@@ -16,7 +16,7 @@ class Block {
         this._count++
     }
 }
-class Memory {
+export default class Memory {
     constructor(size) {
         this._memory = []
         for (let i = 0; i < size; i++) {
@@ -33,7 +33,8 @@ class Memory {
             if (block.getValue() === value) {
                 block.plusCount()
                 this._hitCount++
-                break
+                this._totalCount++
+                return
             } else {
                 const blockCount = block.getCount()
                 if (blockCount < minCount) {
@@ -49,15 +50,3 @@ class Memory {
         return this._hitCount
     }
 }
-function main() {
-    const size3Memory = new Memory(3)
-    const size4Memory = new Memory(4)
-    for (let i = 0; i < 10000; i++) {
-        const randomNumber = Math.random() * 10 >> 0
-        size3Memory.insert(randomNumber)
-        size4Memory.insert(randomNumber)
-    }
-    console.log(size3Memory.getHitCount())
-    console.log(size4Memory.getHitCount())
-}
-main()
