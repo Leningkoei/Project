@@ -4,17 +4,17 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 
 entity AName is port (
-    A0: in std_logic;
-    Y0: out std_logic;
+    K1: in std_logic;
+    LED1: out std_logic;
 );
 end entity AName;
 
 architecture bhv of AName is begin
-    process (A0) begin
-        if A0 === '0' then
-            Y0 <= '1';
+    process (K1) begin
+        if K1 === '0' then
+            LED1 <= '1';
         else
-            Y0 <= '0';
+            LED1 <= '0';
         end if;
     end process;
 end architecture bhv;
@@ -80,7 +80,7 @@ entity AName is port (
 );
 end entity AName;
 
-architecture hhb of AName is
+architecture bhv of AName is
     signal R: std_logic_vector(25 downto 0); begin
     process (clk) begin
         if clk'event and clk = '1' then
@@ -92,7 +92,7 @@ architecture hhb of AName is
             end if;
         end if;
     end process;
-end architecture hhb;
+end architecture bhv;
 
 --  (2)
 
@@ -170,7 +170,7 @@ entity AName is port (
 );
 end entity AName;
 
-architecture hhb of AName is
+architecture bhv of AName is
     signal R: std_logic_vector(25 downto 0);
     signal R1: std_logic_vector(3 downto 0); begin
     process (clk) begin
@@ -189,7 +189,7 @@ architecture hhb of AName is
             end if;
         end if;
     end process;
-end architecture hhb;
+end architecture bhv;
 
 --  步进电机驱动
 
@@ -211,6 +211,59 @@ architecture bhv of AName is begin
         else
             Y1 <= '0'; Y0 <= '0';
         end if;
+    end process;
+end architecture bhv;
+
+--  Kai
+
+library IEEE;
+use IEEE.std_logic_1164.all;
+use IEEE.std_logic_unsigned.all;
+
+entity AName is port (
+    clk: in std_logic;
+    K1, K2: in std_logic;
+    motor: out std_logic_vector(3 downto 0);
+);
+end entity AName;
+
+architecture bhv of AName is
+    signal count: integer range 0 to 40000000;
+    signal tmp: std_logic_vector(3 downto 0); begin
+    process (clk, K1, K2) begin
+        if clk'event and clk = '1' then
+            if count = 40000000 then
+                count <= 0;
+            else
+                count <= count + 1;
+            end if;
+            if count > 30000000 then
+                if K1 = '0' and K2 = '1' then
+                    tmp <= "0001";
+                elsif K1 = '1' and K2 = '0' then
+                    tmp <= "1000";
+                end if;
+            elsif count > 20000000 then
+                if K1 = '0' and K2 = '1' then
+                    tmp <= "0010";
+                elsif K1 = '1' and K2 = '0' then
+                    tmp <= "0100";
+                end if;
+            elsif count > 10000000 then
+                if K1 = '0' and K2 = '1' then
+                    tmp <= "0100";
+                elsif K1 = '1' and K2 = '0' then
+                    tmp <= "0010";
+                end if;
+            else
+                if K1 = '0' and K2 = '1' then
+                    tmp <= "1000";
+                elsif K1 = '1' and K2 = '0' then
+                    tmp <= "0001";
+                end if;
+            end if;
+        end if;
+        motor <= tmp;
     end process;
 end architecture bhv;
 
