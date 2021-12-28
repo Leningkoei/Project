@@ -5,13 +5,225 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TEST</title>
-    <!-- <script type="module" src="../leetcode/other/main.mjs"></script> -->
-    <script type="module" src="./test.js"></script>
+    <style rel="stylesheet" type="text/css">
+        body {
+            margin: 0;
+        }
+        .body {
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-content: center;
+        }
+        .content {
+            margin: auto;
+        }
+        .label {
+            padding-right: 16px;
+            text-align: right;
+        }
+        .fav-music {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+        }
+        .buttons {
+            margin: 0 16px 0 16px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+    </style>
 </head>
 <body>
-    <!-- exprement 00 -->
-    <!-- <textarea name="input" id="input" cols="80" rows="10">[ 3, 6, 4, 7, 2, 5, 2, 1, 4, 4 ]</textarea><br>
-    <button id="do" onclick="main()">submit input</button><br>
-    <label><span id="result"></span></label> -->
+    <div class="body">
+        <div class="content">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class="label">
+                            <label>student id:</label>
+                        </td>
+                        <td>
+                            <input disabled value="admin" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="label">
+                            <label>name:</label>
+                        </td>
+                        <td>
+                            <input class="name" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="label">
+                            <label name="identity">identity:</label>
+                        </td>
+                        <td>
+                            <input
+                                class="student"
+                                name="identity"
+                                type="radio"
+                                checked
+                            /><label>student</label><input
+                                class="teacher"
+                                name="identity"
+                                type="radio"
+                            /><label>teacher</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="label">
+                            <label>school:</label>
+                        </td>
+                        <td>
+                            <select class="school">
+                                <option>hubu university</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="label">
+                            <label>collage:</label>
+                        </td>
+                        <td>
+                            <input
+                                class="computer"
+                                name="selection"
+                                type="radio"
+                            /><label>computer</label><br />
+                            <input
+                                class="education"
+                                name="selection"
+                                type="radio"
+                            /><label>education</label><br />
+                            <input
+                                class="marxism"
+                                name="selection"
+                                type="radio"
+                            /><label>Marxism</label><br />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="label">
+                            <label>score:</label>
+                        </td>
+                        <td>
+                            <input class="score" type="number" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="label">
+                            <label>fav music:</label>
+                        </td>
+                        <td class="fav-music">
+                            <textarea class="left-fav-music"></textarea>
+                            <div class="buttons">
+                                <button class="left-one">></button>
+                                <button class="left-all">>></button>
+                                <button class="right-one"><</button>
+                                <button class="right-all"><<</button>
+                            </div>
+                            <textarea class="right-fav-music"></textarea>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div align="center">
+                <button class="submit">submit</button>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+
+        const nameInput = document.querySelector('.name')
+        const studentRadio = document.querySelector('.student')
+        const teacherRadio = document.querySelector('.teacher')
+        const schoolSelect = document.querySelector('.school')
+        const computerRadio = document.querySelector('.computer')
+        const educationRadio = document.querySelector('.education')
+        const marxismRadio = document.querySelector('.marxism')
+        const scoreInput = document.querySelector('.score')
+        const leftFavMusicInput = document.querySelector('.left-fav-music')
+        const rightFavMusicInput = document.querySelector('.right-fav-music')
+        const leftOneButton = document.querySelector('.left-one')
+        const leftAllButton = document.querySelector('.left-all')
+        const rightOneButton = document.querySelector('.right-one')
+        const rightAllButton = document.querySelector('.right-all')
+        const submitButton = document.querySelector('.submit')
+
+        scoreInput.addEventListener('keyup', checkScoreInput)
+        leftOneButton.addEventListener('click', leftOne)
+        leftAllButton.addEventListener('click', leftAll)
+        rightOneButton.addEventListener('click', rightOne)
+        rightAllButton.addEventListener('click', rightAll)
+        submitButton.addEventListener('click', submit)
+
+        function checkScoreInput() {
+            if (scoreInput.value < 0 || scoreInput.value > 100) {
+                submitButton.disabled = true
+            } else {
+                submitButton.disabled = false
+            }
+        }
+        function leftOne() {
+            const leftFavMusics = leftFavMusicInput.value.split('\n')
+            const leftLastMusic = leftFavMusics.pop()
+            leftFavMusicInput.value = leftFavMusics.join('\n')
+            if (rightFavMusicInput.value) {
+                if (leftLastMusic) {
+                    rightFavMusicInput.value += '\n' + leftLastMusic
+                }
+            } else {
+                rightFavMusicInput.value += leftLastMusic
+            }
+        }
+        function leftAll() {
+            if (leftFavMusicInput.value.trim()) {
+                if (rightFavMusicInput.value) {
+                    rightFavMusicInput.value += '\n' + leftFavMusicInput.value
+                } else {
+                    rightFavMusicInput.value += leftFavMusicInput.value
+                }
+                leftFavMusicInput.value = ''
+            }
+        }
+        function rightOne() {
+            const rightFavMusics = rightFavMusicInput.value.split('\n')
+            const rightLastMusic = rightFavMusics.pop()
+            rightFavMusicInput.value = rightFavMusics.join('\n')
+            if (leftFavMusicInput.value) {
+                if (rightLastMusic) {
+                    leftFavMusicInput.value += '\n' + rightLastMusic
+                }
+            } else {
+                leftFavMusicInput.value += rightLastMusic
+            }
+        }
+        function rightAll() {
+            if (rightFavMusicInput.value.trim()) {
+                if (leftFavMusicInput.value) {
+                    leftFavMusicInput.value += '\n' + rightFavMusicInput.value
+                } else {
+                    leftFavMusicInput.value += rightFavMusicInput.value
+                }
+                rightFavMusicInput.value = ''
+            }
+        }
+        function submit() {
+            if (nameInput.value && (
+                computerRadio.checked ||
+                educationRadio.checked ||
+                marxismRadio.checked
+            ) && scoreInput.value) {
+                alert('succeed')
+            } else {
+                alert('input illegal!')
+            }
+        }
+    </script>
 </body>
 </html>
