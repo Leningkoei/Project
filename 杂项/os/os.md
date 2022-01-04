@@ -368,4 +368,465 @@
 
 ### 进程同步
 
+* 进程同步的概念
+    * 临界资源(1次只能供1个进程使用的资源)
+        * 进入区
+        * 临界区
+        * 退出区
+        * 剩余区
+    * 同步
+    * 互斥
+        * 空闲让进
+        * 忙则等待
+        * 有限等待
+        * 让权等待
+
+* 实现临界区互斥的基本方法
+    * 软件实现方法
+        * 单标志法
+            * 设置公用整性变量, 指示被允许进入临界区的进程编号
+            *   ```
+                    // P_i进程          // P_j进程
+                    while (turn != 0)   while (turn != 0)   // 进入区
+                    critical section    critical section    // 临界区
+                    turn = 1            turn = 0            // 退出区
+                    remainder section   remainder section   // 剩余区
+                ```
+        * 双标志法先检查
+            * 在进程进入临界区资源前等待临界区资源空闲, 然后设置自己的标志
+            *   ```
+                    // P_i进程          // P_j进程
+                    while (flag[j])     while (flag[i])     // 进入区
+                    flag[i] = true      flag[j] = true      // 进入区
+                    critical section    critical section    // 临界区
+                    flag[i] = false     flag[j] = false     // 退出区
+                    remainder section   remainder section   // 剩余区
+                ```
+            * 可能同时进入临界区
+        * 双标志法后检查
+            * 进程先设置自己的标志, 然后等待临界区资源空闲
+            *   ```
+                    // P_i进程          // P_j进程
+                    flag[i] = true      flag[j] = true      // 进入区
+                    while (flag[j])     while (flag[i])     // 进入区
+                    critical section    critical section    // 临界区
+                    flag[i] = false     flag[j] = false     // 退出区
+                    remainder section   remainder section   // 剩余区
+                ```
+            * 双方互相谦让
+        * Peterson's Algorithm
+            * 进程先设置自己的标志和turn, 然后等待临界区资源空闲
+            *   ```
+                    // P_i进程                      // P_j进程
+                    flag[i] = true; turn = i        flag[j] = true; turn = j
+                    while (flag[j] && turn === i)   while (flag[i] && turn === j)
+                    critical section                critical section
+                    flag[i] = false                 flag[i] = false
+                    remainder section               remainder section
+                ```
+    * 硬件实现方法
+        * 中断屏蔽方法
+        * 硬件指令方法
+
+* 信号量
+    * 整型信号量
+    * 记录型信号量
+    * 利用信号量实现同步:
+        ```
+            semaphore S = 0
+            P1() {
+                // ..
+                V(S)        // 解放P2
+                // ..
+            }
+            P2() {
+                // ..
+                // P(S)     // 阻塞P2
+                // ..
+            }
+        ```
+    * 利用信号量实现进程互斥:
+        ```
+            semaphore S = 1
+            P1() {
+                // ..
+                P(S)        // 上锁
+                // P1进入临界区
+                S = 0
+                V(S)        // 解锁
+                // ..
+            }
+            P2() {
+                // ..
+                P(S)        // 上锁
+                // P2进入临界区
+                S = 0
+                V(S)        // 解锁
+                // ..
+            }
+        ```
+    * 利用信号量实现前驱关系:
+        ```
+            // P1 -> P2; P1 -> P3
+            // P2 -> P4; P2 -> P5
+            // P3 -> P6
+            // P4 -> P6
+            // P5 -> P6
+            semaphore a0 = a1 = b0 = b1 = c = d = e = 0
+            P1() {
+                // ..
+                V(a0); V(a1)        // 通知P2, P3
+            }
+            P2() {
+                P(a0)               // 等待P1通知
+                // ..
+                V(b0); V(b1)        // 通知P4, P5
+            }
+            P3() {
+                P(a1)               // 等待P1通知
+
+                // ..
+                V(c)                // 通知P6
+            }
+            P4() {
+                P(b0)               // 等待P2通知
+                // ..
+                V(d)                // 通知P6
+            }
+            P5() {
+                P(b1)               // 等待P2通知
+                // ..
+                V(e)                // 通知P6
+            }
+            P6() {
+                P(c); P(d); P(e)    // 等待P3, P4, P5通知
+                // ..
+            }
+        ```
+
+* 管程
+    * 管程的定义
+        * 管程的名称
+        * 局部于管程内部的共享结构数据说明
+        * 对该数据结构进行操作的1组过程(或函数)
+        * 对局部于管程内部的共享数据设置初始值的语句
+        *   ``` TypeScript
+                // 定义1个名称为"Demo"的管程
+                class/* monitor */ Demo {
+                    // 定义共享数据结构, 对应系统中的某种共享资源
+
+                    // 对共享数据结构初始化的语句
+                    constructor/* initCode */() {
+                        // 设定初始资源数 = 5
+                        this.s = 5
+                    }
+
+                    private s: number | null = null
+
+                    // 申请1个资源
+                    public takeAway() {
+                        // 对共享数据结构的1系列处理
+
+                        // 可用资源数 - 1
+                        this.s--
+                    }
+                    // 归还1个资源
+                    public giveBack() {
+                        // 对共享数据结构的1系列处理
+
+                        // 可用资源数 + 1
+                        this.s++
+                    }
+                }
+            ```
+        * 管程把对共享资源的操作封装起来
+        * 每次只允许1个进程进入管程
+    *  条件变量
+
+* 经典同步问题
+    * 生产者 - 消费者问题:
+        ``` TypeScript
+            let plateSemaphore: semaphore = 1   // 互斥操作plate
+            let appleSemaphore: semaphore = 0   // 同步操作apple
+            let orangeSemaphore: semaphore = 0  // 同步操作orange
+            dad() {
+                while (1) {
+                    const apple: Apple = prepareAnApple()
+                    P(plateSemaphore)
+                    putTheAppleOnThePlate(apple)
+                    V(appleSemaphore)
+                }
+            }
+            mom() {
+                while (1) {
+                    const orange: Orange = prepareAnOrange()
+                    P(plateSemaphore)
+                    putTheOrangeOnThePlate(orange)
+                    V(orangeSemaphore)
+                }
+            }
+            son() {
+                while (1) {
+                    P(orangeSemaphore)
+                    const orange: Orange = takeAnOrangeFromThePlate()
+                    V(plateSemaphore)
+                    eatTheOrange(orange)
+                }
+            }
+            daughter() {
+                while (1) {
+                    P(appleSemaphore)
+                    const apple: Apple = takeAnAppleFromThePlate()
+                    V(plateSemaphore)
+                    eatTheApple(apple)
+                }
+            }
+        ```
+    * 读者 - 写者问题:
+        ``` TypeScript
+            let readerCount: number = 0
+            let mutex: semaphore = 1    // 互斥操作count
+            let rw: semaphore = 1       // 互斥操作file
+            writer() {
+                while(1) {
+                    P(rw)
+                    write()
+                    V(rw)
+                }
+            }
+            reader() {
+                while(1) {
+                    P(mutex)
+                    if (readerCount === 0) {
+                        P(rw)
+                    }
+                    readerCount++
+                    V(mutex)
+                    read()
+                    P(mutex)
+                    readerCount--
+                    if (readerCount === 0) {
+                        V(rw)
+                    }
+                    V(mutex)
+                }
+            }
+        ```
+        ``` TypeScript
+            // 为了不让writer饥饿, 使writer想要时禁止更多的reader
+            let readerCount: number = 0
+            let mutex: semaphore = 1
+            let rw: semaphore = 1
+            let w: semaphore = 1
+            writer() {
+                while(1) {
+                    P(w)
+                    P(rw)
+                    write()
+                    V(rw)
+                    P(w)
+                }
+            }
+            reader() {
+                while(1) {
+                    P(w)
+                    P(mutex)
+                    if (readerCount === 0) {
+                        P(rw)
+                    }
+                    readerCount++
+                    V(mutex)
+                    V(w)
+                    read()
+                    P(mutex)
+                    readerCount--
+                    if (readerCount === 0) {
+                        V(rw)
+                    }
+                    V(mutex)
+                }
+            }
+        ```
+    * 哲学家进餐问题:
+        ``` TypeScript
+            const chopstickSemaphores: semaphore[] = [ 1, 1, 1, 1, 1 ]
+            const mutex: semaphore = 1
+            Pi() {
+                do {
+                    P(mutex)    // 拿筷子前获得互斥量
+                    P(chopstickSemaphores[i])
+                    P(chopstickSemaphores[(i + 1) % 5])
+                    V(mutex)    // 释放取筷子的信号量
+                    eat()
+                    V(chopstickSemaphores[i])
+                    V(chopstickSemaphores[(i + 1) % 5])
+                    think()
+                }
+            }
+        ```
+    * 吸烟者问题
+
 ### 死锁
+
+* 死锁的概念
+    * 死锁的定义: 多个进程因竞争资源而造成的1种僵局
+    * 死锁产生的原因
+        * 系统资源的竞争
+        * 进程推进顺序非法
+        * 死锁产生的必要条件
+            * 互斥条件
+            * 不剥夺条件
+            * 请求并保持条件
+            * 循环等待条件
+
+* 死锁的处理策略
+    * 死锁的预防
+    * 避免死锁
+    * 死锁的检测及解除
+
+* 死锁预防: 破坏死锁产生的必要条件
+
+* 死锁避免
+    * 系统安全状态
+    * 银行家算法
+    * 安全性算法举例
+    * 银行家算法举例
+
+* 死锁检测和解除
+    * 资源分配图
+    * 死锁定理
+
+## 内存管理
+
+### 内存管理概念
+
+* 内存管理的基本原理和要求
+    * 程序的装入和链接
+    * 逻辑地址空间与物理空间
+    * 内存保护
+
+* 覆盖与交换
+    * 覆盖
+    * 交换
+
+* 连续分配管理方式
+    * 单一连续分配
+    * 固定区连续分配
+    * 动态分区分配
+
+* 非连续分配管理方式
+    * 基本分页存储管理方式
+        * 分页存储的几个基本概念
+        * 基本地址变换机构
+        * 具有块表的地址变换机构
+        * 2级页表
+    * 基本分段存储管理方式
+        * 分段
+        * 段表
+        * 地址变换机构
+        * 段的共享与保护
+    * 段页式管理方式
+
+## 文件管理
+
+### 文件系统基础
+
+* 文件的概念
+    * 文件的定义
+    * 文件的属性
+        * 名称
+        * 标识符
+        * 类型
+        * 位置
+        * 大小
+        * 保护
+        * 时间, 日期, 用户标识
+    * 文件的基本操作
+        * 创建
+        * 读写
+        * 重定位(文件寻址): 按某条件搜索目录, 将当前文件位置设为给定值, 并且不会读写文件
+        * 删除
+        * 截断: 允许文件所有属性不变, 并删除文件内容
+    * 文件的打开与关闭
+
+* 文件的逻辑结构
+    * 无结构文件(流式文件)
+    * 有结构文件(记录式文件)
+        * 顺序文件
+        * 索引文件
+        * 索引顺序文件
+        * 直接文件或散列文件
+
+* 目录结构
+    * 文件控制块和索引节点
+        * 文件控制块(FCB): 存放控制文件需要的各种信息的数据结构, 64B
+            * 基本信息: 文件名, 物理位置, 逻辑结构, 物理结构
+            * 存取控制信息
+            * 使用信息
+        * 索引结点
+            * 磁盘索引结点
+                * 存放在磁盘上的索引节点
+                * UNIX中的每个文件都有1个唯一的磁盘索引结点
+                * 文件主标识符
+                * 文件类型
+                * 文件存储权限
+                * 文件物理地址
+                * 文件长度
+                * 文件链接计数
+                * 文件存取时间
+            * 内存索引结点
+                * 磁盘索引结点
+                * 索引结点编号
+                * 状态
+                * 访问计数
+                * 逻辑设备号
+                * 链接指针
+    * 目录结构
+        * 功能
+            * 搜索
+            * 创建文件
+            * 删除文件
+            * 显示目录
+            * 修改目录
+        * 结构种类
+            * 单级目录结构
+            * 2级目录结构: 用户名 -> 文件名
+            * 多级目录结构
+            * 无环图目录结构: 多级目录结构的文件共享
+
+* 文件共享
+    * 基于索引结点的共享方式(硬链接)
+    * 利用符号链实现文件共享(软链接)
+
+* 文件保护
+    * 基于访问类型
+    * 基于访问控制
+        * 拥有者: 创建文件的用户
+        * 组: 一组需要共享文件且具有类似访问的用户
+        * 其他: 系统内所有其他用户
+    * 基于口令和密码
+        * 口令: 直接存放在系统内部
+        * 密码: 对文件进行加密
+        * 防止文件被窃取, 不能控制用户对文件的访问类型
+
+### 文件系统实现
+
+* 文件系统层次结构
+    * 用户调用接口: 为用户提供与文件及目录有关的调用(增删改查)
+    * 文件目录系统: 管理文件目录
+    * 存取控制验证模块: 用户的访问要求与FCB中指示的访问控制权限进行比较, 确认访问的合法性
+    * 逻辑文件系统与文件信息缓冲区:
+        根据文件的逻辑结构将用户要读写的逻辑记录转换成文件逻辑结构内的相应块号
+    * 物理文件系统: 把逻辑记录所在的相对块号转换成实际的物理地址
+    * 辅助分配模块: 管理辅存空间
+    * 设备管理程序模块: 管理设备
+
+* 目录实现
+    * 线性列表
+    * 哈希表
+
+* 文件实现
+    * 文件分配方式
+        * 连续分配
+        * 链接分配: 磁盘小块都有next指针, 目录指向头磁盘小块
+        * 索引分配: 目录指向指定文件的文件索引表, 文件索引表指向每个磁盘小块
