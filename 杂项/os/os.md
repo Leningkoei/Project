@@ -549,7 +549,7 @@
             let plateSemaphore: semaphore = 1   // 互斥操作plate
             let appleSemaphore: semaphore = 0   // 同步操作apple
             let orangeSemaphore: semaphore = 0  // 同步操作orange
-            dad() {
+            function dad() {
                 while (1) {
                     const apple: Apple = prepareAnApple()
                     P(plateSemaphore)
@@ -557,7 +557,7 @@
                     V(appleSemaphore)
                 }
             }
-            mom() {
+            function mom() {
                 while (1) {
                     const orange: Orange = prepareAnOrange()
                     P(plateSemaphore)
@@ -565,7 +565,7 @@
                     V(orangeSemaphore)
                 }
             }
-            son() {
+            function son() {
                 while (1) {
                     P(orangeSemaphore)
                     const orange: Orange = takeAnOrangeFromThePlate()
@@ -573,7 +573,7 @@
                     eatTheOrange(orange)
                 }
             }
-            daughter() {
+            function daughter() {
                 while (1) {
                     P(appleSemaphore)
                     const apple: Apple = takeAnAppleFromThePlate()
@@ -587,14 +587,14 @@
             let readerCount: number = 0
             let mutex: semaphore = 1    // 互斥操作count
             let rw: semaphore = 1       // 互斥操作file
-            writer() {
+            function writer() {
                 while(1) {
                     P(rw)
                     write()
                     V(rw)
                 }
             }
-            reader() {
+            function reader() {
                 while(1) {
                     P(mutex)
                     if (readerCount === 0) {
@@ -618,7 +618,7 @@
             let mutex: semaphore = 1
             let rw: semaphore = 1
             let w: semaphore = 1
-            writer() {
+            function writer() {
                 while(1) {
                     P(w)
                     P(rw)
@@ -627,7 +627,7 @@
                     P(w)
                 }
             }
-            reader() {
+            function reader() {
                 while(1) {
                     P(w)
                     P(mutex)
@@ -651,7 +651,7 @@
         ``` TypeScript
             const chopstickSemaphores: semaphore[] = [ 1, 1, 1, 1, 1 ]
             const mutex: semaphore = 1
-            Pi() {
+            function Pi() {
                 do {
                     P(mutex)    // 拿筷子前获得互斥量
                     P(chopstickSemaphores[i])
