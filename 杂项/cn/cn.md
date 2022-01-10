@@ -1,3 +1,18 @@
+set autoindent
+set cursorline
+set expandtab
+set number
+set ruler
+set spell spelllang=en_us
+
+set backspace=indent,eol,start
+set encoding=utf-8
+set fileformats=unix
+set softtabstop=4
+
+syntax on
+
+
 # CN
 
 ## 常数
